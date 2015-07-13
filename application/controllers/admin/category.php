@@ -32,7 +32,7 @@ class Category extends CI_Controller
         $this->tree .= "<ul>";
         foreach ($a as $obj) {
             $this->tree .= "<li>";
-            $this->tree .= '<a class="cat" id="' . $obj["id"] . ' ">' . $obj["name"] . ' </a>';
+            $this->tree .= '<a class="cat" id="' . $obj["id"] . ' ">' . $obj["name"] . ' </a><span class="options" style="display: none;"><a href="#">Edit</a> | <a href="#">Delete</a></span>';
             $this->tree .= "</li>";
             $this->tree .= "<br>";
             if (!empty($obj['children'])) {
