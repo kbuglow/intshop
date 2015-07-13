@@ -1,5 +1,10 @@
 <h1>Orders</h1>
 <a href="<?php echo base_url('admin/home'); ?>">Back to admin panel home page</a><hr />
+
+<?php if ($this->session->flashdata('success_msg')): ?>
+	<p style="background: green; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('success_msg'); ?></p>
+<?php endif; ?>
+
 <?php if ($orders): ?>
 <table border="1">
 	<tr>
@@ -19,7 +24,7 @@
 			<td><?php echo $order->address; ?></td>
 			<td><?php echo $order->product_id; ?></td>
 			<td><?php echo $order->status; ?></td>
-			<td><a href="#">Edit</a>, <a href="#">Delete</a></td>
+			<td><a href="<?php echo base_url("admin/orders/edit/{$order->id}"); ?>">Edit</a>, <a href="<?php echo base_url("admin/orders/delete/{$order->id}") ?>">Delete</a></td>
 		</tr>
 	<?php endforeach; ?>
 </table>
