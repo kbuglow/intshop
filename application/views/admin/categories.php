@@ -11,6 +11,9 @@
         </li>   
             <div  id="sub<?php echo $item->id;?>" style="display: none;">
                 <ul>
+                <?php
+                    
+                ?>
                     <li>kopon</li>
                 </ul>
             </div>
