@@ -1,29 +1,24 @@
 <html>
 <head>
+    <meta charset="utf-8" />
 </head>
 <body>
 <h1>Categories</h1>
 <ul>
 <?php
-    echo "<pre>";
-    print_r($categories);
-    echo "</pre>";
- foreach($categories as $item){ 
-        if($item["parent"] == NULL){ ?>
-        <li>
-            <a class="cat" id="<?php echo $item["id"];?>"><?php echo $item['name'];?></a>
-        </li>   
-            <div  id="sub<?php echo $item["id"];?>" style="display: none;">
-                <ul> 
-                
-                    <li>kopon</li>
-                </ul>
-            </div>
-<?php
-        }  
-    }
+    echo $categories;
 ?>
 </ul>
+
+<?php
+echo form_open('demo/show_form');
+echo form_fieldset('Add Category');
+echo form_label("Category name ");
+echo form_input(array('name' => 'cat_name'));
+echo form_submit('submit_form', 'Submit');
+echo form_fieldset_close();
+echo form_close();
+?>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -31,7 +26,6 @@
         $(document).ready(function() {
             $('.cat').click(function() {
                 var id = $(this).attr('id');
-                console.log('.sub' + id);
                 $('#sub' + id).slideToggle("fast");
         });
     });

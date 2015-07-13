@@ -1,35 +1,48 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Category extends CI_Controller {
-
-    public function __construct(){
+class Category extends CI_Controller
+{
+   public $tree = "";
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('admin/category_model');
-        $config = array('table'=>'categories');
+        $config = array('table' => 'categories');
         $this->load->library('mahana_hierarchy');
-        $this->mahana_hierarchy->initialize($config); 
+        $this->mahana_hierarchy->initialize($config);
         $this->mahana_hierarchy->resync();
     }
-    
-    public function index() {
+
+    function build_tree(&$a, $deep = 0){
+        $this->tree .= "<ul>";
+        foreach ($a as $obj) {
+            $this->tree .= "<li>";
+            $this->tree .= '<a class="cat" id="' . $obj["id"] .' ">'. $obj["name"].' </a>';
+            $this->tree .= "</li>";
+            $this->tree .= "<br>";
+            if(!empty($obj['children'])){
+                $this->tree .= '<div id="sub' . $obj["id"] . '"style="display: none;">';
+                $this->build_tree($obj['children'], $deep+1);
+                $this->tree .= "</div>";
+            }
+        }
+        $this->tree .= "</ul>";
+
+        return $this->tree;
+    }
+
+    public function index()
+    {
+        $init_cat = $this->mahana_hierarchy->get_grouped_children();
+        $categories = $this->build_tree($init_cat);
+
         $data = array(
-            'categories' => $this->mahana_hierarchy->get_grouped_children(),
+            'categories' => $categories,
         );
-        
+
         $this->load->view('admin/categories', $data);
     }
-    function build_tree(&$a, $parent=0){
-        $tmp_array = array();
-        foreach($a as $obj){
-            var_dump($obj);
-        //    if($obj->parent == $parent){
-//                $obj->children = build_tree($a, $obj->term_id);
-//                $tmp_array[] = $obj;
-//            }
-        }
-        // You *could* sort the temp array here if you wanted.
-        return $tmp_array;
-    }
+
 
 }
