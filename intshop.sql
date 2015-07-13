@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2015 at 02:27 PM
+-- Generation Time: Jul 13, 2015 at 10:41 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -30,19 +30,22 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `parent` int(11) DEFAULT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  `lineage` text NOT NULL,
+  `deep` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `parent`, `active`) VALUES
-(1, 'Храни', NULL, 1),
-(2, 'Напитки', NULL, 1),
-(3, 'Хлебни', 1, 1),
-(4, 'Чай', 2, 1),
-(5, 'Зърнени', 1, 1);
+INSERT INTO `categories` (`id`, `name`, `parent`, `lineage`, `deep`) VALUES
+(1, 'Храни', NULL, '00001', 0),
+(2, 'Напитки', NULL, '00002', 0),
+(3, 'Хлебни', 1, '00001-00003', 1),
+(4, 'Чай', 2, '00002-00004', 1),
+(5, 'Зърнени', 1, '00001-00005', 1),
+(6, 'Плодов', 4, '00002-00004-00006', 2),
+(7, 'PIZZETI', 3, '00001-00003-00007', 2);
 
 -- --------------------------------------------------------
 
@@ -65,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 --
 
 INSERT INTO `orders` (`id`, `client_name`, `phone`, `email`, `address`, `product_id`, `status`) VALUES
-(3, 'Marian Belchev', '0878641143', 'marianbelchev@gmail.com', 'Sofia, ul. Chepino 1, vh. A', 123, 'in processing');
+(3, 'Marian Belchev', '0878641143', 'marianbelchev@gmail.com', 'Sofia, ul. Chepino 1, vh. A', 123, 'delivered');
 
 --
 -- Indexes for dumped tables
@@ -91,7 +94,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `orders`
 --
