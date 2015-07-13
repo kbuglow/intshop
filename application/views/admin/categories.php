@@ -4,16 +4,18 @@
 <body>
 <h1>Categories</h1>
 <ul>
-<?php foreach($categories as $item){ 
-        if($item->parent == NULL){ ?>
+<?php
+    echo "<pre>";
+    print_r($categories);
+    echo "</pre>";
+ foreach($categories as $item){ 
+        if($item["parent"] == NULL){ ?>
         <li>
-            <a class="cat" id="<?php echo $item->id;?>"><?php echo $item->name;?></a>
+            <a class="cat" id="<?php echo $item["id"];?>"><?php echo $item['name'];?></a>
         </li>   
-            <div  id="sub<?php echo $item->id;?>" style="display: none;">
-                <ul>
-                <?php
-                    
-                ?>
+            <div  id="sub<?php echo $item["id"];?>" style="display: none;">
+                <ul> 
+                
                     <li>kopon</li>
                 </ul>
             </div>

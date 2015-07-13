@@ -5,9 +5,10 @@ class Category_model extends CI_Model{
     function __construct(){          
         parent::__construct();
     }
+
     
     function get_categories(){
-        return $this->db->get($this->category_table)->result();
+         return $this->db->get($this->category_table)->result();   
     }
     
     public function get_category($category_id) {
