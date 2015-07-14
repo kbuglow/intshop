@@ -19,12 +19,6 @@
         'rules' => 'trim|required|valid_email'
     );
 
-    $product_id = array(
-        'field' => 'product_id',
-        'label' => 'Product ID',
-        'rules' => 'trim|required|numeric'
-    );
-
     $status = array(
         'field' => 'status',
         'label' => 'Order Status',
@@ -33,5 +27,5 @@
 
 
 $config = array(
-    'admin/orders/edit_submit' => array($client_name, $phone, $email, $product_id, $status)
+    'admin/orders/edit_submit' => array($client_name, $phone, $email, $status)
 );

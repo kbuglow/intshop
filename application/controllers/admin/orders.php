@@ -8,14 +8,21 @@ class Orders extends CI_Controller {
 	}
 
 	public function index() {
-		$this->load->view('admin/orders', array('orders' => $this->Orders_model->all_orders()));
+		$data = array(
+			'orders' => $this->Orders_model->all_orders(),
+		);
+		$this->load->view('admin/orders', $data);
 	}
 
 	/**
 	 * Loading edit view and pass information for the product
 	 */
 	public function edit($order_id) {
-		$this->load->view('admin/edit_order', array('order' => $this->Orders_model->get($order_id)));
+		$data = array(
+			'order' => $this->Orders_model->get($order_id),
+			'items'  => $this->Orders_model->get_items($order_id),
+		);
+		$this->load->view('admin/edit_order', $data);
 	}
 
 	/**
@@ -28,7 +35,6 @@ class Orders extends CI_Controller {
 		} else $this->session->set_flashdata('error_msg', validation_errors());
 
 		redirect("admin/orders/edit/{$this->input->post('order_id')}");
-
 	}
 
 	/**
