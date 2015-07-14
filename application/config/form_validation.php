@@ -1,6 +1,7 @@
 <?php 
 	if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-    
+
+// EDIT ORDER
     $client_name = array(
         'field' => 'client_name',
         'label' => 'Client Name',
@@ -24,7 +25,7 @@
         'label' => 'Order Status',
         'rules' => 'trim|required'
     );
-
+// LOGIN
     $username = array(
         'field' => 'username',
         'label' => 'Username',
@@ -37,7 +38,45 @@
         'rules' => 'trim|required|sha1',
     );
 
+// ADD PRODUCT
+    $name = array(
+        'field' => 'name',
+        'label' => 'Product Name',
+        'rules' => 'trim|required|min_length[5]'
+    );
+
+    $description = array(
+        'field' => 'description',
+        'label' => 'Description',
+        'rules' => 'trim|required|min_length[10]'
+    );
+
+    $category = array(
+        'field' => 'category',
+        'label' => 'Category',
+        'rules' => 'trim|required|numeric'
+    );
+
+    $price = array(
+        'field' => 'price',
+        'label' => 'Product Price',
+        'rules' => 'trim|required|decimal'
+    );
+
+    $new_price = array(
+        'field' => 'new_price',
+        'label' => 'Product New Price',
+        'rules' => 'trim|required|decimal'
+    );
+
+    $in_stock = array(
+        'field' => 'in_stock',
+        'label' => 'Product In Stock',
+        'rules' => 'trim|required|numeric'
+    );
+
 $config = array(
-    'admin/orders/edit_submit' => array($client_name, $phone, $email, $status),
-    'admin/admin/login_submit' => array($username, $password)
+    'admin/orders/edit_submit'  => array($client_name, $phone, $email, $status),
+    'admin/admin/login_submit'  => array($username, $password),
+    'admin/products/add_submit' => array($name, $description, $category, $price, $new_price, $in_stock),
 );

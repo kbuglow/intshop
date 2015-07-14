@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2015 at 10:16 AM
+-- Generation Time: Jul 14, 2015 at 02:36 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -45,7 +45,7 @@ INSERT INTO `categories` (`id`, `name`, `parent`, `lineage`, `deep`) VALUES
 (4, 'Чай', 2, '00002-00004', 1),
 (5, 'Зърнени', 1, '00001-00005', 1),
 (6, 'Плодов', 4, '00002-00004-00006', 2),
-(7, 'PIZZETI', 3, '00001-00003-00007', 2);
+(7, 'test asd', 3, '00001-00003-00007', 2);
 
 -- --------------------------------------------------------
 
@@ -95,6 +95,52 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `price`, `quantity`) 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `photos`
+--
+
+CREATE TABLE IF NOT EXISTS `photos` (
+`id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `url` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `photos`
+--
+
+INSERT INTO `photos` (`id`, `product_id`, `url`) VALUES
+(1, 1, 'http://localhost/intshop/uploads/ef636a2d742d73b57ea310d9f421b53b.jpg'),
+(2, 1, 'http://localhost/intshop/uploads/a2bb06145ade6b86bf9aa31831f83828.png'),
+(3, 1, 'http://localhost/intshop/uploads/a4d6c63e15417488a7498d01a0a58052.jpg'),
+(4, 1, 'http://localhost/intshop/uploads/19bc9552f725a857a02a001c2f4c76c3.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE IF NOT EXISTS `products` (
+`id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `category` int(11) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `new_price` decimal(10,2) NOT NULL,
+  `in_stock` int(11) NOT NULL,
+  `main_photo` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `description`, `category`, `price`, `new_price`, `in_stock`, `main_photo`) VALUES
+(1, 'Samsung GT-i8262', 'Here add some description of the phone!', 123, '400.00', '349.99', 2, 'http://localhost/intshop/uploads/ef636a2d742d73b57ea310d9f421b53b.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -137,6 +183,18 @@ ALTER TABLE `order_items`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `photos`
+--
+ALTER TABLE `photos`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -155,6 +213,16 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `photos`
+--
+ALTER TABLE `photos`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`

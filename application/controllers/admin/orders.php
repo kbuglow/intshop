@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Orders extends CI_Controller {
 
@@ -33,7 +34,7 @@ class Orders extends CI_Controller {
 			$this->Orders_model->edit();
 			$this->session->set_flashdata('success_msg', 'The order has been edited successfully!');
 		} else $this->session->set_flashdata('error_msg', validation_errors());
-
+		
 		redirect("admin/orders/edit/{$this->input->post('order_id')}");
 	}
 
