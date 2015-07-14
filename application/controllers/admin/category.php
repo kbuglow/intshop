@@ -15,6 +15,18 @@ class Category extends CI_Controller
         $this->mahana_hierarchy->resync();
     }
 
+    public function edit_category()
+    {
+        $post_data = $this->input->post();
+        $this->category_model->edit($post_data);
+        $this->index();
+
+    }
+
+    public function delete_category($id){
+        $this->mahana_hierarchy->delete($id, TRUE);
+        $this->index();
+    }
     public function index()
     {
         $init_cat = $this->mahana_hierarchy->get_grouped_children();
@@ -27,17 +39,19 @@ class Category extends CI_Controller
         $this->load->view('admin/categories', $data);
     }
 
-    function build_tree(&$a, $deep = 0)
+    function build_tree(&$a)
     {
         $this->tree .= "<ul>";
         foreach ($a as $obj) {
             $this->tree .= "<li>";
-            $this->tree .= '<a class="cat" id="' . $obj["id"] . ' ">' . $obj["name"] . ' </a><span class="options" style="display: none;"><a href="#">Edit</a> | <a href="#">Delete</a></span>';
+            $this->tree .= '<a class="cat" id="' . $obj["id"] . '">' . $obj["name"] .
+                ' </a><span class="options" style="display: none;"><a class="edit_btn" id ="edit-' . $obj["id"]
+                . '" href="#">Edit</a> | <a class="delete_btn" id="delete-'.$obj["id"].'" href="#">Delete</a></span>';
             $this->tree .= "</li>";
             $this->tree .= "<br>";
             if (!empty($obj['children'])) {
                 $this->tree .= '<div id="sub' . $obj["id"] . '"style="display: none;">';
-                $this->build_tree($obj['children'], $deep + 1);
+                $this->build_tree($obj['children']);
                 $this->tree .= "</div>";
             }
         }
@@ -45,6 +59,4 @@ class Category extends CI_Controller
 
         return $this->tree;
     }
-
-
 }
