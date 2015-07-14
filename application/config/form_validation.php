@@ -37,7 +37,11 @@
         'rules' => 'trim|required|sha1',
     );
 
+
+
+
 $config = array(
     'admin/orders/edit_submit' => array($client_name, $phone, $email, $status),
-    'admin/admin/login_submit' => array($username, $password)
+    'admin/admin/login_submit' => array($username, $password),
+    'admin/users/add_new' => array($username, $password, $email)
 );
