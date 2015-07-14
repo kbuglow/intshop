@@ -25,7 +25,19 @@
         'rules' => 'trim|required'
     );
 
+    $username = array(
+        'field' => 'username',
+        'label' => 'Username',
+        'rules' => 'trim|required|min_length[3]',
+    );
+
+    $password = array(
+        'field' => 'password',
+        'label' => 'Password',
+        'rules' => 'trim|required|sha1',
+    );
 
 $config = array(
-    'admin/orders/edit_submit' => array($client_name, $phone, $email, $status)
+    'admin/orders/edit_submit' => array($client_name, $phone, $email, $status),
+    'admin/admin/login_submit' => array($username, $password)
 );

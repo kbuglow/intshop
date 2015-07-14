@@ -1,5 +1,5 @@
 <h1>Orders</h1>
-<a href="<?php echo base_url('admin/home'); ?>">Back to admin panel home page</a><hr />
+<a href="<?php echo base_url('admin'); ?>">Back to admin panel home page</a><hr />
 
 <?php if ($this->session->flashdata('success_msg')): ?>
 	<p style="background: green; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('success_msg'); ?></p>
