@@ -20,12 +20,11 @@ class Admin extends CI_Controller {
 			$this->load->model('admin/Admin_model');
 
 			$this->Admin_model->login()
-				? $this->session->set_flashdata('success_msg', 'You are now logged in!')
+				? $this->session->set_flashdata('success_msg', 'You are now logged in! <br />')
 				: $this->session->set_flashdata('error_msg', 'Wrong username/password or not administrator!');
-
 		} else $this->session->set_flashdata('error_msg', validation_errors());
 
-		redirect('admin/login');
+		redirect('admin/admin');
 	}
 
 	public function logout() {
