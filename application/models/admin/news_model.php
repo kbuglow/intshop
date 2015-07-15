@@ -24,13 +24,13 @@ class News_model extends CI_Model
     }
     public function add(){
         $data = $this->input->post();
-
+var_dump($data);
         $news = array(
             'title' => $data['title'],
             'subject' => $data['subject'],
             'creator' => $data['creator'],
-            'text' => $data['text'],
-            'date' => $data['date']
+            'date' => $data['date'],
+            'text' => $data['text']
         );
 
         $this->db->insert($this->news_table, $news);

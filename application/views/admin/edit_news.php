@@ -26,7 +26,6 @@ echo form_input(array(
     'name'  => 'text',
     'value' => $news->text
 ));
-    
 ?>
 <br>
 <?php

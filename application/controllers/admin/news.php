@@ -7,16 +7,17 @@ class News extends CI_Controller
     {
         parent::__construct();
         $this->load->model('admin/news_model');
+        $this->load->helper('date');
     }
 
     public function index(){
         $news = $this->news_model->get_news();
         $data = array(
-            'news' => $news
-        );
-        print "<pre>";
-        print_r($this->session->all_userdata()['user_id']);
-        print "</pre>";
+            'news' => $news,
+            'logged_user' => $this->session->all_userdata()['user_id'],
+            'date' => date('Y-m-d H:i:s')
+    );
+
         $this->load->view('admin/news', $data);
     }
     public function edit($news_id){

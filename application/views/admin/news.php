@@ -41,7 +41,10 @@ echo form_input(array(
 <?php echo form_textarea(array(
     'id'    => 'post_content',
     'name'  => 'text'
-)); ?>
+));
+    echo form_hidden('creator', $logged_user);
+    echo form_hidden('date', $date);
+?>
 <br>
 <?php
 echo form_submit('submit', 'Add new');
