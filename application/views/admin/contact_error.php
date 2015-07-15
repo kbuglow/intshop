@@ -1,5 +1,5 @@
 <h1>Contact Form</h1>
-
+       <title><?php echo "Contact Error"; ?></title>
 <p>Sorry but there was an error sending your message - <strong>we have not received it</strong>.</p>
 
 <p>You message is preserved below so you do not lose what you typed. Please manually email it to us<?

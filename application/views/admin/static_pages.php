@@ -1,5 +1,5 @@
 <h1>Contact Form</h1>
-
+                           <title><?php echo "Contact Form"; ?></title>
 <a href="<?php echo base_url('admin'); ?>">Back to admin panel</a><hr />
 <?php if ($this->session->flashdata('success_msg')): ?>
     <p style="background: green; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('success_msg'); ?></p>
