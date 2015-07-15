@@ -11,7 +11,8 @@ class Users_model extends CI_Model
 
     public function get_user($user_id)
     {
-        return $this->db->get($this->users_table, array('id' => $user_id))->row();
+        print $user_id;
+        return $this->db->get_where($this->users_table, array('id' => $user_id))->first_row();
     }
 
     public function edit()
