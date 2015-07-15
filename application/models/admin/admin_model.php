@@ -4,8 +4,8 @@ class Admin_model extends CI_Model {
 
 	public function login() {
 		$result = $this->db->get_where('users', array(
-			'username' => $this->input->post('username'),
-			'password' => $this->input->post('password'),
+			'username' => $this->input->post(TRUE,'username'),
+			'password' => $this->input->post(TRUE,'password'),
 			'role'     => 'Administrator'
 		));
 

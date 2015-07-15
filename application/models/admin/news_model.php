@@ -23,7 +23,7 @@ class News_model extends CI_Model
         return $this->db->get_where($this->news_table, array('id' => $news_id))->first_row();
     }
     public function add(){
-        $data = $this->input->post();
+        $data = $this->input->post(FALSE);
         $news = array(
             'title' => $data['title'],
             'subject' => $data['subject'],
