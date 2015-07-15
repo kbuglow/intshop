@@ -61,4 +61,5 @@ echo form_dropdown('role', $options);
 <br>
 <?php
 echo form_submit('submit', 'Register');
+echo form_close();
 ?>
