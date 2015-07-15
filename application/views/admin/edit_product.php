@@ -20,9 +20,9 @@
 	'value' => $product->name,
 )); ?> <br />
 
-<?php echo form_label('Product description: ', 'description'); ?>
-<?php echo form_input(array(
-	'id'    => 'description',
+<?php echo form_label('Product description: ', 'post_content'); ?>
+<?php echo form_textarea(array(
+	'id'    => 'post_content',
 	'name'  => 'description',
 	'value' => $product->description,
 )); ?> <br />
@@ -84,3 +84,6 @@
 <?php echo form_submit('submit', 'Edit Product'); ?>
 
 <?php echo form_close(); ?>
+
+<script type="text/javascript" src="<?php echo base_url('assets/js/tinymce/tinymce.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/editor.js') ?>"></script>
