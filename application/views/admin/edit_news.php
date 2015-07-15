@@ -26,6 +26,7 @@ echo form_input(array(
     'name'  => 'text',
     'value' => $news->text
 ));
+    echo form_hidden('news_id', $news->id);
 ?>
 <br>
 <?php

@@ -24,7 +24,6 @@ class News_model extends CI_Model
     }
     public function add(){
         $data = $this->input->post();
-var_dump($data);
         $news = array(
             'title' => $data['title'],
             'subject' => $data['subject'],
@@ -35,5 +34,17 @@ var_dump($data);
 
         $this->db->insert($this->news_table, $news);
     }
+    public function delete($data)
+    {
+        $this->db->delete($this->news_table, $data);
+    }
+    public function edit()
+    {
+        $data = $this->input->post();
+        $news_id = $data['news_id'];
 
+        unset($data['submit'], $data['news_id']);
+        $this->db->update($this->news_table, $data, array('id' => $news_id));
+
+    }
 }
