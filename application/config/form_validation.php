@@ -81,6 +81,24 @@ $password = array(
         'rules' => 'trim|required|numeric'
     );
 
+//    NEWS
+    $subject = array(
+        'field' => 'subject',
+        'label' => 'Subject',
+        'rules' => 'trim|required|min_length[4]'
+    );
+    $title = array(
+        'field' => 'title',
+        'label' => 'Title',
+        'rules' => 'trim|required|min_length[5]'
+    );
+    $text = array(
+        'field' => 'text',
+        'label' => 'Text',
+        'rules' => 'trim|required|min_length[10]'
+    );
+
+
 
 
 $config = array(
@@ -89,4 +107,6 @@ $config = array(
     'admin/products/add_submit'  => array($name, $description, $category, $price, $new_price, $in_stock),
     'admin/users/add_new'        => array($username, $password, $email),
     'admin/products/edit_submit' => array($name, $description, $category, $price, $new_price, $in_stock, $main_photo),
+    'admin/users/edit_user'      => array($username, $email),
+    'admin/news/edit_news'       => array($subject, $title, $text)
 );

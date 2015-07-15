@@ -27,7 +27,16 @@ class News extends CI_Controller
         $this->load->view('admin/edit_news', $data);
     }
     public function edit_news(){
-        $this->news_model->edit();
+        if ($this->form_validation->run() !== FALSE) {
+            $this->news_model->edit();
+            $this->session->set_flashdata('success_msg', 'The news have been edited successfully!');
+            redirect('admin/news');
+        }else{
+            $this->session->set_flashdata('error_msg', validation_errors(' ',' '));
+            $news_id = $this->input->post()['news_id'];
+            redirect("admin/news/edit/{$news_id}");
+        }
+
         redirect('admin/news');
     }
     public function delete($news_id){

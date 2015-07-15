@@ -30,14 +30,21 @@ class Users extends CI_Controller
         $this->load->view('admin/edit_users', $data);
     }
     public function edit_user(){
-        $this->users_model->edit();
-        redirect('admin/users');
+        if ($this->form_validation->run() !== FALSE) {
+            $this->users_model->edit();
+            $this->session->set_flashdata('success_msg', 'The user has been edited successfully!');
+            redirect('admin/users');
+        }else{
+            $this->session->set_flashdata('error_msg', validation_errors(' ',' '));
+            $user_id = $this->input->post()['user_id'];
+            redirect("admin/users/edit/{$user_id}");
+        }
     }
     public function add_new(){
         if ($this->form_validation->run() !== FALSE) {
             $this->users_model->register();
             $this->session->set_flashdata('success_msg', 'The user has been registered successfully!');
-        }else $this->session->set_flashdata('error_msg', validation_errors());
+        }else $this->session->set_flashdata('error_msg', validation_errors(' ', ' '));
 
          redirect('admin/users');
     }

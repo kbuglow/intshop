@@ -22,6 +22,13 @@
     <?php endforeach; ?>
 </table>
 <hr />
+<?php if ($this->session->flashdata('success_msg')): ?>
+    <p style="background: green; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('success_msg'); ?></p>
+<?php endif; ?>
+
+<?php if ($this->session->flashdata('error_msg')): ?>
+    <div style="background: red; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('error_msg'); ?></div>
+<?php endif; ?>
 <?php
 echo form_open('admin/news/add_new');
 echo form_label('Title', 'title');

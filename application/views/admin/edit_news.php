@@ -1,9 +1,14 @@
 <h1>News #<?php echo $news->id; ?></h1>
 <a href="<?php echo base_url('admin/news'); ?>">Back to news</a>
 <hr>
+<?php if ($this->session->flashdata('success_msg')): ?>
+    <p style="background: green; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('success_msg'); ?></p>
+<?php endif; ?>
 
+<?php if ($this->session->flashdata('error_msg')): ?>
+    <div style="background: red; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('error_msg'); ?></div>
+<?php endif; ?>
 <?php
-
 echo form_open('admin/news/edit_news');
 echo form_label('Title', 'title');
 echo form_input(array(
