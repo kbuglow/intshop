@@ -5,6 +5,10 @@
 	<p style="background: green; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('success_msg'); ?></p>
 <?php endif; ?>
 
+<?php if ($this->session->flashdata('error_msg')): ?>
+	<p style="background: red; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('error_msg'); ?></p>
+<?php endif; ?>
+
 <?php if ($products): ?>
 	<a href="<?php echo base_url('admin/products/add') ?>">Add new one</a>
 <table border="1">

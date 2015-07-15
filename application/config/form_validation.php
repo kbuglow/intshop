@@ -75,11 +75,18 @@ $password = array(
         'rules' => 'trim|required|numeric'
     );
 
+    $main_photo = array(
+        'field' => 'main_photo',
+        'label' => 'Main Photo',
+        'rules' => 'trim|required|numeric'
+    );
+
 
 
 $config = array(
-    'admin/orders/edit_submit' => array($client_name, $phone, $email, $status),
-    'admin/admin/login_submit' => array($username, $password),
-    'admin/products/add_submit' => array($name, $description, $category, $price, $new_price, $in_stock),
-    'admin/users/add_new' => array($username, $password, $email),
+    'admin/orders/edit_submit'   => array($client_name, $phone, $email, $status),
+    'admin/admin/login_submit'   => array($username, $password),
+    'admin/products/add_submit'  => array($name, $description, $category, $price, $new_price, $in_stock),
+    'admin/users/add_new'        => array($username, $password, $email),
+    'admin/products/edit_submit' => array($name, $description, $category, $price, $new_price, $in_stock, $main_photo),
 );

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2015 at 02:57 PM
+-- Generation Time: Jul 15, 2015 at 09:44 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -102,17 +102,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
 `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `url` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `photos`
---
-
-INSERT INTO `photos` (`id`, `product_id`, `url`) VALUES
-(1, 1, 'http://localhost/intshop/uploads/ef636a2d742d73b57ea310d9f421b53b.jpg'),
-(2, 1, 'http://localhost/intshop/uploads/a2bb06145ade6b86bf9aa31831f83828.png'),
-(3, 1, 'http://localhost/intshop/uploads/a4d6c63e15417488a7498d01a0a58052.jpg'),
-(4, 1, 'http://localhost/intshop/uploads/19bc9552f725a857a02a001c2f4c76c3.png');
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -128,15 +118,8 @@ CREATE TABLE IF NOT EXISTS `products` (
   `price` decimal(10,2) NOT NULL,
   `new_price` decimal(10,2) NOT NULL,
   `in_stock` int(11) NOT NULL,
-  `main_photo` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `products`
---
-
-INSERT INTO `products` (`id`, `name`, `description`, `category`, `price`, `new_price`, `in_stock`, `main_photo`) VALUES
-(1, 'Samsung GT-i8262', 'Here add some description of the phone!', 123, '400.00', '349.99', 2, 'http://localhost/intshop/uploads/ef636a2d742d73b57ea310d9f421b53b.jpg');
+  `main_photo` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -218,12 +201,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `users`
 --

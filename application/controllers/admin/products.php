@@ -34,10 +34,26 @@ class Products extends CI_Controller {
 		$this->load->view('admin/edit_product', $data);
 	}
 
+	public function edit_submit() {
+		if ($this->form_validation->run() !== FALSE) {
+			$this->Products_model->edit()
+				? $this->session->set_flashdata('success_msg', 'Products has been edited successfully!')
+				: $this->session->set_flashdata('error_msg', 'There was a problem while editing!');
+			redirect("admin/products/edit/{$this->input->post('product_id')}");
+		} else $this->load->view('admin/edit_product');
+	}
+
 	public function delete($product_id) {
 		$this->Products_model->delete($product_id);
 		$this->session->set_flashdata('success_msg', "The product with ID <b>{$product_id}</b> has been removed!");
 		redirect('admin/products');		
+	}
+
+	public function delete_photo($photo_id, $product_id) {
+		$this->Products_model->delete_photo($photo_id)
+			? $this->session->set_flashdata('success_msg', 'Photo deleted successfully!')
+			: $this->session->set_flashdata('error_msg', 'Photo deleted unsuccessfully!');
+		redirect("admin/products/edit/{$product_id}");
 	}
 
 }

@@ -19,12 +19,16 @@ class Products_model extends CI_Model {
 
 	public function add() {
 		$data = $this->input->post();
-		unset($data['add']);
+		array_pop($data);
 
 		$photos = $this->upload_photo($_FILES['photos']);
-		$data['main_photo'] = base_url('uploads'). '/' . $photos[0];
 		$this->db->insert($this->products_table, $data);
-		$this->add_photos_db($photos, $this->db->insert_id());
+
+		return $this->update_main_photo($id = $this->db->insert_id(), $this->add_photos_db($photos, $id)) ? TRUE : FALSE;
+	}
+
+	private function update_main_photo($id, $main_photo) {
+		return $this->db->update($this->products_table, array('main_photo' => $main_photo), array('id' => $id)) ? TRUE : FALSE;
 	}
 
 	private function upload_photo($files) {
@@ -47,17 +51,43 @@ class Products_model extends CI_Model {
 	}
 
 	private function add_photos_db($photos, $product_id) {
+		$i = 0;
+		$id = 0;
+
 		foreach ($photos as $photo) {
 			$data = array(
 				'product_id' => $product_id,
 				'url' => base_url('uploads/') . '/' . $photo
 			);
+
 			$this->db->insert($this->photos_table, $data);
+
+			if ($i === 0) $id = $this->db->insert_id();
+			$i++;
 		}
+
+		return $id;
+	}
+
+	public function edit() {
+		$data       = $this->input->post();
+		$product_id = $data['product_id'];
+
+		unset($data['submit'], $data['product_id']);
+
+		if (!empty($_FILES['photos'])) 
+			$this->add_photos_db($this->upload_photo($_FILES['photos']), $product_id);
+
+		return $this->db->update($this->products_table, $data, array('id' => $product_id)) ? TRUE : FALSE;
 	}
 
 	public function delete($product_id) {
 		$this->db->delete($this->products_table, array('id' => $product_id));
 		$this->db->delete($this->photos_table, array('product_id' => $product_id));
 	}
+
+	public function delete_photo($photo_id) {
+		return $this->db->delete($this->photos_table, array('id' => $photo_id)) ? TRUE : FALSE;
+	}
+
 }

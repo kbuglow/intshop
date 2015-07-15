@@ -26,7 +26,7 @@ class Orders_model extends CI_Model {
 		$this->update_items(array_splice($data, 5));
 
 		$data['total'] = $this->total($order_id);
-		$this->db->update($this->orders_table, $data, array('id' => $order_id));
+		return $this->db->update($this->orders_table, $data, array('id' => $order_id)) ? TRUE : FALSE;
 	}
 
 	private function update_items($items) {
@@ -41,7 +41,7 @@ class Orders_model extends CI_Model {
 	}
 
 	public function delete($order_id) {
-		$this->db->delete($this->orders_table, array('id' => $order_id));
+		return $this->db->delete($this->orders_table, array('id' => $order_id)) ? TRUE : FALSE;
 	}
 
 }
