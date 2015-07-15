@@ -1,15 +1,15 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 class Static_pages extends CI_Controller {
     // settings
-    protected     $sendEmailTo         =     'veskopos@mail.bg'; //change this!
+    protected     $sendEmailTo         =     'expamle@example.com'; //change this!
     protected    $subjectLine         =     ""; // actually set on line 58.
     
     // views
-    protected     $formView            =     'admin/static_pages';
+    protected     $formView            =     'admin/contacts';
     protected    $successView        =     'admin/contact_success';
     protected    $errorView            =     'admin/contact_error'; //used when the mail failed.
     protected      $displayEmailWhenError = FALSE; // if $errorView is shown, should we reveal $sendEmailTo?
-    protected     $headerView         =     ''; //null to disable
+    protected     $headerView         =     'admin/static_pages'; //null to disable
     protected     $footerView         =     ''; //null to disable
     // spam protection
     protected    $spam_protection    =     FALSE; // true or false
