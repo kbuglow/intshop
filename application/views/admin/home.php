@@ -4,4 +4,6 @@
 <a href="<?php echo base_url('admin/category'); ?>">Add category</a><br />
 <a href="<?php echo base_url('admin/orders'); ?>">Show orders</a><br />
 <a href="<?php echo base_url('admin/users'); ?>">Users</a><br />
+<a href="<?php echo base_url('admin/news'); ?>">News</a><br />
+<a href="<?php echo base_url('admin/static_pages'); ?>">Static Pages</a><br />
 <a href="<?php echo base_url('admin/logout'); ?>">Logout</a><br />
