@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2015 at 10:31 AM
+-- Generation Time: Jul 16, 2015 at 09:38 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -60,14 +60,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `date` datetime NOT NULL,
   `subject` varchar(255) NOT NULL,
   `text` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `news`
---
-
-INSERT INTO `news` (`id`, `title`, `creator`, `date`, `subject`, `text`) VALUES
-(1, 'trolo', 1, '2015-07-15 10:30:26', 'asdasd', '<p>asdasdasda</p>');
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -124,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `url` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -141,7 +134,26 @@ CREATE TABLE IF NOT EXISTS `products` (
   `new_price` decimal(10,2) NOT NULL,
   `in_stock` int(11) NOT NULL,
   `main_photo` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `static_pages`
+--
+
+CREATE TABLE IF NOT EXISTS `static_pages` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `static_pages`
+--
+
+INSERT INTO `static_pages` (`id`, `title`, `content`) VALUES
+(1, 'Contacts', '<p>asdasdasasdasdasd</p>');
 
 -- --------------------------------------------------------
 
@@ -155,15 +167,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(40) NOT NULL,
   `email` varchar(255) NOT NULL,
   `role` varchar(13) NOT NULL DEFAULT 'User'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`) VALUES
-(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin@intshop.com', 'Administrator'),
-(2, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'test@test.com', 'User');
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin@intshop.com', 'Administrator');
 
 --
 -- Indexes for dumped tables
@@ -206,6 +217,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `static_pages`
+--
+ALTER TABLE `static_pages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -219,7 +236,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `orders`
 --
@@ -234,17 +251,22 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `static_pages`
+--
+ALTER TABLE `static_pages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

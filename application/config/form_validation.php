@@ -39,69 +39,75 @@ $password = array(
 
 // PRODUCTS
 
-    $name = array(
-        'field' => 'name',
-        'label' => 'Product Name',
-        'rules' => 'trim|required|min_length[5]'
-    );
+$name = array(
+    'field' => 'name',
+    'label' => 'Product Name',
+    'rules' => 'trim|required|min_length[5]'
+);
 
-    $description = array(
-        'field' => 'description',
-        'label' => 'Description',
-        'rules' => 'trim|required|min_length[10]'
-    );
+$description = array(
+    'field' => 'description',
+    'label' => 'Description',
+    'rules' => 'trim|required|min_length[10]'
+);
 
-    $price = array(
-        'field' => 'price',
-        'label' => 'Product Price',
-        'rules' => 'trim|required|decimal'
-    );
+$price = array(
+    'field' => 'price',
+    'label' => 'Product Price',
+    'rules' => 'trim|required|decimal'
+);
 
-    $new_price = array(
-        'field' => 'new_price',
-        'label' => 'Product New Price',
-        'rules' => 'trim|required|decimal'
-    );
+$new_price = array(
+    'field' => 'new_price',
+    'label' => 'Product New Price',
+    'rules' => 'trim|required|decimal'
+);
 
-    $in_stock = array(
-        'field' => 'in_stock',
-        'label' => 'Product In Stock',
-        'rules' => 'trim|required|numeric'
-    );
+$in_stock = array(
+    'field' => 'in_stock',
+    'label' => 'Product In Stock',
+    'rules' => 'trim|required|numeric'
+);
 
-    $main_photo = array(
-        'field' => 'main_photo',
-        'label' => 'Main Photo',
-        'rules' => 'trim|required|numeric'
-    );
+$main_photo = array(
+    'field' => 'main_photo',
+    'label' => 'Main Photo',
+    'rules' => 'trim|required|numeric'
+);
 
 //    NEWS
-    $subject = array(
-        'field' => 'subject',
-        'label' => 'Subject',
-        'rules' => 'trim|required|min_length[4]'
-    );
-    $title = array(
-        'field' => 'title',
-        'label' => 'Title',
-        'rules' => 'trim|required|min_length[5]'
-    );
-    $text = array(
-        'field' => 'text',
-        'label' => 'Text',
-        'rules' => 'trim|required|min_length[10]'
-    );
+$subject = array(
+    'field' => 'subject',
+    'label' => 'Subject',
+    'rules' => 'trim|required|min_length[4]'
+);
+$title = array(
+    'field' => 'title',
+    'label' => 'Title',
+    'rules' => 'trim|required|min_length[5]'
+);
+$text = array(
+    'field' => 'text',
+    'label' => 'Text',
+    'rules' => 'trim|required|min_length[10]'
+);
+$content = array(
+    'field' => 'content',
+    'label' => 'Content',
+    'rules' => 'trim|required|min_length[10]'
+);
 
 
 
 
 $config = array(
-    'admin/orders/edit_submit'   => array($client_name, $phone, $email, $status),
-    'admin/admin/login_submit'   => array($username, $password),
-    'admin/products/add_submit'  => array($name, $description, $price, $new_price, $in_stock),
-    'admin/users/add_new'        => array($username, $password, $email),
-    'admin/products/edit_submit' => array($name, $description, $price, $new_price, $in_stock, $main_photo),
-    'admin/users/edit_user'      => array($username, $email),
-    'admin/news/edit_news'       => array($subject, $title, $text),
-    'admin/news/add_new'         => array($subject, $title, $text)
+    'admin/orders/edit_submit'        => array($client_name, $phone, $email, $status),
+    'admin/admin/login_submit'        => array($username, $password),
+    'admin/products/add_submit'       => array($name, $description, $price, $new_price, $in_stock),
+    'admin/users/add_new'             => array($username, $password, $email),
+    'admin/products/edit_submit'      => array($name, $description, $price, $new_price, $in_stock, $main_photo),
+    'admin/users/edit_user'           => array($username, $email),
+    'admin/news/edit_news'            => array($subject, $title, $text),
+    'admin/news/add_new'              => array($subject, $title, $text),
+    'admin/static_pages/edit_static'  => array($title , $content)
 );
