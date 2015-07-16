@@ -16,7 +16,6 @@
 		<td>Product #</td>
 		<td>Name</td>
 		<td>Description</td>
-		<td>Category</td>
 		<td>Price</td>
 		<td>New Price</td>
 		<td>In Stock</td>
@@ -27,7 +26,6 @@
 		<td><?php echo sprintf('#%05d', $product->id); ?></td>
 		<td><?php echo $product->name; ?></td>
 		<td><?php echo substr(strip_tags($product->description), 0, 25) . ' ...' ?></td>
-		<td><?php echo '-' ?></td>
 		<td><?php echo $product->price; ?></td>
 		<td><?php echo $product->new_price; ?></td>
 		<td><?php echo $product->in_stock; ?></td>
