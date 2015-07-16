@@ -46,13 +46,13 @@
 
         <ul id="navigation-list">
             <li class="navigation-list-items">
-                <a href="#" id="home">Startsaite</a>
+                <a href="<?php echo base_url();?>" id="home">Startsaite</a>
             </li>
             <li class="navigation-list-items">
                 <a href="#" id="news">Aktuelles</a>
             </li>
             <li class="navigation-list-items">
-                <a href="#" id="our-products">Unsere Produkte</a>
+                <a href="<?php echo base_url('products_list');?>" id="our-products">Unsere Produkte</a>
             </li>
             <li class="navigation-list-items">
                 <a href="#" id="bio-products">BIO Produkte</a>
