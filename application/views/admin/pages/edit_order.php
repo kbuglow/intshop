@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Edit Order #<?php echo $order->id; ?>
-                <p><small class="text-primary">Placed on <strong><?php echo $order->date; ?></strong></small></p>
                 <a href="<?php echo base_url("admin/orders/delete/{$order->id}") ?>" class="btn btn-danger">Delete order</a>
+                <p><small class="text-primary">Placed on <strong><?php echo $order->date; ?></strong></small></p>
             </h1>
         </div>
         <!-- /.col-lg-12 -->

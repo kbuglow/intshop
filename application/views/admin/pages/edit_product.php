@@ -1,7 +1,9 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Edit Product #<?php echo $product->id; ?></h1>
+            <h1 class="page-header">Edit Product #<?php echo $product->id; ?>
+                <a href="<?php echo base_url("admin/products/delete/{$product->id}") ?>" class="btn btn-danger">Delete product</a>
+            </h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
