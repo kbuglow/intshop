@@ -1,15 +1,15 @@
-﻿<?php require('HeadAndHeader.php')?>
+<?php require('HeadAndHeader.php')?>
 
 <hr id="header-horizontal-line" />
 <div id="content">
 
     <div id="current-path">
-    <p>Startsait  >  Unsere Produkte >  All products</p>
+    <p>Home  >  Our Products >  All products</p>
     </div>
 
     <fieldset>
 
-        <legend id="fieldset-title">Unsere Produkte</legend>
+        <legend id="fieldset-title">Our Products</legend>
 
         <aside id="left-menu">
 
