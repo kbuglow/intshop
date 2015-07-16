@@ -46,25 +46,25 @@
 
         <ul id="navigation-list">
             <li class="navigation-list-items">
-                <a href="<?php echo base_url();?>" id="home">Startsaite</a>
+                <a href="<?php echo base_url();?>" id="home">Home</a>
             </li>
             <li class="navigation-list-items">
-                <a href="#" id="news">Aktuelles</a>
+                <a href="#" id="news">News</a>
             </li>
             <li class="navigation-list-items">
-                <a href="<?php echo base_url('products_list');?>" id="our-products">Unsere Produkte</a>
+                <a href="<?php echo base_url('products_list');?>" id="our-products">Our Products</a>
             </li>
             <li class="navigation-list-items">
-                <a href="#" id="bio-products">BIO Produkte</a>
+                <a href="#" id="bio-products">Organic products</a>
             </li>
             <li class="navigation-list-items">
                 <a href="#" id="partner">Partner</a>
             </li>
             <li class="navigation-list-items">
-                <a href="#" id="about-us">Uber uns</a>
+                <a href="#" id="about-us">About us</a>
             </li>
             <li class="navigation-list-items">
-                <a href="#" id="contact">Kontakt</a>
+                <a href="#" id="contact">Contact</a>
             </li>
         </ul>
 
