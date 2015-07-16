@@ -13,7 +13,7 @@ h2{
     color: #404040;
 }
 
-p{
+#content > p{
     margin-top: 10px;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;

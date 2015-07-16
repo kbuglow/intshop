@@ -24,14 +24,14 @@
     list-style-type: none;
 }
 
-#left-menu ul a{
+#left-menu li:not(title) a{
     text-decoration: none;
     color: #404040;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
 }
 
-#left-menu ul a:hover{
+#left-menu li:not(title) a:hover{
     color: #9dc44e;
 }
 
@@ -62,4 +62,16 @@
     margin-top: 19px;
     margin-left: 14px;
 
+}
+
+#left-menu [title=current]{
+    background-image: url("../img/left-menu-arrow.png");
+    background-repeat: no-repeat;
+    background-position: 0 40%;
+
+    padding-left: 15px;
+}
+
+#left-menu [title=current] a{
+    color: #9dc44e;
 }

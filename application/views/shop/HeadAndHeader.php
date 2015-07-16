@@ -33,7 +33,6 @@
 
     <div id="product-card">
         <p>3 products</p>
-        <img src="<?php echo base_url('assets/img'); ?>/your-card-img.png">
     </div>
 
     <div id="languages-bar">

@@ -55,5 +55,6 @@
     <div id="copyright"></div>
     <div id="move-to-top"></div>
 </footer>
-<script src="ProductListContent/ShowAddToCardOption.js"></script>
+<script src="<?php echo base_url('assets/js'); ?>/ShowAddToCardOption.js"></script>
+<script src="<?php echo base_url('assets/js'); ?>/ShowProducts.js"></script>
 </html>

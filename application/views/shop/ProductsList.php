@@ -4,7 +4,7 @@
 <div id="content">
 
     <div id="current-path">
-    <p>Startsait  >  Unsere Produkte >  All products</p>
+    <p id="current-path-paragraph">Startsait  >  Unsere Produkte >  All products</p>
     </div>
 
     <fieldset>
@@ -16,16 +16,16 @@
             <p id="our-products-category-caption">Category:</p>
 
             <ul id="our-products-categories-list">
-                <li class="our-products-categories">
+                <li class="our-products-categories" title="current">
                     <a href="#" id="allProducts">ALL PRODUCTS</a>
                 </li>
-                <li class="our-products-categories">
+                <li class="our-products-categories" >
                     <a href="#" id="food">FOOD</a>
                 </li>
-                <li class="our-products-categories">
+                <li class="our-products-categories" >
                     <a href="#" id="drugstore">DRUGSTORE</a>
                 </li>
-                <li class="our-products-categories">
+                <li class="our-products-categories" >
                     <a href="#" id="drinks">DRINKS</a>
                 </li>
             </ul>
