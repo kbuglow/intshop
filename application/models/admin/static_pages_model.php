@@ -36,5 +36,14 @@ class Static_pages_model extends CI_Model
         $this->db->update($this->static_pages_table, $news, array('id' => $static_id));
 
     }
+    public function add(){
+        $data = $this->input->post();
+        $page = array(
+            'title'     => $data['title'],
+            'content'      => $this->input->post(FALSE,'content')
+        );
+
+        $this->db->insert($this->static_pages_table, $page);
+    }
 
 }

@@ -109,5 +109,6 @@ $config = array(
     'admin/users/edit_user'           => array($username, $email),
     'admin/news/edit_news'            => array($subject, $title, $text),
     'admin/news/add_new'              => array($subject, $title, $text),
-    'admin/static_pages/edit_static'  => array($title , $content)
+    'admin/static_pages/edit_static'  => array($title , $content),
+    'admin/static_pages/add_new'      => array($title , $content)
 );
