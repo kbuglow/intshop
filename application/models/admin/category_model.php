@@ -2,7 +2,8 @@
 
 class Category_model extends CI_Model
 {
-    private $category_table = "categories";
+    private $category_table     = 'categories',
+            $product_cats_table = 'products_cats';
 
     function __construct()
     {
@@ -36,6 +37,17 @@ class Category_model extends CI_Model
         $this->mahana_hierarchy->resync();
 
         return $this->mahana_hierarchy->get_grouped_children();
+    }
+
+    public function product_cats($product_id) {        
+        $selected_cats = array();
+        
+        foreach ($this->db->get_where($this->product_cats_table, array('product_id' => $product_id))->result() as $result) {
+            $info = $this->get_category($result->cat_id);
+            array_push($selected_cats, $info->id);
+        }
+
+        return $selected_cats;
     }
 }
 
