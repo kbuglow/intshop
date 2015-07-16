@@ -99,7 +99,51 @@ class Category extends CI_Controller
 
     public function change_active($category_id)
     {
+        $ancestors_id = $this->get_ancestors_id($category_id, true);
+        $descendents_id = $this->get_descendents_id($category_id);
         $this->category_model->switch_active($category_id);
+
+        $is_active = $this->category_model->get_category($category_id)->active;
+        if ($is_active) {
+            foreach ($ancestors_id as $id) {
+                $is_active = $this->category_model->get_category($id)->active;
+                if (!$is_active)
+                    $this->category_model->switch_active($id);
+            }
+            foreach ($descendents_id as $id) {
+                $is_active = $this->category_model->get_category($id)->active;
+                if ($is_active)
+                    $this->category_model->switch_active($id);
+            }
+        } else {
+            foreach ($descendents_id as $id) {
+                $is_active = $this->category_model->get_category($id)->active;
+                if ($is_active)
+                    $this->category_model->switch_active($id);
+            }
+
+        }
+
         redirect('admin/category');
+    }
+
+    public function get_ancestors_id($parent_id)
+    {
+        $kids = $this->mahana_hierarchy->get_ancestors($parent_id);
+
+        foreach ($kids as $kid) {
+            $ids[] = $kid['id'];
+        }
+        return $ids;
+    }
+
+    public function get_descendents_id($parent_id)
+    {
+        $kids = $this->mahana_hierarchy->get_descendents($parent_id);
+
+        foreach ($kids as $kid) {
+            $ids[] = $kid['id'];
+        }
+        return $ids;
     }
 }
