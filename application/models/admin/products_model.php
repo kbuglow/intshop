@@ -18,6 +18,17 @@ class Products_model extends CI_Model {
 		return $this->db->get_where($this->photos_table, array('product_id' => $product_id))->result();
 	}
 
+	public function products_info($products) {
+		$new_products = array();
+
+		foreach ($products as $product) {
+			$product->name = $this->get_product($product->product_id)->name;
+			array_push($new_products, $product);
+		}
+
+		return $new_products;
+	}
+
 	public function add() {
 		$data = $this->input->post();
 		$categories = $data['categories'];

@@ -10,20 +10,24 @@ class Orders extends CI_Controller {
 
 	public function index() {
 		$data = array(
-			'orders' => $this->Orders_model->all_orders(),
+			'orders'       => $this->Orders_model->all_orders(),
+			'main_content' => 'admin/pages/orders'
 		);
-		$this->load->view('admin/orders', $data);
+		$this->load->view('admin/main', $data);
 	}
 
 	/**
 	 * Loading edit view and pass information for the product
 	 */
 	public function edit($order_id) {
+		$this->load->model('admin/Products_model');
+
 		$data = array(
-			'order' => $this->Orders_model->get($order_id),
-			'items'  => $this->Orders_model->get_items($order_id),
+			'order'        => $this->Orders_model->get($order_id),
+			'items'        => $this->Products_model->products_info($this->Orders_model->get_items($order_id)),
+			'main_content' => 'admin/pages/edit_order'
 		);
-		$this->load->view('admin/edit_order', $data);
+		$this->load->view('admin/main', $data);
 	}
 
 	/**
@@ -35,7 +39,7 @@ class Orders extends CI_Controller {
 			$this->session->set_flashdata('success_msg', 'The order has been edited successfully!');
 		} else $this->session->set_flashdata('error_msg', validation_errors());
 		
-		redirect("admin/orders/edit/{$this->input->post('order_id')}");
+		redirect("admin/orders/edit/{$this->input->post(TRUE, 'order_id')}");
 	}
 
 	/**

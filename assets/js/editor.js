@@ -1,6 +1,6 @@
 tinymce.init({
-    selector:'textarea#post_content', 
-    height: 300,
+    selector:'textarea#description', 
+    height: 200,
     plugins: [
         "advlist autolink link lists charmap preview hr pagebreak",
         "wordcount visualblocks visualchars insertdatetime nonbreaking",
