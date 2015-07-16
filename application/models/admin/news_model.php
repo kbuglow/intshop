@@ -23,13 +23,13 @@ class News_model extends CI_Model
         return $this->db->get_where($this->news_table, array('id' => $news_id))->first_row();
     }
     public function add(){
-        $data = $this->input->post(FALSE);
+        $data = $this->input->post();
         $news = array(
-            'title' => $data['title'],
-            'subject' => $data['subject'],
-            'creator' => $data['creator'],
-            'date' => $data['date'],
-            'text' => $data['text']
+            'title'     => $data['title'],
+            'subject'   => $data['subject'],
+            'creator'   => $data['creator'],
+            'date'      => $data['date'],
+            'text'      => $this->input->post(FALSE,'text')
         );
 
         $this->db->insert($this->news_table, $news);
@@ -42,9 +42,12 @@ class News_model extends CI_Model
     {
         $data = $this->input->post();
         $news_id = $data['news_id'];
-
-        unset($data['submit'], $data['news_id']);
-        $this->db->update($this->news_table, $data, array('id' => $news_id));
+        $news = array(
+            'title'     => $data['title'],
+            'subject'   => $data['subject'],
+            'text'      => $this->input->post(FALSE,'text')
+        );
+        $this->db->update($this->news_table, $news, array('id' => $news_id));
 
     }
 }

@@ -108,5 +108,6 @@ $config = array(
     'admin/users/add_new'        => array($username, $password, $email),
     'admin/products/edit_submit' => array($name, $description, $category, $price, $new_price, $in_stock, $main_photo),
     'admin/users/edit_user'      => array($username, $email),
-    'admin/news/edit_news'       => array($subject, $title, $text)
+    'admin/news/edit_news'       => array($subject, $title, $text),
+    'admin/news/add_new'         => array($subject, $title, $text)
 );
