@@ -41,7 +41,8 @@ class Orders_model extends CI_Model {
 	}
 
 	public function delete($order_id) {
-		return $this->db->delete($this->orders_table, array('id' => $order_id)) ? TRUE : FALSE;
+		$this->db->delete($this->orders_table, array('id' => $order_id));
+		$this->db->delete($this->orders_items_table, array('order_id' => $order_id));
 	}
 
 }

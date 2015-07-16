@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2015 at 11:03 AM
+-- Generation Time: Jul 16, 2015 at 03:35 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -77,14 +77,14 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` varchar(255) NOT NULL DEFAULT 'New',
   `total` decimal(10,2) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`id`, `client_name`, `phone`, `email`, `address`, `date`, `status`, `total`) VALUES
-(5, 'Мариян Белчев', '359878641143', 'marianbelchev@gmail.com', 'Sofia, kv. Beli Brezi, ul. Chepino', '2015-07-14 00:04:47', 'Processing', '10.50');
+(7, 'test test', '359888641143', 'marianbelchev@gmail.com', 'nqma adress!', '2015-07-16 15:52:18', 'New', '10.50');
 
 -- --------------------------------------------------------
 
@@ -98,14 +98,14 @@ CREATE TABLE IF NOT EXISTS `order_items` (
   `product_id` int(11) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `quantity` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order_items`
 --
 
 INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `price`, `quantity`) VALUES
-(3, 5, 1, '10.50', 1);
+(1, 7, 10, '10.50', 1);
 
 -- --------------------------------------------------------
 
@@ -117,7 +117,15 @@ CREATE TABLE IF NOT EXISTS `photos` (
 `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `url` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `photos`
+--
+
+INSERT INTO `photos` (`id`, `product_id`, `url`) VALUES
+(4, 10, 'http://localhost/intshop/uploads/aa2b343db80327905d5cde53ab253e7b.png'),
+(6, 10, 'http://localhost/intshop/uploads/d01961589d04f76eec50c1b72f30cd28.jpg');
 
 -- --------------------------------------------------------
 
@@ -133,7 +141,14 @@ CREATE TABLE IF NOT EXISTS `products` (
   `new_price` decimal(10,2) NOT NULL,
   `in_stock` int(11) NOT NULL,
   `main_photo` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `description`, `price`, `new_price`, `in_stock`, `main_photo`) VALUES
+(10, 'Testing product', '<p>Testing description of testing product</p>', '12.20', '12.20', 1, 4);
 
 -- --------------------------------------------------------
 
@@ -145,7 +160,14 @@ CREATE TABLE IF NOT EXISTS `products_cats` (
 `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `cat_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `products_cats`
+--
+
+INSERT INTO `products_cats` (`id`, `product_id`, `cat_id`) VALUES
+(45, 10, 1);
 
 -- --------------------------------------------------------
 
@@ -258,27 +280,27 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `products_cats`
 --
 ALTER TABLE `products_cats`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `static_pages`
 --

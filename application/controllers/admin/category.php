@@ -36,9 +36,9 @@ class Category extends CI_Controller
     {
         $post_data = $this->input->post();
         $new_data = array('name' => $post_data['new_cat']);
-        if(!isset($post_data['parent_id'])) {
+        if (!isset($post_data['parent_id'])) {
             $this->mahana_hierarchy->insert($new_data);
-        }else{
+        } else {
             $new_data["parent"] = $post_data['parent_id'];
             $this->mahana_hierarchy->insert($new_data);
         }
@@ -67,13 +67,23 @@ class Category extends CI_Controller
     {
         $this->tree .= "<ul>";
         foreach ($a as $obj) {
+            $active = '';
+            $name = $obj["name"];
+            if ($obj["active"]) {
+                $active = "checked";
+            } else {
+                $name = '<s>' . $obj["name"] . '</s>';
+            }
+
+
             $this->tree .= '<li id="list_element-' . $obj["id"] . '" >';
-            $this->tree .= '<a class="cat" id="' . $obj["id"] . '">' . $obj["name"] . '</a>';
+            $this->tree .= '<a class="cat" id="' . $obj["id"] . '">' . $name . '</a>';
             $this->tree .= '<span class="options" style="display: none; padding-left: 5px;"><a class="edit_btn" id ="edit-' . $obj["id"] . '" href="#">Edit</a>';
             $this->tree .= '|';
             $this->tree .= '<a class="delete_btn" id="delete-' . $obj["id"] . '" href="#">Delete</a>';
             $this->tree .= '|';
-            $this->tree .= '<a class="add_btn" id="add-' . $obj["id"] . '" href="#">Add</a></span>';
+            $this->tree .= '<a class="add_btn" id="add-' . $obj["id"] . '" href="#">Add</a>';
+            $this->tree .= '<input type="checkbox" name="active" ' . $active . ' value="active" class="active_check" id="active-' . $obj["id"] . '"></span>';
             $this->tree .= "</li>";
             $this->tree .= "<br>";
             if (!empty($obj['children'])) {
@@ -85,5 +95,55 @@ class Category extends CI_Controller
         $this->tree .= "</ul>";
 
         return $this->tree;
+    }
+
+    public function change_active($category_id)
+    {
+        $ancestors_id = $this->get_ancestors_id($category_id, true);
+        $descendents_id = $this->get_descendents_id($category_id);
+        $this->category_model->switch_active($category_id);
+
+        $is_active = $this->category_model->get_category($category_id)->active;
+        if ($is_active) {
+            foreach ($ancestors_id as $id) {
+                $is_active = $this->category_model->get_category($id)->active;
+                if (!$is_active)
+                    $this->category_model->switch_active($id);
+            }
+            foreach ($descendents_id as $id) {
+                $is_active = $this->category_model->get_category($id)->active;
+                if ($is_active)
+                    $this->category_model->switch_active($id);
+            }
+        } else {
+            foreach ($descendents_id as $id) {
+                $is_active = $this->category_model->get_category($id)->active;
+                if ($is_active)
+                    $this->category_model->switch_active($id);
+            }
+
+        }
+
+        redirect('admin/category');
+    }
+
+    public function get_ancestors_id($parent_id)
+    {
+        $kids = $this->mahana_hierarchy->get_ancestors($parent_id);
+
+        foreach ($kids as $kid) {
+            $ids[] = $kid['id'];
+        }
+        return $ids;
+    }
+
+    public function get_descendents_id($parent_id)
+    {
+        $kids = $this->mahana_hierarchy->get_descendents($parent_id);
+
+        foreach ($kids as $kid) {
+            $ids[] = $kid['id'];
+        }
+        return $ids;
     }
 }
