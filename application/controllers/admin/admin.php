@@ -19,12 +19,13 @@ class Admin extends CI_Controller {
 		if ($this->form_validation->run() !== FALSE) {
 			$this->load->model('admin/Admin_model');
 
-			$this->Admin_model->login()
-				? $this->session->set_flashdata('success_msg', 'You are now logged in! <br />')
-				: $this->session->set_flashdata('error_msg', 'Wrong username/password or not administrator!');
+			if ($this->Admin_model->login()) {
+				$this->session->set_flashdata('success_msg', 'You are now logged in! <br />');
+				redirect('admin/admin');
+			} else $this->session->set_flashdata('error_msg', 'Wrong username/password or not administrator!');
 		} else $this->session->set_flashdata('error_msg', validation_errors());
 
-		redirect('admin/admin');
+		redirect('admin/login');
 	}
 
 	public function logout() {
