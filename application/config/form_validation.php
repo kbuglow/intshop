@@ -51,12 +51,6 @@ $password = array(
         'rules' => 'trim|required|min_length[10]'
     );
 
-    $category = array(
-        'field' => 'category',
-        'label' => 'Category',
-        'rules' => 'trim|required|numeric'
-    );
-
     $price = array(
         'field' => 'price',
         'label' => 'Product Price',
@@ -104,9 +98,9 @@ $password = array(
 $config = array(
     'admin/orders/edit_submit'   => array($client_name, $phone, $email, $status),
     'admin/admin/login_submit'   => array($username, $password),
-    'admin/products/add_submit'  => array($name, $description, $category, $price, $new_price, $in_stock),
+    'admin/products/add_submit'  => array($name, $description, $price, $new_price, $in_stock),
     'admin/users/add_new'        => array($username, $password, $email),
-    'admin/products/edit_submit' => array($name, $description, $category, $price, $new_price, $in_stock, $main_photo),
+    'admin/products/edit_submit' => array($name, $description, $price, $new_price, $in_stock, $main_photo),
     'admin/users/edit_user'      => array($username, $email),
     'admin/news/edit_news'       => array($subject, $title, $text),
     'admin/news/add_new'         => array($subject, $title, $text)

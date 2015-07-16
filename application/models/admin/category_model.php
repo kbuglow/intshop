@@ -26,6 +26,17 @@ class Category_model extends CI_Model
         $this->db->update($this->category_table, $updateData, array("id" => $post_data['cat_id']));
 
     }
+
+    public function get() {
+        $this->load->library('mahana_hierarchy');
+
+        $config = array('table' => 'categories');
+        
+        $this->mahana_hierarchy->initialize($config);
+        $this->mahana_hierarchy->resync();
+
+        return $this->mahana_hierarchy->get_grouped_children();
+    }
 }
 
 ?>

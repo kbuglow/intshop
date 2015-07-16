@@ -19,12 +19,15 @@ class Products_model extends CI_Model {
 
 	public function add() {
 		$data = $this->input->post();
-		array_pop($data);
+		echo '<pre>';
+		var_dump($data);
 
-		$photos = $this->upload_photo($_FILES['photos']);
-		$this->db->insert($this->products_table, $data);
+		// array_pop($data);
 
-		return $this->update_main_photo($id = $this->db->insert_id(), $this->add_photos_db($photos, $id)) ? TRUE : FALSE;
+		// $photos = $this->upload_photo($_FILES['photos']);
+		// $this->db->insert($this->products_table, $data);
+
+		// return $this->update_main_photo($id = $this->db->insert_id(), $this->add_photos_db($photos, $id)) ? TRUE : FALSE;
 	}
 
 	private function update_main_photo($id, $main_photo) {

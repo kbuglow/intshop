@@ -25,13 +25,12 @@
 			'value'		  => set_value('description')
 		)); ?> <br />
 
-		<?php echo form_label('Choose category: ', 'category'); ?>
-		<?php echo form_input(array(
-			'id'          => 'category',
-			'name'        => 'category',
-			'placeholder' => 'Product category',
-			'value'		  => set_value('category')
-		)); ?> <br />
+		<?php echo form_label('Choose category: ', 'categories'); ?>
+		<?php
+			$cats = array();
+			list_category($categories, $cats);
+			echo form_multiselect('categories[]', $cats, '', 'style="width: 200px; height: 200px;"');
+		?> <br />
 
 		<?php echo form_label('Price: ', 'price'); ?>
 		<?php echo form_input(array(
@@ -68,5 +67,34 @@
 		<?php echo form_submit('add', 'Add Product'); ?>
 
 		<?php echo form_close(); ?>
+		<script type="text/javascript" src="<?php echo base_url('assets/js/jquery-2.1.4.min.js'); ?>"></script>
+		<script type="text/javascript">
+			$("select").mousedown(function(e){
+			    e.preventDefault();
+			    
+			    var scroll = this.scrollTop;
+			    
+			    e.target.selected = !e.target.selected;
+			    
+			    this.scrollTop = scroll;
+			    
+			    $(this).focus();
+			}).mousemove(function(e){e.preventDefault()});
+		</script>
 	</body>
 </html>
+
+<?php
+	function list_category(&$parent, &$cats) {
+		// echo '<li>';
+		foreach ($parent as $item) {
+			$id = count(explode('-', $item['lineage']));
+			$cats[$item['id']] = str_repeat("-", $id) . $item['name'];
+			// echo 	str_repeat(" -", $id) . 
+			// 		form_checkbox(array('name' => "categories[]", 'value' => "{$item['id']}", 'id' => "{$item['id']}")) .
+			// 		"<label for='{$item['id']}'>{$item['name']}</label><br />";
+			if (!empty($item['children'])) 
+				list_category($item['children'], $cats);
+		}
+		// echo '</li>';s
+	}

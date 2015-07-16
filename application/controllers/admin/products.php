@@ -13,7 +13,9 @@ class Products extends CI_Controller {
 	}
 
 	public function add() {
-		$this->load->view('admin/add_product');
+		$this->load->model('admin/Category_model');
+
+		$this->load->view('admin/add_product', array('categories' => $this->Category_model->get()));
 	}
 
 	public function add_submit() {
@@ -21,7 +23,7 @@ class Products extends CI_Controller {
 			$this->Products_model->add()
 				? $this->session->set_flashdata('success_msg', 'Product added successfully!')
 				: $this->session->set_flashdata('error_msg', 'There was a problem while uploading photos!');
-			redirect('admin/products');
+			// redirect('admin/products');
 		} else $this->load->view('admin/add_product');
 	}
 
