@@ -15,7 +15,7 @@ class Products extends CI_Controller {
 	public function add() {
 		$this->load->model('admin/Category_model');
 
-		$this->load->view('admin/add_product', array('categories' => $this->Category_model->get()));
+		$this->load->view('admin/add_product', array('categories' => $this->Category_model->print_categories()));
 	}
 
 	public function add_submit() {
@@ -23,14 +23,18 @@ class Products extends CI_Controller {
 			$this->Products_model->add()
 				? $this->session->set_flashdata('success_msg', 'Product added successfully!')
 				: $this->session->set_flashdata('error_msg', 'There was a problem while uploading photos!');
-			// redirect('admin/products');
+			redirect('admin/products');
 		} else $this->load->view('admin/add_product');
 	}
 
 	public function edit($product_id) {
+		$this->load->model('admin/Category_model');
+
 		$data = array(
-			'product' => $this->Products_model->get_product($product_id),
-			'photos' => $this->Products_model->get_photos($product_id)
+			'product'    	=> $this->Products_model->get_product($product_id),
+			'photos'     	=> $this->Products_model->get_photos($product_id),
+			'categories'	=> $this->Category_model->print_categories(),
+			'selected_cats' => $this->Category_model->product_cats($product_id)
 		);
 		
 		$this->load->view('admin/edit_product', $data);
@@ -41,7 +45,7 @@ class Products extends CI_Controller {
 			$this->Products_model->edit()
 				? $this->session->set_flashdata('success_msg', 'Products has been edited successfully!')
 				: $this->session->set_flashdata('error_msg', 'There was a problem while editing!');
-			redirect("admin/products/edit/{$this->input->post('product_id')}");
+			redirect("admin/products/edit/{$this->input->post(TRUE, 'product_id')}");
 		} else $this->load->view('admin/edit_product');
 	}
 

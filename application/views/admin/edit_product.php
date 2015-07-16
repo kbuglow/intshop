@@ -27,12 +27,9 @@
 	'value' => $product->description,
 )); ?> <br />
 
-<?php echo form_label('Product category: ', 'category'); ?>
-<?php echo form_input(array(
-	'id'    => 'category',
-	'name'  => 'category',
-	'value' => $product->category,
-)); ?> <br />
+<?php echo form_label('Product categories: ', 'categories'); ?>
+<?php echo form_multiselect('categories[]', $categories, $selected_cats, 'style="width: 200px; height: 200px;"'); ?> <br />
+
 
 <?php echo form_label('Price: ', 'price'); ?>
 <?php echo form_input(array(
@@ -85,5 +82,19 @@
 
 <?php echo form_close(); ?>
 
+<script type="text/javascript" src="<?php echo base_url('assets/js/jquery-2.1.4.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/tinymce/tinymce.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/editor.js') ?>"></script>
+<script type="text/javascript">
+	$("select").mousedown(function(e){
+	    e.preventDefault();
+	    
+	    var scroll = this.scrollTop;
+	    
+	    e.target.selected = !e.target.selected;
+	    
+	    this.scrollTop = scroll;
+	    
+	    $(this).focus();
+	}).mousemove(function(e){e.preventDefault()});
+</script>

@@ -3,7 +3,8 @@
 class Products_model extends CI_Model {
 
 	private $products_table	= 'products',
-			$photos_table 	= 'photos';
+			$photos_table 	= 'photos',
+			$category_table = 'products_cats';
 
 	public function all_products() {
 		return $this->db->get($this->products_table)->result();
@@ -19,15 +20,20 @@ class Products_model extends CI_Model {
 
 	public function add() {
 		$data = $this->input->post();
-		echo '<pre>';
-		var_dump($data);
+		$categories = $data['categories'];
+		unset($data['categories'], $data['add']);
 
-		// array_pop($data);
+		$photos = $this->upload_photo($_FILES['photos']);
+		$this->db->insert($this->products_table, $data);
+		$this->add_to_cat($categories, $id = $this->db->insert_id());
 
-		// $photos = $this->upload_photo($_FILES['photos']);
-		// $this->db->insert($this->products_table, $data);
+		return $this->update_main_photo($id, $this->add_photos_db($photos, $id)) ? TRUE : FALSE;
+	}
 
-		// return $this->update_main_photo($id = $this->db->insert_id(), $this->add_photos_db($photos, $id)) ? TRUE : FALSE;
+	private function add_to_cat($categories, $id) {
+		foreach ($categories as $category) {
+			$this->db->insert($this->category_table, array('product_id' => $id, 'cat_id' => $category));
+		}
 	}
 
 	private function update_main_photo($id, $main_photo) {
@@ -72,11 +78,19 @@ class Products_model extends CI_Model {
 		return $id;
 	}
 
+	private function update_categories($categories, $product_id) {
+		$this->db->delete($this->category_table, array('product_id' => $product_id));
+		$this->add_to_cat($categories, $product_id);
+	}
+
 	public function edit() {
 		$data       = $this->input->post();
 		$product_id = $data['product_id'];
+		$categories = $data['categories'];
 
-		unset($data['submit'], $data['product_id']);
+		unset($data['submit'], $data['product_id'], $data['categories']);
+
+		$this->update_categories($categories, $product_id);
 
 		if (!empty($_FILES['photos'])) 
 			$this->add_photos_db($this->upload_photo($_FILES['photos']), $product_id);
@@ -87,6 +101,7 @@ class Products_model extends CI_Model {
 	public function delete($product_id) {
 		$this->db->delete($this->products_table, array('id' => $product_id));
 		$this->db->delete($this->photos_table, array('product_id' => $product_id));
+		$this->db->delete($this->category_table, array('product_id' => $product_id));
 	}
 
 	public function delete_photo($photo_id) {

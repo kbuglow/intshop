@@ -72,7 +72,7 @@ $in_stock = array(
 $main_photo = array(
     'field' => 'main_photo',
     'label' => 'Main Photo',
-    'rules' => 'trim|required|numeric'
+    'rules' => 'trim|numeric'
 );
 
 //    NEWS

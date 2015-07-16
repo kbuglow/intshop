@@ -49,6 +49,22 @@ class Category_model extends CI_Model
 
         return $selected_cats;
     }
+
+    private function array_categories(&$parent, &$cats) {
+        foreach ($parent as $item) {
+            $id = count(explode('-', $item['lineage']));
+            $cats[$item['id']] = str_repeat("-", $id) . $item['name'];
+            if (!empty($item['children'])) 
+               $this->array_categories($item['children'], $cats);
+        }      
+    }
+
+    public function print_categories() {
+        $cats = array();
+        $result = $this->get();
+        $this->array_categories($result, $cats);
+        return $cats;
+    }
 }
 
 ?>
