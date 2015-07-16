@@ -1,0 +1,25 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+#languages-bar a{
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration:none;
+    color:#777777;
+    border-left: 1px solid #777777;
+    padding-left:5px;
+}
+#languages-bar a:first-child{
+    border:none;
+}
+
+#languages-bar{
+    position: absolute;
+    top:10px;
+    left:890px;
+}
+
+#languages-bar a:hover{
+    color: #9dc44e;
+    text-decoration: underline;
+}

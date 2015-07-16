@@ -1,0 +1,21 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+fieldset{
+    border-top: 1px solid #9f9f9f;
+    width: 940px;
+    height: 1305px;
+
+    position: relative;
+}
+
+fieldset legend{
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: 8px;
+    padding-right: 8px;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #404040;
+}

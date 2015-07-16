@@ -1,0 +1,19 @@
+#products{
+    width: 100%;
+    height: 888px;
+
+    border-top: 1px solid black;
+}
+
+legend{
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: 8px;
+    padding-right: 8px;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #404040;
+}
+

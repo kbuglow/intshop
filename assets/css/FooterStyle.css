@@ -1,0 +1,201 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+footer{
+    width: 100%;
+    height: 196px;
+
+    background-color: #cbcbcb;
+}
+
+#footer-content{
+    width: 960px;
+    height: 110px;
+
+    margin: 0 auto;
+    padding-top: 40px;
+    position: relative;
+}
+
+#footer-content div,table{
+    display: inline-block;
+}
+
+#address{
+    width: 190px;
+}
+#address p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #828282;
+    padding-top: 5px;
+}
+
+#address p:first-child{
+    padding-top: 0px;
+}
+
+#social-networks-profiles{
+    margin-top: 15px;
+}
+
+#social-networks-profiles img{
+    width: 20px;
+    height: 21px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#facebook img{
+    background-image: url("../img/facebook-icon.png");
+}
+
+#google-plus img{
+    background-image: url("../img/googleplus-icon.png");
+}
+
+#pinterest img{
+    background-image: url("../img/pinterest-icon.png");
+}
+
+#linked-in img{
+    background-image: url("../img/linked-in-icon.png");
+}
+
+#twitter img{
+    background-image: url("../img/twitter-icon.png");
+}
+
+#instagram img{
+    background-image: url("../img/instagram-icon.png");
+}
+
+#contact-us{
+    width: 270px;
+    height: 80px;
+    position: absolute;
+}
+
+#contact-us p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #828282;
+}
+
+#send-email{
+    margin-top: 12px;
+    width: 220px;
+    height: 40px;
+    background-color: #828282;
+    background-image: url("../img/send-email-icon-grey.png");
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+}
+
+
+#send-email p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #cbcbcb;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#send-email:hover {
+    background-image: url("../img/send-email-icon-green.png");
+}
+
+#send-email:hover p{
+    color: #9dc44e;
+}
+
+#more-options{
+    position: absolute;
+    right: 15px;
+    top: 18px;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #828282;
+
+    border-spacing: 15px;
+}
+
+#more-options td{
+    width: 220px;
+    height: 33px;
+    background-image: url("../img/footer-arrow.png");
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    border-bottom: 1px solid white;
+
+
+}
+
+#third-row{
+
+}
+
+#payment{
+    background:none;
+}
+
+#pay-options {
+    display: inline-block;
+}
+
+#pay-options div{
+    width: 50px;
+    height: 33px;
+    display: inline-block;
+}
+
+#paypal-logo{
+    background-image: url("../img/paypal-logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#visa-logo{
+    background-image: url("../img/visa-logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#mastercard-logo{
+    background-image: url("../img/mastercard-logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#sofort-logo{
+    background-image: url("../img/sofort-logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#footer-horizontal-line{
+    background: white;
+}
+
+#copyright{
+    width: 117px;
+    height: 36px;
+    display: inline-block;
+    margin-left: 270px;
+
+    background-image: url("../img/footer-logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#move-to-top{
+    width: 41px;
+    height: 17px;
+    display: inline-block;
+    margin-left: 770px;
+
+    background-image: url("../img/move-top.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}

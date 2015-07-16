@@ -1,0 +1,69 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+#slider{
+    width: 1280px;
+    height: 580px;
+
+    background-image: url("../img/slider-first-image.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+#pagination{
+    width: 940px;
+    height: 50px;
+
+    border: 1px solid white;
+
+    position: absolute;
+
+    left: 170px;
+    bottom: 30px;
+}
+
+#circles{
+    position: absolute;
+    left: 428px;
+    top:10px;
+
+    width: 100px;
+    height: 30px;
+}
+
+#circles div{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 12px;
+
+    background-color: #908986;
+}
+
+#pagination a{
+    text-decoration: none;
+
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+
+    position: absolute;
+}
+
+#pagination a:hover{
+    text-decoration: underline;
+}
+
+#previous{
+    bottom: 15px;
+    left: 15px;
+}
+
+#next{
+    bottom: 15px;
+    right: 15px;
+}
+

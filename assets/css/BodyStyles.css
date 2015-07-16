@@ -1,0 +1,22 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+* {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    width: 1280px;
+    height: 166px;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+
+hr{
+    height: 1px;
+    background-color: #9f9f9f;
+}
+

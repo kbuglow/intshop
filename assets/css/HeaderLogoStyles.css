@@ -1,0 +1,9 @@
+#logo{
+    margin-top:1px;
+
+    background-image:url('../img/altimed_logo.png');
+    background-repeat:no-repeat;
+
+    width:151px;
+    height:86px;
+}

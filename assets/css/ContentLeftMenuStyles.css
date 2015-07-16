@@ -1,0 +1,65 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:500);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+#left-menu{
+    display: inline-block;
+    position: absolute;
+    margin-top: 15px;
+}
+
+#left-menu p{
+    width: 103px;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #404040;
+
+    border-bottom: 3px solid #404040;
+
+    padding-bottom: 7px;
+}
+
+#left-menu ul{
+    margin-top: 3px;
+    list-style-type: none;
+}
+
+#left-menu ul a{
+    text-decoration: none;
+    color: #404040;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+#left-menu ul a:hover{
+    color: #9dc44e;
+}
+
+#left-menu li{
+    margin-top: 8px;
+}
+
+#bio-products-category{
+    width: 220px;
+    height: 50px;
+
+    background-color: #9dc44e;
+    background-image: url("img/View-bio-products-leaf.png");
+    background-repeat: no-repeat;
+    background-position: 98% 50%;
+
+    position: relative;
+    margin-top: 15px;
+}
+
+#bio-products-category a{
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+
+    position: absolute;
+    margin-top: 19px;
+    margin-left: 14px;
+
+}

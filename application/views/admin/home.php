@@ -1,4 +1,6 @@
 <h1>Admin panel</h1>
+<a href="<?php echo base_url(''); ?>">Back to site</a><br/>
+<hr>
 <?php echo $this->session->flashdata('success_msg'); ?>
 <a href="<?php echo base_url('admin/products'); ?>">Products</a><br/>
 <a href="<?php echo base_url('admin/category'); ?>">Categories</a><br/>
