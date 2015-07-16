@@ -36,7 +36,7 @@
 						<td><?php echo $order->client_name . "({$order->email})"; ?></td>
 						<td><?php echo $order->status; ?></td>
 						<td><?php echo $order->total; ?></td>
-						<td><a href="<?php echo base_url("admin/orders/edit/{$order->id}") ?>"><i class="fa fa-pencil fa-lg"></i></a> <a href="<?php echo base_url("admin/orders/delete/{$order->id}") ?>"><i class="fa fa-trash-o fa-lg"></i></a></td>
+						<td><a href="<?php echo base_url("admin/orders/edit/{$order->id}") ?>"><i class="btn btn-warning btn-circle fa fa-pencil fa-lg"></i></a> <a href="<?php echo base_url("admin/orders/delete/{$order->id}") ?>"><i class="btn btn-danger btn-circle fa fa-trash-o fa-lg"></i></a></td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>

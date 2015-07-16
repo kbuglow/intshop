@@ -38,7 +38,7 @@
 						<td><?php echo $product->price; ?></td>
 						<td><?php echo $product->new_price; ?></td>
 						<td><?php echo $product->in_stock; ?></td>
-						<td><a href="<?php echo base_url("admin/products/edit/{$product->id}") ?>"><i class="fa fa-pencil fa-lg"></i></a> <a href="<?php echo base_url("admin/products/delete/{$product->id}") ?>"><i class="fa fa-trash-o fa-lg"></i></a></td>
+						<td><a href="<?php echo base_url("admin/products/edit/{$product->id}") ?>"><i class="btn btn-warning btn-circle fa fa-pencil fa-lg"></i></a> <a href="<?php echo base_url("admin/products/delete/{$product->id}") ?>"><i class="btn btn-danger btn-circle fa fa-trash-o fa-lg"></i></a></td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>
