@@ -66,7 +66,11 @@ echo form_close();
             $("#list_element-" + number).after('<input type="text"  name="new_cat"/><input type="submit" name="submit_add" value="Add"/>' +
                 '<input type="hidden" name="parent_id" value="' + number + '">');
         });
-
+        $('.active_check').click(function(){
+            var id = $(this).attr('id');
+            var number = id.split("-")[1];
+            window.location.href='<?php echo base_url('admin/category/change_active')?>/' + number;
+        });
     });
 </script>
 </body>
