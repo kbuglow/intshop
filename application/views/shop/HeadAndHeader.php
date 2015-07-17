@@ -32,7 +32,7 @@
     </div>
 
     <div id="product-card">
-        <p>3 products</p>
+        <p>0 products</p>
     </div>
 
     <div id="languages-bar">
