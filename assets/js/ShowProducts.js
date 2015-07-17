@@ -1,4 +1,5 @@
 var allCategories = document.getElementsByClassName('our-products-categories'),
+    viewBioProductsCategory = document.getElementById('view-bio-products'),
     j,
     length;
 
@@ -9,6 +10,10 @@ for(j=0,length=allCategories.length;j<length;j+=1){
     });
 }
 
+viewBioProductsCategory.addEventListener('click',function(event){
+    changeStylesOfCategories(event.target);
+});
+
     function changeStylesOfCategories(target) {
         var i,
             len,
@@ -18,7 +23,8 @@ for(j=0,length=allCategories.length;j<length;j+=1){
         document.getElementById('current-path-paragraph').innerHTML = changePathName(currentPath,newPart);
 
         for (i = 0, len = allCategories.length; i < len; i += 1) {
-            if (allCategories[i].getElementsByTagName('a')[0] === target) {
+            if (allCategories[i].getElementsByTagName('a')[0] === target &&
+                target.getAttribute('id')!=='view-bio-products') {
                 allCategories[i].setAttribute('title', 'current');
             }
             else {
