@@ -1,21 +1,17 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Edit New #<?php echo $news->id; ?> <a href="<?php echo base_url("admin/news/delete/{$news->id}") ?>" class="btn btn-danger">Delete new</a></h1>
+            <h1 class="page-header">Add New</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
-
-    <?php if ($this->session->flashdata('success_msg')): ?>
-        <div class="row"><div class="alert alert-success" role="alert"><?php echo $this->session->flashdata('success_msg'); ?></div></div><!-- /.row -->
-    <?php endif; ?>
 
     <?php if ($this->session->flashdata('error_msg')): ?>
         <div class="row"><div class="alert alert-danger" role="alert"><?php echo $this->session->flashdata('error_msg'); ?></div><!-- /.row -->
     <?php endif; ?>
 
     <div class="row">
-        <?php echo form_open('admin/news/edit_submit', array('class' => 'form-horizontal')); ?>
+        <?php echo form_open('admin/news/add_submit', array('class' => 'form-horizontal')); ?>
         <div class="form-group">
             <?php echo form_label('Title: ', 'title', array('class' => 'col-sm-2 control-label')); ?>
             <div class="col-sm-10">
@@ -23,7 +19,7 @@
                     'id'          => 'title',
                     'name'        => 'title',
                     'class'       => 'form-control',
-                    'value'       => $news->title
+                    'value'       => set_value('title')
                 )); ?>
             </div>
         </div>
@@ -35,7 +31,7 @@
                     'id'    => 'subject',
                     'name'  => 'subject',
                     'class' => 'form-control',
-                    'value' => $news->subject
+                    'value' => set_value('subject')
                 )); ?>
             </div>
         </div>
@@ -47,14 +43,14 @@
                     'id'    => 'description',
                     'name'  => 'text',
                     'class' => 'form-control',
-                    'value' => $news->text
+                    'value' => set_value('text'),
                 )); ?>
             </div>
         </div>
 
         <div class="form-group text-center">
-            <?php echo form_hidden('news_id', $news->id); ?>
-            <?php echo form_submit('submit', 'Edit New', 'class="btn btn-primary btn-lg"'); ?>
+            <?php echo form_hidden('creator', $logged_user); ?>
+            <?php echo form_submit('submit', 'Add New', 'class="btn btn-primary btn-lg"'); ?>
             <?php echo form_close(); ?>
         </div>
     </div>

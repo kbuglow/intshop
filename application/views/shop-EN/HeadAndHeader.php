@@ -37,22 +37,22 @@
     </div>
 
     <div id="languages-bar">
-        <a href="#" id="deutsch">DE</a>
-        <a href="#" id="english">EN</a>
-        <a href="#" id="french">FR</a>
+        <a href="<?php echo base_url('home');?>" id="deutsch">DE</a>
+        <a href="<?php echo base_url('EN');?>" id="english">EN</a>
+        <a href="#" id="bulgarian">BG</a>
     </div>
 
     <nav id="navigation">
 
         <ul id="navigation-list">
             <li class="navigation-list-items">
-                <a href="<?php echo base_url();?>" id="home">Home</a>
+                <a href="<?php echo base_url('home_en');?>" id="home">Home</a>
             </li>
             <li class="navigation-list-items">
                 <a href="#" id="news">News</a>
             </li>
             <li class="navigation-list-items">
-                <a href="<?php echo base_url('products_list');?>" id="our-products">Our Products</a>
+                <a href="<?php echo base_url('products_list_EN');?>" id="our-products">Our Products</a>
             </li>
             <li class="navigation-list-items">
                 <a href="#" id="bio-products">Organic products</a>

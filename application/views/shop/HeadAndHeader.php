@@ -36,9 +36,9 @@
     </div>
 
     <div id="languages-bar">
-        <a href="#" id="deutsch">DE</a>
-        <a href="#" id="english">EN</a>
-        <a href="#" id="french">FR</a>
+        <a href="<?php echo base_url('home');?>" id="deutsch">DE</a>
+        <a href="<?php echo base_url('EN');?>" id="english">EN</a>
+        <a href="#" id="bulgarian">BG</a>
     </div>
 
     <nav id="navigation">

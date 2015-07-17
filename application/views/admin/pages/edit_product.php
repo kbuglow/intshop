@@ -16,7 +16,6 @@
         <div class="row"><div class="alert alert-danger" role="alert"><?php echo $this->session->flashdata('error_msg'); ?></div><!-- /.row -->
     <?php endif; ?>
 
-
     <div class="row">
         <?php echo form_open_multipart('admin/products/edit_submit', array('class' => 'form-horizontal')); ?>
         <div class="form-group">
