@@ -64,22 +64,8 @@ class Mahana_hierarchy
     public function __construct($config = null)
     {
 
-        $config['hostname'] = "79.98.109.228";
-        $config['username'] = "intshop";
-        $config['password'] = "yWsh4QRsG6AtSpr5";
-        $config['database'] = "intshop";
-        $config['dbdriver'] = "mysqli";
-        $config['dbprefix'] = "";
-        $config['pconnect'] = FALSE;
-        $config['db_debug'] = TRUE;
-        $config['cache_on'] = FALSE;
-        $config['cachedir'] = "";
-        $config['char_set'] = "utf8";
-        $config['dbcollat'] = "utf8_general_ci";
-
         $this->ci =& get_instance();
-
-        $this->db = $this->ci->load->database($config, TRUE);
+        $this->db = $this->ci->load->database('default', TRUE);
 
         if (is_array($config)) $this->initialize($config);
 
