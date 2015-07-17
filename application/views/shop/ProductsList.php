@@ -4,7 +4,7 @@
 <div id="content">
 
     <div id="current-path">
-    <p id="current-path-paragraph">Startsait  >  Unsere Produkte >  All products</p>
+    <p id="current-path-paragraph">Startsait > Unsere Produkte > All products</p>
     </div>
 
     <fieldset>

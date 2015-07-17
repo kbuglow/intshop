@@ -4,7 +4,7 @@ var allCategories = document.getElementsByClassName('our-products-categories'),
 
 for(j=0,length=allCategories.length;j<length;j+=1){
     allCategories[j].setAttribute('id',j);
-    allCategories[j].addEventListener('click',function(event){
+    allCategories[j].getElementsByTagName('a')[0].addEventListener('click',function(event){
         changeStylesOfCategories(event.target);
     });
 }
@@ -13,26 +13,27 @@ for(j=0,length=allCategories.length;j<length;j+=1){
         var i,
             len,
             currentPath=document.getElementById('current-path-paragraph').innerHTML,
-            newPart = target.getElementsByTagName('a')[0].innerHTML.toLowerCase();
+            newPart = target.innerHTML.toLowerCase();
 
-
-       /* document.getElementById('current-path-paragraph').innerHTML = changePathName(currentPath,newPart);*/
+        document.getElementById('current-path-paragraph').innerHTML = changePathName(currentPath,newPart);
 
         for (i = 0, len = allCategories.length; i < len; i += 1) {
-            if (allCategories[i] === target) {
+            if (allCategories[i].getElementsByTagName('a')[0] === target) {
                 allCategories[i].setAttribute('title', 'current');
             }
             else {
                 allCategories[i].removeAttribute('title');
             }
         }
+
+
     }
 
-/*function changePathName(oldPath,newPart){
-    var pathParts= oldPath.split(' > ');
+function changePathName(oldPath,newPart){
+    var pathParts= oldPath.split(' &gt; ');
 
     newPart = newPart[0].toUpperCase() + newPart.slice(1);
     pathParts[pathParts.length-1]=newPart;
 
-    return pathParts.join(' > ')
-}*/
+    return pathParts.join(' &gt; ');
+}
