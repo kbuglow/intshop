@@ -14,8 +14,19 @@ class Users extends CI_Controller
     {
         $data = array(
             'users' => $this->users_model->get_all_users(),
+            'main_content' => 'admin/pages/users'
         );
-        $this->load->view('admin/users', $data);
+        $this->load->view('admin/main', $data);
+    }
+
+    public function add()
+    {
+        $this->load->model('admin/category_model') ;
+        $data = array(
+            'main_content' => 'admin/pages/add_user'
+        );
+
+        $this->load->view('admin/main', $data);
     }
 
     public function delete($user_id)
@@ -25,12 +36,13 @@ class Users extends CI_Controller
         redirect('admin/users');
     }
 
-    public function edit($user_id)
-    {
+    public function edit($user_id) {
         $data = array(
-            'user' => $this->users_model->get_user($user_id)
+            'user' => $this->users_model->get_user($user_id),
+            'main_content'	=> 'admin/pages/edit_users'
         );
-        $this->load->view('admin/edit_users', $data);
+
+        $this->load->view('admin/main', $data);
     }
 
     public function edit_user()

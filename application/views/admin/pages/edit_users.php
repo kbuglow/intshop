@@ -1,45 +1,71 @@
-<h1>User <?php echo $user->username; ?></h1>
-<a href="<?php echo base_url('admin/users'); ?>">Back to users</a>
-<hr>
-<?php if ($this->session->flashdata('success_msg')): ?>
-    <p style="background: green; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('success_msg'); ?></p>
-<?php endif; ?>
-
-<?php if ($this->session->flashdata('error_msg')): ?>
-    <p style="background: red; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('error_msg'); ?></p>
-<?php endif; ?>
-
-
-<?php echo form_open('admin/users/edit_user'); ?>
-
-<?php echo form_label('Username', 'username'); ?>
-<?php echo form_input(array(
-    'id' => 'username',
-    'name' => 'username',
-    'value' => $user->username,
-)); ?><br/>
-
-<?php echo form_label('Email: ', 'email'); ?>
-<?php echo form_input(array(
-    'id' => 'email',
-    'name' => 'email',
-    'value' => $user->email,
-)); ?><br/>
-
-<?php echo form_label('User Role: ', 'role'); ?>
-<?php
-$options = array(
-    'Administrator' => 'Administrator',
-    'User' => 'User'
-);
-
-echo form_dropdown('role', $options, $user->role);
-?><br/><br/>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Edit User <?php echo $user->username; ?>
+                <a href="<?php echo base_url("admin/users/delete/{$user->id}") ?>" class="btn btn-danger">Delete
+                    user</a>
+            </h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
 
 
-<?php echo form_hidden('user_id', $user->id); ?>
-<?php echo form_submit('submit', 'Edit the user'); ?>
+    <?php if ($this->session->flashdata('success_msg')): ?>
+        <div class="row">
+            <div class="alert alert-success" role="alert"><?php echo $this->session->flashdata('success_msg'); ?></div>
+        </div><!-- /.row -->
+    <?php endif; ?>
 
-<?php echo form_close(); ?>
+    <?php if ($this->session->flashdata('error_msg')): ?>
+    <div class="row">
+        <div class="alert alert-danger" role="alert"><?php echo $this->session->flashdata('error_msg'); ?></div>
+        <!-- /.row -->
+        <?php endif; ?>
 
+        <div class="row">
+            <?php echo form_open('admin/users/edit_user', array('class' => 'form-horizontal')); ?>
+            <div class="form-group">
+                <?php echo form_label('Username', 'username', array('class' => 'col-sm-2 control-label')); ?>
+                <div class="col-sm-10">
+                    <?php echo form_input(array(
+                        'id' => 'username',
+                        'name' => 'username',
+                        'value' => $user->username,
+                        'class' => 'form-control'
 
+                    )); ?>
+                </div>
+            </div>
+            <div class="form-group">
+                <?php echo form_label('Email: ', 'email', array('class' => 'col-sm-2 control-label')); ?>
+                <div class="col-sm-10">
+                    <?php echo form_input(array(
+                        'id' => 'email',
+                        'name' => 'email',
+                        'value' => $user->email,
+                        'class' => 'form-control'
+                    )); ?>
+                </div>
+            </div>
+            <div class="form-group">
+                <?php echo form_label('User Role: ', 'role', array('class' => 'col-sm-2 control-label')); ?>
+                <div class="col-sm-10">
+                    <?php
+                    $options = array(
+                        'Administrator' => 'Administrator',
+                        'User' => 'User'
+                    );
+
+                    echo form_dropdown('role', $options, $user->role, 'class="form-control input-sm"');
+                    ?>
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <?php echo form_hidden('user_id', $user->id); ?>
+                <?php echo form_submit('submit', 'Edit the user', 'class="btn btn-primary btn-lg"'); ?>
+
+                <?php echo form_close(); ?>
+            </div>
+
+        </div>
+    </div>

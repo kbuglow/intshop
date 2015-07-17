@@ -1,3 +1,4 @@
 # Ignore uploaded photos
 uploads/*
 !uploads/index.html
+.idea/*
