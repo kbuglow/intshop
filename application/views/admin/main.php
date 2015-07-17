@@ -76,7 +76,14 @@
                         </li>
 
                         <li><a href="<?php echo base_url('admin/orders'); ?>"><i class="fa fa-cart-arrow-down fa-fw"></i> Orders</a></li>
-                        <li><a href="<?php echo base_url('admin/users'); ?>"><i class="fa fa-user fa-fw"></i> Users</a></li>
+
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="<?php echo base_url('admin/users/add'); ?>">Add user</a></li>
+                                <li><a href="<?php echo base_url('admin/users'); ?>">Show all users</a></li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                         <li><a href="<?php echo base_url('admin/category'); ?>"><i class="fa fa-list-ul fa-fw"></i> Categories</a></li>
 
                         <li>
