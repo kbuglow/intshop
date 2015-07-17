@@ -16,7 +16,7 @@ $phone = array(
 $email = array(
     'field' => 'email',
     'label' => 'Client email',
-    'rules' => 'trim|required|valid_email'
+    'rules' => 'trim|required|valid_email|is_unique[users.email]'
 );
 
 $status = array(
@@ -26,6 +26,12 @@ $status = array(
 );
 
 $username = array(
+    'field' => 'username',
+    'label' => 'Username',
+    'rules' => 'trim|required|min_length[3]|is_unique[users.username]',
+);
+
+$username_login = array(
     'field' => 'username',
     'label' => 'Username',
     'rules' => 'trim|required|min_length[3]',
@@ -102,7 +108,7 @@ $content = array(
 
 $config = array(
     'admin/orders/edit_submit'        => array($client_name, $phone, $email, $status),
-    'admin/admin/login_submit'        => array($username, $password),
+    'admin/admin/login_submit'        => array($username_login, $password),
     'admin/products/add_submit'       => array($name, $description, $price, $new_price, $in_stock),
     'admin/users/add_new'             => array($username, $password, $email),
     'admin/products/edit_submit'      => array($name, $description, $price, $new_price, $in_stock, $main_photo),

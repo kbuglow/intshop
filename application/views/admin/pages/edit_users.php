@@ -2,8 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Edit User <?php echo $user->username; ?>
-                <a href="<?php echo base_url("admin/users/delete/{$user->id}") ?>" class="btn btn-danger">Delete
-                    user</a>
+                <a href="<?php echo base_url("admin/users/delete/{$user->id}") ?>" class="btn btn-danger delete">Delete user</a>
             </h1>
         </div>
         <!-- /.col-lg-12 -->
@@ -12,15 +11,23 @@
 
     <?php if ($this->session->flashdata('success_msg')): ?>
         <div class="row">
-            <div class="alert alert-success" role="alert"><?php echo $this->session->flashdata('success_msg'); ?></div>
+            <div class="alert alert-success" role="alert">
+                <i class="fa fa-check-square"></i>
+                <?php echo $this->session->flashdata('success_msg'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
         </div><!-- /.row -->
     <?php endif; ?>
 
     <?php if ($this->session->flashdata('error_msg')): ?>
-    <div class="row">
-        <div class="alert alert-danger" role="alert"><?php echo $this->session->flashdata('error_msg'); ?></div>
-        <!-- /.row -->
-        <?php endif; ?>
+        <div class="row">
+            <div class="alert alert-danger" role="alert">
+                <i class="fa fa-times"></i>
+                <?php echo $this->session->flashdata('error_msg'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div><!-- /.row -->
+    <?php endif; ?>
 
         <div class="row">
             <?php echo form_open('admin/users/edit_user', array('class' => 'form-horizontal')); ?>

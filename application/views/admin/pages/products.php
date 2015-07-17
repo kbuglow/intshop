@@ -6,13 +6,25 @@
         <!-- /.col-lg-12 -->
     </div>
 
-	<?php if ($this->session->flashdata('success_msg')): ?>
-		<div class="row"><div class="alert alert-success" role="alert"><?php echo $this->session->flashdata('success_msg'); ?></div></div><!-- /.row -->
-	<?php endif; ?>
+    <?php if ($this->session->flashdata('success_msg')): ?>
+        <div class="row">
+            <div class="alert alert-success" role="alert">
+                <i class="fa fa-check-square"></i>
+                <?php echo $this->session->flashdata('success_msg'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div><!-- /.row -->
+    <?php endif; ?>
 
-	<?php if ($this->session->flashdata('error_msg')): ?>
-		<div class="row"><div class="alert alert-danger" role="alert"><?php echo $this->session->flashdata('error_msg'); ?></div><!-- /.row -->
-	<?php endif; ?>
+    <?php if ($this->session->flashdata('error_msg')): ?>
+        <div class="row">
+            <div class="alert alert-danger" role="alert">
+                <i class="fa fa-times"></i>
+                <?php echo $this->session->flashdata('error_msg'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div><!-- /.row -->
+    <?php endif; ?>
 
     <div class="row">
 		<?php if ($products): ?>
@@ -38,7 +50,7 @@
 						<td><?php echo $product->price; ?></td>
 						<td><?php echo $product->new_price; ?></td>
 						<td><?php echo $product->in_stock; ?></td>
-						<td><a href="<?php echo base_url("admin/products/edit/{$product->id}") ?>"><i class="btn btn-warning btn-circle fa fa-pencil fa-lg"></i></a> <a href="<?php echo base_url("admin/products/delete/{$product->id}") ?>"><i class="btn btn-danger btn-circle fa fa-trash-o fa-lg"></i></a></td>
+						<td><a href="<?php echo base_url("admin/products/edit/{$product->id}") ?>"><i class="btn btn-warning btn-circle fa fa-pencil fa-lg"></i></a> <a href="<?php echo base_url("admin/products/delete/{$product->id}") ?>" class="delete"><i class="btn btn-danger btn-circle fa fa-trash-o fa-lg"></i></a></td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>

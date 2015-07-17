@@ -19,9 +19,12 @@
 			<?php echo form_open('admin/admin/login_submit'); ?>
 				<h2 class="form-signin-heading">Admin Panel</h2>
 
-				<?php if ($this->session->flashdata('error_msg')):  ?>
-					<div class="alert alert-danger" role="alert"><?php echo $this->session->flashdata('error_msg'); ?></div>
-				<?php endif; ?>
+
+			    <?php if ($this->session->flashdata('error_msg')): ?>
+			            <div class="alert alert-danger" role="alert">
+			                <?php echo $this->session->flashdata('error_msg'); ?>
+			            </div>
+			    <?php endif; ?>
 
 				<div class="form-group">
 					<?php echo form_input(array(

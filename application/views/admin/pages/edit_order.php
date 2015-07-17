@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Edit Order #<?php echo $order->id; ?>
-                <a href="<?php echo base_url("admin/orders/delete/{$order->id}") ?>" class="btn btn-danger">Delete order</a>
+                <a href="<?php echo base_url("admin/orders/delete/{$order->id}") ?>" class="btn btn-danger delete">Delete order</a>
                 <p><small class="text-primary">Placed on <strong><?php echo $order->date; ?></strong></small></p>
             </h1>
         </div>
@@ -10,11 +10,23 @@
     </div>
 
     <?php if ($this->session->flashdata('success_msg')): ?>
-        <div class="row"><div class="alert alert-success" role="alert"><?php echo $this->session->flashdata('success_msg'); ?></div></div><!-- /.row -->
+        <div class="row">
+            <div class="alert alert-success" role="alert">
+                <i class="fa fa-check-square"></i>
+                <?php echo $this->session->flashdata('success_msg'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div><!-- /.row -->
     <?php endif; ?>
 
     <?php if ($this->session->flashdata('error_msg')): ?>
-        <div class="row"><div class="alert alert-danger" role="alert"><?php echo $this->session->flashdata('error_msg'); ?></div><!-- /.row -->
+        <div class="row">
+            <div class="alert alert-danger" role="alert">
+                <i class="fa fa-times"></i>
+                <?php echo $this->session->flashdata('error_msg'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div><!-- /.row -->
     <?php endif; ?>
 
     <div class="row">

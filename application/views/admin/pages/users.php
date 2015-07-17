@@ -5,17 +5,26 @@
         </div>
         <!-- /.col-lg-12 -->
     </div>
+    
     <?php if ($this->session->flashdata('success_msg')): ?>
         <div class="row">
-            <div class="alert alert-success" role="alert"><?php echo $this->session->flashdata('success_msg'); ?></div>
+            <div class="alert alert-success" role="alert">
+                <i class="fa fa-check-square"></i>
+                <?php echo $this->session->flashdata('success_msg'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
         </div><!-- /.row -->
     <?php endif; ?>
 
     <?php if ($this->session->flashdata('error_msg')): ?>
-    <div class="row">
-        <div class="alert alert-danger" role="alert"><?php echo $this->session->flashdata('error_msg'); ?></div>
-        <!-- /.row -->
-        <?php endif; ?>
+        <div class="row">
+            <div class="alert alert-danger" role="alert">
+                <i class="fa fa-times"></i>
+                <?php echo $this->session->flashdata('error_msg'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div><!-- /.row -->
+    <?php endif; ?>
 
         <div class="row">
             <?php if ($users): ?>
@@ -37,7 +46,7 @@
                                 <td><?php echo $user->role; ?></td>
                                 <td><a href="<?php echo base_url("admin/users/edit/{$user->id}"); ?>">
                                         <i class="btn btn-warning btn-circle fa fa-pencil fa-lg"></i></a>
-                                        <a <?php if($user->id !== $this->session->userdata('user_id')) echo 'href="' . base_url("admin/users/delete/{$user->id}") . '"'; ?>>
+                                        <a <?php if($user->id !== $this->session->userdata('user_id')) echo 'href="' . base_url("admin/users/delete/{$user->id}") . '" class="delete"'; ?>>
                                         <i class="btn btn-danger btn-circle fa fa-trash-o fa-lg<?php if($user->id == $this->session->userdata('user_id')) echo ' disabled'; ?>"></i></a></td>
                             </tr>
                         <?php endforeach; ?>
