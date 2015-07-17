@@ -59,6 +59,7 @@ class Products extends CI_Controller {
 				? $this->session->set_flashdata('success_msg', 'Products has been edited successfully!')
 				: $this->session->set_flashdata('error_msg', 'There was a problem while editing!');
 		} else $this->session->set_flashdata('error_msg', validation_errors());
+		
 		redirect("admin/products/edit/{$this->input->post(TRUE, 'product_id')}");
 	}
 

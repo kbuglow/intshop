@@ -1,64 +1,51 @@
-<h1>News</h1>
-<a href="<?php echo base_url('admin'); ?>">Back to admin panel</a>
-<hr/>
-<table border="1">
-    <tr>
-        <td>Creator</td>
-        <td>Title</td>
-        <td>Date</td>
-        <td>Subject</td>
-        <td>Options</td>
-    <tr>
-        <?php foreach ($news as $new): ?>
-    <tr>
-        <td><?php echo $new->username; ?></td>
-        <td><?php echo $new->title; ?></td>
-        <td><?php echo $new->date; ?></td>
-        <td><?php echo $new->subject; ?></td>
-        <td>
-            <a href="<?php echo base_url("admin/news/edit/{$new->id}"); ?>">Edit</a>
-            <a href="<?php echo base_url("admin/news/delete/{$new->id}") ?>">Delete</a>
-        </td>
-    </tr>
-    <?php endforeach; ?>
-</table>
-<hr/>
-<?php if ($this->session->flashdata('success_msg')): ?>
-    <p style="background: green; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('success_msg'); ?></p>
-<?php endif; ?>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">News <a href="<?php echo base_url('admin/news/add') ?>" class="btn btn-outline btn-primary btn-sm">Add New</a></h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
 
-<?php if ($this->session->flashdata('error_msg')): ?>
-    <div
-        style="background: red; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('error_msg'); ?></div>
-<?php endif; ?>
-<?php
-echo form_open('admin/news/add_new');
-echo form_label('Title', 'title');
-echo form_input(array(
-    'id' => 'title',
-    'name' => 'title',
-)); ?>
-<br/>
-<?php echo form_label('subject: ', 'subject'); ?>
-<?php echo form_input(array(
-    'id' => 'subject',
-    'name' => 'subject'
-)); ?>
-<br/>
+    <?php if ($this->session->flashdata('success_msg')): ?>
+        <div class="row"><div class="alert alert-success" role="alert"><?php echo $this->session->flashdata('success_msg'); ?></div></div><!-- /.row -->
+    <?php endif; ?>
 
-<?php echo form_label('Text: ', 'text'); ?>
-<?php echo form_textarea(array(
-    'id' => 'post_content',
-    'name' => 'text'
-));
-echo form_hidden('creator', $logged_user);
-echo form_hidden('date', $date);
-?>
-<br>
-<?php
-echo form_submit('submit', 'Add new');
-echo form_close();
-?>
+    <?php if ($this->session->flashdata('error_msg')): ?>
+        <div class="row"><div class="alert alert-danger" role="alert"><?php echo $this->session->flashdata('error_msg'); ?></div><!-- /.row -->
+    <?php endif; ?>
 
-<script src="<?php echo base_url() ?>assets/js/tinymce/tinymce.min.js"></script>
-<script src="<?php echo base_url() ?>assets/js/editor.js" type="text/javascript"></script>
+    <div class="row">
+        <?php if ($news): ?>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>New #</th>
+                        <th>Creator</th>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Subject</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($news as $new): ?>
+                    <tr>
+                        <th><?php echo sprintf('#%05d', $new->id); ?></th>
+                        <td><?php echo $new->username; ?></td>
+                        <td><?php echo $new->title; ?></td>
+                        <td><?php echo $new->date; ?></td>
+                        <td><?php echo substr($new->subject, 0, 50); if (strlen($new->subject) > 50) echo '...'; ?></td>
+                        <td><a href="<?php echo base_url("admin/news/edit/{$new->id}") ?>"><i class="btn btn-warning btn-circle fa fa-pencil fa-lg"></i></a> <a href="<?php echo base_url("admin/news/delete/{$new->id}") ?>"><i class="btn btn-danger btn-circle fa fa-trash-o fa-lg"></i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php else: ?>
+        <div class="alert alert-danger" role="alert">No news found!</div>
+        <?php endif; ?>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /#page-wrapper -->

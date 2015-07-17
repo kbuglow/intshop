@@ -24,19 +24,19 @@ class News_model extends CI_Model
     }
     public function add(){
         $data = $this->input->post();
+
         $news = array(
             'title'     => $data['title'],
             'subject'   => $data['subject'],
             'creator'   => $data['creator'],
-            'date'      => $data['date'],
-            'text'      => $this->input->post(FALSE,'text')
+            'text'      => $this->input->post(FALSE, 'text')
         );
 
-        $this->db->insert($this->news_table, $news);
+        return $this->db->insert($this->news_table, $news) ? TRUE : FALSE;
     }
-    public function delete($data)
+    public function delete($new_id)
     {
-        $this->db->delete($this->news_table, $data);
+        $this->db->delete($this->news_table, array('id' => $new_id));
     }
     public function edit()
     {
@@ -47,7 +47,7 @@ class News_model extends CI_Model
             'subject'   => $data['subject'],
             'text'      => $this->input->post(FALSE,'text')
         );
-        $this->db->update($this->news_table, $news, array('id' => $news_id));
-
+        
+        return $this->db->update($this->news_table, $news, array('id' => $news_id)) ? TRUE : FALSE;
     }
 }

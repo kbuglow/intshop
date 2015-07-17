@@ -34,7 +34,7 @@
 					<tr>
 						<th><?php echo sprintf('#%05d', $product->id); ?></th>
 						<td><?php echo $product->name; ?></td>
-						<td><?php echo substr(strip_tags($product->description), 0, 25) . ' ...' ?></td>
+						<td><?php echo substr(strip_tags($product->description), 0, 50); if (strlen($product->description) > 50) echo '...'; ?></td>
 						<td><?php echo $product->price; ?></td>
 						<td><?php echo $product->new_price; ?></td>
 						<td><?php echo $product->in_stock; ?></td>
