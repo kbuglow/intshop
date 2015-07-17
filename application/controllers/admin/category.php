@@ -58,9 +58,10 @@ class Category extends CI_Controller
 
         $data = array(
             'categories' => $categories,
+            'main_content' => 'admin/pages/categories'
         );
 
-        $this->load->view('admin/categories', $data);
+        $this->load->view('admin/main', $data);
     }
 
     function build_tree(&$a)
@@ -75,14 +76,11 @@ class Category extends CI_Controller
                 $name = '<s>' . $obj["name"] . '</s>';
             }
 
-
             $this->tree .= '<li id="list_element-' . $obj["id"] . '" >';
-            $this->tree .= '<a class="cat" id="' . $obj["id"] . '">' . $name . '</a>';
-            $this->tree .= '<span class="options" style="display: none; padding-left: 5px;"><a class="edit_btn" id ="edit-' . $obj["id"] . '" href="#">Edit</a>';
-            $this->tree .= '|';
-            $this->tree .= '<a class="delete_btn" id="delete-' . $obj["id"] . '" href="#">Delete</a>';
-            $this->tree .= '|';
-            $this->tree .= '<a class="add_btn" id="add-' . $obj["id"] . '" href="#">Add</a>';
+            $this->tree .= '<p class="cat" id="' . $obj["id"] . '">' . $name . '</p>';
+            $this->tree .= '<span class="options" style="display: none; padding-left: 5px;"><a><i class="btn btn-warning btn-circle fa fa-pencil fa-lg edit_btn" id="edit-' . $obj["id"] . '"></i></a>';
+            $this->tree .= '<a><i class="btn btn-danger btn-circle fa fa-trash-o fa-lg delete_btn" id="delete-' . $obj["id"] . '"></i></a>';
+            $this->tree .= '<a><i class="btn btn-circle fa fa-lg btn-success fa-plus-circle add_btn" id="add-' . $obj["id"] . '"></i></a>';
             $this->tree .= '<input type="checkbox" name="active" ' . $active . ' value="active" class="active_check" id="active-' . $obj["id"] . '"></span>';
             $this->tree .= "</li>";
             $this->tree .= "<br>";
