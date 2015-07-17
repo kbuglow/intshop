@@ -57,4 +57,5 @@
 </footer>
 <script src="<?php echo base_url('assets/js'); ?>/ShowAddToCardOption.js"></script>
 <script src="<?php echo base_url('assets/js'); ?>/ShowProducts.js"></script>
+<script src="<?php echo base_url('assets/js'); ?>/ProductsInCard.js"></script>
 </html>

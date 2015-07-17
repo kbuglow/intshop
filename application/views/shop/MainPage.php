@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="add-to-card-menu" id="add-to-card-menu1">
+            <div class="add-to-card-menu" id="1">
                 <p>ADD TO CARD</p>
             </div>
 
