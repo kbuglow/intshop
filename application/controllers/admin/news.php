@@ -11,8 +11,6 @@ class News extends CI_Controller
 
     public function index()
     {
-        if (!is_logged_in(1)) redirect('admin/login');
-        
         $data = array(
             'news' => $this->news_model->get_news(),
             'main_content' => 'admin/pages/news'

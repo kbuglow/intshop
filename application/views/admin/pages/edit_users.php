@@ -2,7 +2,9 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Edit User <?php echo $user->username; ?>
+                <?php if ($this->session->userdata('user_id') != $user->id): ?>
                 <a href="<?php echo base_url("admin/users/delete/{$user->id}") ?>" class="btn btn-danger delete">Delete user</a>
+                <?php endif; ?>
             </h1>
         </div>
         <!-- /.col-lg-12 -->

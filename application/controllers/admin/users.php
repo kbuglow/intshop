@@ -12,8 +12,6 @@ class Users extends CI_Controller
 
     public function index()
     {
-        if (!is_logged_in(1)) redirect('admin/login');
-        
         $data = array(
             'users' => $this->users_model->get_all_users(),
             'main_content' => 'admin/pages/users'

@@ -4,14 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin extends CI_Controller {
 
 	public function index() {
-		if (!is_logged_in(1)) redirect('admin/login');
-
 		$this->load->view('admin/main', array('main_content' => 'admin/pages/home'));
 	}
 	
 	public function login() {
-		if (is_logged_in(1)) redirect('admin');
-		
 		$this->load->view('admin/login');
 	}
 
