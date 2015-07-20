@@ -31,6 +31,14 @@
     <div id="logo">
     </div>
 
+    <div id="user">
+        <?php if (is_logged_in()): ?>
+            <p>Hello, <?php echo $user->username; ?> | <a href="logout">Logout</a> <?php if ($user->role == 1) echo '| <a href="admin">Admin panel</a>'; ?></p>
+        <?php else: ?>
+            <a href="<?php echo base_url('login_register') ?>">Login / Register </a>
+        <?php endif; ?>
+    </div>
+
     <div id="product-card">
         <p>0 products</p>
     </div>
@@ -48,7 +56,7 @@
                 <a href="<?php echo base_url();?>" id="home">Startsaite</a>
             </li>
             <li class="navigation-list-items">
-                <a href="#" id="news">Aktuelles</a>
+                <a href="<?php echo base_url('login_register') ?>" id="news">Login</a>
             </li>
             <li class="navigation-list-items">
                 <a href="<?php echo base_url('products_list');?>" id="our-products">Unsere Produkte</a>

@@ -54,6 +54,18 @@
 		</div>
 
 		<div class="form-group">
+			<?php echo form_label('Repeat Password: ', 'password_again', array('class' => 'col-sm-2 control-label')); ?>
+			<div class="col-sm-10">
+				<?php echo form_password(array(
+					'id'          => 'password_again',
+					'name'        => 'password_again',
+					'placeholder' => 'Repeat password',
+					'class' 	  => 'form-control',
+				)); ?>
+			</div>
+		</div>
+
+		<div class="form-group">
 			<?php echo form_label('Email: ', 'email', array('class' => 'col-sm-2 control-label')); ?>
 			<div class="col-sm-10">
 				<?php echo form_input(array(
@@ -70,18 +82,18 @@
 			<?php echo form_label('User Role: ', 'role', array('class' => 'col-sm-2 control-label')); ?>
 			<div class="col-sm-10">
 				<?php
-				$options = array(
-					'Administrator' => 'Administrator',
-					'User' => 'User'
-				);
+					$options = array(
+						0 => 'User',
+						1 => 'Administrator'
+					);
 
-				echo form_dropdown('role', $options, 'class="form-control input-sm"');
+					echo form_dropdown('role', $options, '','class="form-control input-sm"');
 				?>
 			</div>
 		</div>
 
 		<div class="form-group text-center">
-			<?php echo form_submit('add', 'Add User', 'class="btn btn-primary btn-lg"'); ?>
+			<?php echo form_submit('submit', 'Add User', 'class="btn btn-primary btn-lg"'); ?>
 			<?php echo form_close(); ?>
 		</div>  
     </div>

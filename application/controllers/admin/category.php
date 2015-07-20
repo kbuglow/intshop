@@ -52,7 +52,7 @@ class Category extends CI_Controller
     }
 
     public function index()
-    {
+    {        
         $init_cat = $this->mahana_hierarchy->get_grouped_children();
         $categories = $this->build_tree($init_cat);
 

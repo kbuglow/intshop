@@ -27,15 +27,9 @@ class Users_model extends CI_Model
     public function register()
     {
         $data = $this->input->post();
-
-        $new_user = array(
-            'username' => $data['username'],
-            'password' => $data['password'],
-            'email' => $data['email'],
-            'role' => $data['role']
-        );
-
-        $this->db->insert($this->users_table, $new_user);
+        unset($data['submit'], $data['password_again']);
+        
+        return $this->db->insert($this->users_table, $data) ? TRUE : FALSE;
     }
 
     public function delete($data)
