@@ -61,7 +61,7 @@
                 <a href="<?php echo base_url('login_register') ?>" id="news">Login</a>
             </li>
             <li class="navigation-list-items">
-                <a href="<?php echo base_url('products_list');?>" id="our-products">Unsere Produkte</a>
+                <a href="<?php echo base_url('products');?>" id="our-products">Unsere Produkte</a>
             </li>
             <li class="navigation-list-items">
                 <a href="#" id="bio-products">BIO Produkte</a>
