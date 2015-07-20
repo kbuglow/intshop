@@ -62,7 +62,6 @@
                     </div>
 
                     <div class="add-to-card-menu" id="add-to-card-menu-<?php echo $product->id; ?>">
-                        <button class="add-to-card-menu-button">ADD TO CART</button>
                     </div>
 
                 </div>

@@ -27,6 +27,8 @@
 }
 
 .productImage{
+    position: relative;
+    z-index: -20;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 220px 250px;
@@ -55,12 +57,16 @@
 }
 
 .product-information{
+    position: relative;
+    z-index: -20;
     background-color: white;
     width: 220px;
     height: 94px;
 }
 
 .product-name{
+    position: relative;
+    z-index: -20;
     padding-top: 12px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -69,11 +75,15 @@
 }
 
 .product-price{
+    position: relative;
+    z-index: -20;
     text-align: center;
     margin-top: 15px;
 }
 
 .old-price{
+    position: relative;
+    z-index: -20;
     display: inline-block;
     text-decoration: line-through;
     font-family: 'Roboto', sans-serif;
@@ -82,6 +92,9 @@
 }
 
 .new-price{
+
+    position: relative;
+    z-index: -20;
     display: inline-block;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -96,19 +109,9 @@
     height: 40px;
 
     background-color:#404040;
-    background-image: url("../img/add-to-cart-icon.png");
-    background-position: 95% 50%;
+    background-image: url("../img/add-to-card-background.png");
+    background-position: center;
     background-repeat: no-repeat;
-}
-
-.add-to-card-menu button{
-    background: none;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    color: #9dc44e;
-
-    margin-top: 10px;
-    margin-left: 11px;
 }
 
 #product-pages{
