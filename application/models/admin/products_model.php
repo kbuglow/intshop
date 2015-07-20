@@ -18,7 +18,8 @@ class Products_model extends CI_Model
     }
 
     public function get_main_photo($photo_id){
-        return $this->db->get_where($this->photos_table, array('id' => $photo_id))->result_array()[0]['url'];
+
+        return $this->db->get_where($this->photos_table, array('id' => $photo_id))->first_row()->url;
     }
 
     public function products_info($products)

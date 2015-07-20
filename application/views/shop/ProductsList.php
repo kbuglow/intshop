@@ -1,10 +1,10 @@
 ﻿<?php require('HeadAndHeader.php'); ?>
 
-<hr id="header-horizontal-line" />
+<hr id="header-horizontal-line"/>
 <div id="content">
 
     <div id="current-path">
-    <p id="current-path-paragraph">Startsait > Unsere Produkte > All products</p>
+        <p id="current-path-paragraph">Startsait > Unsere Produkte > All products</p>
     </div>
 
     <fieldset>
@@ -15,471 +15,59 @@
 
             <p id="our-products-category-caption">Category:</p>
             <ul id="our-products-categories-list">
-<?php
-foreach($categories as $category):
- ?>
-                <li class="our-products-categories">
-                    <a href="#" id="allProducts"><?php echo $category->name?></a>
+                <?php
+                foreach ($categories as $category):
+                    ?>
+                    <li class="our-products-categories">
+                        <a href="#" id="allProducts"><?php echo $category->name ?></a>
 
-                </li>
-                <?php endforeach;?>
+                    </li>
+                <?php endforeach; ?>
 
             </ul>
 
         </aside>
         <div id="page-with-products">
             <?php
-                foreach($products as $product):
+            foreach ($products as $product):
+                ?>
+                <div class="product-containers" id="product-container<?php echo $product->id; ?>">
+                    <div class="productImage" id="productImage<?php echo $product->id; ?>"
+                         style="background-image: url('<?php echo $product->main_photo ?>'); ">
+                        <?php if($product->price !== $product->new_price):
+                                $discount = ($product->new_price / $product->price) *100;
+                                $discount = round($discount);
+                                $discount = 100 - $discount;
+                            ?>
+                        <div class="product-news" id="product-news<?php echo $product->id; ?>">
+                            <p>-<?php echo $discount; ?>%</p>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="product-information" id="product-information<?php echo $product->id; ?>">
+                        <div class="product-name" id="product-name<?php echo $product->id; ?>">
+                            <p class="name" id="name"><?php echo $product->name ?></p>
+                        </div>
+
+                        <div class="product-price" id="product-price<?php echo $product->id; ?>">
+                            <?php if($product->price !== $product->new_price):?>
+                            <p class="old-price" id="old-price<?php echo $product->id; ?>">EUR <?php echo $product->price ?></p>
+                            <?php endif; ?>
+                            <p class="new-price" id="new-price<?php echo $product->id; ?>">EUR <?php echo $product->new_price ?></p>
+                        </div>
+                    </div>
+
+                    <div class="add-to-card-menu" id="add-to-card-menu<?php echo $product->id; ?>">
+                        <button>ADD TO CART</button>
+                    </div>
+
+                </div>
+                <?php
+            endforeach;
             ?>
-           <div class="product-containers" id="product-container1">
-                <div class="productImage" id="productImage1" style="background-image: url('<?php echo $product->main_photo?>'); ">
-                    <div class="product-news" id="product-news1">
-                        <p>-10%</p>
-                    </div>
-                </div>
 
-                <div class="product-information" id="product-information1">
-                    <div class="product-name" id="product-name1">
-                        <p class="name" id="name"><?php echo $product->name?></p>
-                    </div>
-
-                    <div class="product-price" id="product-price1">
-                        <p class="old-price" id="old-price1">EUR <?php echo $product->price?></p>
-                        <p class="new-price" id="new-price1">EUR <?php echo $product->new_price?></p>
-                    </div>
-                </div>
-
-                <div class="add-to-card-menu" id="add-to-card-menu1">
-                    <button>ADD TO CARD</button>
-                </div>
-
-            </div>
-            <?php
-                endforeach;
-            ?>
-
-
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!---->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--           <div class="product-containers">-->
-<!---->
-<!---->
-<!--                <div class="productImage">-->
-<!--                    <div class="product-news">-->
-<!--                        <p>-10%</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="product-information">-->
-<!---->
-<!--                    <div class="product-name">-->
-<!--                        <p class="name">Product 1</p>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="product-price">-->
-<!--                        <p class="old-price">EUR 15.00</p>-->
-<!--                        <p class="new-price">EUR 12.00</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="add-to-card-menu">-->
-<!--                    <p>ADD TO CARD</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!---->
-<!--        </div>-->
-
-        <div id="product-pages">
+            <div id="product-pages">
 
             </div>
 
