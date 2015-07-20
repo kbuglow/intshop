@@ -1,87 +1,46 @@
-<div id="cart" >
-    <div id = "heading">
-        <h2 align="center">Products on Your Shopping Cart</h2>
-    </div>
 
-    <div id="text">
-        <?php $cart_check = $this->cart->contents();
 
-        // If cart is empty, this will show below message.
-        if(empty($cart_check)) {
-            echo 'To add products to your shopping cart click on "Add to Cart" Button';
-        } ?> </div>
+<?php
+//echo "<pre>";
+//print_r($this->cart->contents());
+//echo "</pre>";
+echo form_open('shopping/update_cart'); ?>
 
-    <table id="table" border="0" cellpadding="5px" cellspacing="1px">
-        <?php
-        // All values of cart store in "$cart".
-        if ($cart = $this->cart->contents()): ?>
-            <tr id= "main_heading">
-                <td>Serial</td>
-                <td>Name</td>
-                <td>Price</td>
-                <td>Qty</td>
-                <td>Amount</td>
-                <td>Cancel Product</td>
-            </tr>
-            <?php
-// Create form and send all values in "shopping/update_cart" function.
-            echo form_open('shopping/update_cart');
-            $grand_total = 0;
-            $i = 1;
+<table cellpadding="6" cellspacing="1" style="width:100%" border="0">
 
-            foreach ($cart as $item):
-// echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
-// Will produce the following output.
-// <input type="hidden" name="cart[1][id]" value="1" />
+    <tr>
+        <th>QTY</th>
+        <th>Item Description</th>
+        <th style="text-align:right">Item Price</th>
+        <th style="text-align:right">Sub-Total</th>
+    </tr>
 
-                echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
-                echo form_hidden('cart[' . $item['id'] . '][rowid]', $item['rowid']);
-                echo form_hidden('cart[' . $item['id'] . '][name]', $item['name']);
-                echo form_hidden('cart[' . $item['id'] . '][price]', $item['price']);
-                echo form_hidden('cart[' . $item['id'] . '][qty]', $item['qty']);
-                ?>
-                <tr>
-                <td>
-                    <?php echo $i++; ?>
-                </td>
-                <td>
-                    <?php echo $item['name']; ?>
-                </td>
-                <td>
-                    $ <?php echo number_format($item['price'], 2); ?>
-                </td>
-                <td>
-                    <?php echo form_input('cart[' . $item['id'] . '][qty]', $item['qty'], 'maxlength="3" size="1" style="text-align: right"'); ?>
-                </td>
-                <?php $grand_total = $grand_total + $item['subtotal']; ?>
-                <td>
-                    $ <?php echo number_format($item['subtotal'], 2) ?>
-                </td>
-                <td>
+    <?php $i = 1; ?>
 
-                    <?php
-                    // cancle image.
-                    $path = "<img src='http://localhost/codeigniter_cart/images/cart_cross.jpg' width='25px' height='20px'>";
-                    echo anchor('shopping/remove/' . $item['rowid'], $path); ?>
-                </td>
-            <?php endforeach; ?>
-            </tr>
-            <tr>
-                <td><b>Order Total: $<?php
+    <?php foreach ($this->cart->contents() as $items): ?>
 
-                        //Grand Total.
-                        echo number_format($grand_total, 2); ?></b></td>
+        <?php echo form_hidden($i.'[rowid]', $items['rowid']); ?>
 
-                <?php // "clear cart" button call javascript confirmation message ?>
-                <td colspan="5" align="right"><input  class ='fg-button teal' type="button" value="Clear Cart" onclick="clear_cart()">
+        <tr>
+            <td><?php echo form_input(array('name' => $i.'[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?></td>
+            <td>
+                <?php echo $items['name']; ?>
+            </td>
+            <td style="text-align:right"><?php echo $this->cart->format_number($items['price']); ?></td>
+            <td style="text-align:right">$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
+        </tr>
 
-                    <?php //submit button. ?>
-                    <input class ='fg-button teal'  type="submit" value="Update Cart">
-                    <?php echo form_close(); ?>
+        <?php $i++; ?>
 
-                    <!-- "Place order button" on click send "billing" controller -->
-                    <input class ='fg-button teal' type="button" value="Place Order" onclick="window.location = 'shopping/billing_view'"></td>
-            </tr>
-        <?php endif; ?>
-    </table>
-</div>
+    <?php endforeach; ?>
+
+    <tr>
+        <td colspan="2"> </td>
+        <td class="right"><strong>Total</strong></td>
+        <td class="right">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+    </tr>
+
+</table>
+
+<p><?php echo form_submit('', 'Update your Cart'); ?></p>
+<a href="<?php echo base_url("shopping/remove/all")?>">Empty cart</a>
