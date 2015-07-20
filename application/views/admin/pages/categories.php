@@ -68,8 +68,7 @@
         $('.delete_btn').each(function () {
             var id = $(this).attr('id');
             var number = id.split("-")[1];
-            $(this).attr("href", "<?php echo base_url('admin/category/delete_category')?>/" + number);
-
+            var link =$(this).attr("href", "<?php echo base_url('admin/category/delete_category')?>/" + number);
 
         });
         $('.add_btn').click(function () {

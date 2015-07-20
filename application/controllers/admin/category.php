@@ -79,7 +79,7 @@ class Category extends CI_Controller
             $this->tree .= '<li id="list_element-' . $obj["id"] . '" >';
             $this->tree .= '<p class="cat" id="' . $obj["id"] . '">' . $name . '</p>';
             $this->tree .= '<span class="options" style="display: none; padding-left: 5px;"><a><i class="btn btn-warning btn-circle fa fa-pencil fa-lg edit_btn" id="edit-' . $obj["id"] . '"></i></a>';
-            $this->tree .= '<a><i class="btn btn-danger btn-circle fa fa-trash-o fa-lg delete_btn" id="delete-' . $obj["id"] . '"></i></a>';
+            $this->tree .= '<a class = "delete_btn" id="delete-' . $obj["id"] . '"><i class="btn btn-danger btn-circle fa fa-trash-o fa-lg" id="delete-' . $obj["id"] . '"></i></a>';
             $this->tree .= '<a><i class="btn btn-circle fa fa-lg btn-success fa-plus-circle add_btn" id="add-' . $obj["id"] . '"></i></a>';
             $this->tree .= '<input type="checkbox" name="active" ' . $active . ' value="active" class="active_check" id="active-' . $obj["id"] . '"></span>';
             $this->tree .= "</li>";

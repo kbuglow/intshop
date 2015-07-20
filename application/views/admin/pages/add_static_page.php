@@ -1,7 +1,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Edit <?php echo $page->title; ?> <a href="<?php echo base_url("admin/static_pages/delete/{$page->id}") ?>" class="btn btn-danger delete">Delete</a></h1>
+            <h1 class="page-header">Add new static page</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -27,7 +27,7 @@
     <?php endif; ?>
 
     <div class="row">
-        <?php echo form_open('admin/static_pages/edit_static', array('class' => 'form-horizontal')); ?>
+        <?php echo form_open('admin/static_pages/add_new', array('class' => 'form-horizontal')); ?>
         <div class="form-group">
             <?php echo form_label('Title: ', 'title', array('class' => 'col-sm-2 control-label')); ?>
             <div class="col-sm-10">
@@ -35,26 +35,25 @@
                     'id'          => 'title',
                     'name'        => 'title',
                     'class'       => 'form-control',
-                    'value'       => $page->title
+                    'value'       => set_value('title')
                 )); ?>
             </div>
         </div>
 
         <div class="form-group">
-            <?php echo form_label('Content ', 'description', array('class' => 'col-sm-2 control-label')); ?>
+            <?php echo form_label('Content', 'description', array('class' => 'col-sm-2 control-label')); ?>
             <div class="col-sm-10">
                 <?php echo form_textarea(array(
                     'id'    => 'description',
                     'name'  => 'content',
                     'class' => 'form-control',
-                    'value' => $page->content
+                    'value' => set_value('text'),
                 )); ?>
             </div>
         </div>
 
         <div class="form-group text-center">
-            <?php echo form_hidden('static_id', $page->id); ?>
-            <?php echo form_submit('submit', 'Edit', 'class="btn btn-primary btn-lg"'); ?>
+            <?php echo form_submit('submit', 'Add New', 'class="btn btn-primary btn-lg"'); ?>
             <?php echo form_close(); ?>
         </div>
     </div>
