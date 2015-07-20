@@ -46,7 +46,7 @@
                                 <td><?php echo ($user->role == 1) ? 'Administrator' : 'User'; ?></td>
                                 <td><a href="<?php echo base_url("admin/users/edit/{$user->id}"); ?>">
                                         <i class="btn btn-warning btn-circle fa fa-pencil fa-lg"></i></a>
-                                        <a <?php if($user->id !== $this->session->userdata('user_id')) echo 'href="' . base_url("admin/users/delete/{$user->id}") . '" class="delete"'; ?>>
+                                        <a <?php if($user->id != $this->session->userdata('user_id')) echo 'href="' . base_url("admin/users/delete/{$user->id}") . '" class="delete"'; ?>>
                                         <i class="btn btn-danger btn-circle fa fa-trash-o fa-lg<?php if($user->id == $this->session->userdata('user_id')) echo ' disabled'; ?>"></i></a></td>
                             </tr>
                         <?php endforeach; ?>
