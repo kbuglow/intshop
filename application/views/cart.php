@@ -20,13 +20,15 @@
                 </tr>
             </thead>
             <tbody>
+            <?php foreach($cart as $item): ?>
                 <tr>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
+                    <td><?php echo "<img src=\"{$item['photo']}\" height=\"100\" width=\"100\">";?></td>
+                    <td><?php echo $item['name'];?></td>
+                    <td><?php echo $item['qty'];?></td>
+                    <td><?php echo $item['price'];?></td>
+                    <td><?php echo "DIVI OPCII";?></td>
                 </tr>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </fieldset>

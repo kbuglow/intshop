@@ -18,7 +18,7 @@ class Shopping extends CI_Controller
             $data['product']->main_photo = $this->products_model->get_main_photo($data['product']->id);
         }
 //send all product data to "shopping_view", which fetch from database.
-        $this->load->view('cart', $data);
+        $this->load->view('shopping_view', $data);
     }
 
     public function show_cart(){
@@ -32,7 +32,8 @@ class Shopping extends CI_Controller
             'id' => $this->input->post(TRUE, 'id'),
             'name' => $this->input->post(TRUE, 'name'),
             'price' => $this->input->post(TRUE, 'price'),
-            'qty' => 1
+            'qty' => 1,
+            'photo' => $this->input->post(TRUE, 'photo')
         );
 
 // This function add items into cart.
