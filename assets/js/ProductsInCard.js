@@ -1,4 +1,4 @@
-var allAddToCardFields = document.getElementsByClassName('add-to-card-menu-button'),
+var allAddToCardFields = document.getElementsByClassName('add-to-card-menu'),
     i,
     len;
 

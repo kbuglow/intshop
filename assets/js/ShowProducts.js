@@ -1,5 +1,4 @@
 var allCategories = document.getElementsByClassName('our-products-categories'),
-    viewBioProductsCategory = document.getElementById('view-bio-products'),
     j,
     length;
 
@@ -9,10 +8,6 @@ for (j = 0, length = allCategories.length; j < length; j += 1) {
         changeStylesOfCategories(event.target);
     });
 }
-
-viewBioProductsCategory.addEventListener('click', function (event) {
-    changeStylesOfCategories(event.target);
-});
 
 function changeStylesOfCategories(target) {
     var i,

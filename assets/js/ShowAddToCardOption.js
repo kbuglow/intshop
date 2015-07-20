@@ -2,67 +2,96 @@ var allProductBoxes = document.getElementsByClassName('product-containers'),
     i,
     len;
 
-for(i=0,len=allProductBoxes.length;i<len;i+=1){
+for (i = 0, len = allProductBoxes.length; i < len; i += 1) {
 
-    allProductBoxes[i].addEventListener('mouseover',function(event){
-        var fullId=event.target.getAttribute('id');
-        var currentId = fullId.slice(fullId.lastIndexOf('-')+1,fullId.length);
-
-        showAddOption(event.target,currentId);
+    allProductBoxes[i].addEventListener('mouseover', function (event) {
+        showAddOption(event.target);
     });
 
-    allProductBoxes[i].addEventListener('mouseout',function(event){
-        var fullId=event.target.getAttribute('id');
-        var currentId = fullId.slice(fullId.lastIndexOf('-')+1,fullId.length);
-
+    allProductBoxes[i].addEventListener('mouseout', function (event) {
         hideAddOption(event.target);
     });
 
 
 }
 
-function showAddOption(target,id){
+function showAddOption(target) {
+    var currentId,
+        fullId;
 
-    var productInformation = document.getElementById('product-information'+id),
-        productName = document.getElementById('product-name'+id),
-        priceBox = document.getElementById('product-price'+id),
-        oldPrice = document.getElementById('old-price'+id),
-        newPrice = document.getElementById('new-price'+id),
-        addMenu = document.getElementById('add-to-card-menu'+id);
+    fullId = target.getAttribute('id');
+    currentId = fullId.slice(fullId.lastIndexOf('-') + 1, fullId.length);
 
-    console.log(id);
-    productInformation.setAttribute('style','height:60px');
+    var productInformation = document.getElementById('product-information-' + currentId),
+        productName = document.getElementById('product-name-' + currentId),
+        priceBox = document.getElementById('product-price-' + currentId),
+        oldPrice = document.getElementById('old-price-' + currentId),
+        newPrice = document.getElementById('new-price-' + currentId),
+        addMenu = document.getElementById('add-to-card-menu-' + currentId);
 
-    productName.setAttribute('style','font-size:18px');
-    productName.setAttribute('style','padding-top:6px');
+    if (productInformation) {
+        productInformation.style.height = '60px';
+    }
 
-    priceBox.setAttribute('style','margin-top:7px');
+    if (productName) {
+        productName.style.fontSize = '18px';
+        productName.style.paddingTop = '6px';
+    }
 
-    oldPrice.setAttribute('style','font-size:14px');
-    newPrice.setAttribute('style','font-size:14px');
+    if (priceBox) {
+        priceBox.style.marginTop = '7px';
+    }
 
-    addMenu.setAttribute('style','top:310px');
+    if (oldPrice) {
+        oldPrice.style.fontSize = '14px';
+    }
+
+    if (newPrice) {
+        newPrice.style.fontSize = '14px';
+    }
+    if (addMenu) {
+        addMenu.style.top = '310px';
+    }
 }
 
-function hideAddOption(target,id){
-    var productInformation = document.getElementById('product-information'+id),
-        productName = document.getElementById('product-name'+id),
-        priceBox = document.getElementById('product-price'+id),
-        oldPrice = document.getElementById('old-price'+id),
-        newPrice = document.getElementById('new-price'+id),
-        addMenu = document.getElementById('add-to-card-menu'+id);
+function hideAddOption( target) {
 
-    productInformation.style.height='94px';
+    var currentId,
+        fullId;
 
-    productName.style.fontSize='22px';
-    productName.style.paddingTop='12px';
+    fullId = target.getAttribute('id');
+    currentId = fullId.slice(fullId.lastIndexOf('-') + 1, fullId.length);
 
-    priceBox.style.marginTop = '15px';
+    var productInformation = document.getElementById('product-information-' + currentId),
+        productName = document.getElementById('product-name-' + currentId),
+        priceBox = document.getElementById('product-price-' + currentId),
+        oldPrice = document.getElementById('old-price-' + currentId),
+        newPrice = document.getElementById('new-price-' + currentId),
+        addMenu = document.getElementById('add-to-card-menu-' + currentId);
 
-    oldPrice.style.fontSize='16px';
-    newPrice.style.fontSize='16px';
+    if (productInformation) {
+        productInformation.style.height = '94px';
+    }
 
-    addMenu.style.top = '344px';
+    if (productName) {
+        productName.style.fontSize = '22px';
+        productName.style.paddingTop = '12px';
+    }
+
+    if (priceBox) {
+        priceBox.style.marginTop = '15px';
+    }
+
+    if (oldPrice) {
+        oldPrice.style.fontSize = '16px';
+    }
+
+    if (newPrice) {
+        newPrice.style.fontSize = '16px';
+    }
+    if (addMenu) {
+        addMenu.style.top = '344px';
+    }
 }
 
 
