@@ -3,7 +3,7 @@ var allAddToCardFields = document.getElementsByClassName('add-to-card-menu'),
     len;
 
 for (i = 0, len = allAddToCardFields.length; i < len; i += 1) {
-    allAddToCardFields[i].getElementsByTagName('button')[0].addEventListener('click',function(event){
+    allAddToCardFields[i].firstElementChild.addEventListener('click',function(event){
         changeProductsNumberInCard(event.target);
     })
 }

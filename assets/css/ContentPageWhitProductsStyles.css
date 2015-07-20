@@ -12,7 +12,7 @@
     position: absolute;
 }
 
-.product-container{
+.product-containers{
     display: inline-block;
     margin-left: 15px;
     margin-top: 29px;
@@ -143,4 +143,16 @@
 
 #numbers-of-pages{
     display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+}
+
+#numbers-of-pages a{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+
+    margin-left: 5px;
 }

@@ -59,4 +59,5 @@
 <script src="<?php echo base_url('assets/js'); ?>/ShowProducts.js"></script>
 <script src="<?php echo base_url('assets/js'); ?>/ProductsInCard.js"></script>
 <script src="<?php echo base_url('assets/js'); ?>/MoveToTop.js"></script>
+<script src="<?php echo base_url('assets/js'); ?>/PaginationOfProducts.js"></script>
 </html>

@@ -38,7 +38,7 @@
 
         <div id="page-with-products">
 
-            <div class="product-container" id="product-container1">
+           <div class="product-containers" id="product-container1">
 
 
                 <div class="productImage" id="productImage1">
@@ -64,34 +64,7 @@
                 </div>
 
             </div>
-
-           <!-- <div class="product-container">
-
-
-                <div class="productImage">
-                    <div class="product-news">
-                        <p>-10%</p>
-                    </div>
-                </div>
-
-                <div class="product-information">
-
-                    <div class="product-name">
-                        <p class="name">Product 1</p>
-                    </div>
-
-                    <div class="product-price">
-                        <p class="old-price">EUR 15.00</p>
-                        <p class="new-price">EUR 12.00</p>
-                    </div>
-                </div>
-
-                <div class="add-to-card-menu">
-                    <p>ADD TO CARD</p>
-                </div>
-
-            </div>
-            <div class="product-container">
+           <div class="product-containers">
 
 
                 <div class="productImage">
@@ -117,7 +90,7 @@
                 </div>
 
             </div>
-            <div class="product-container">
+           <div class="product-containers">
 
 
                 <div class="productImage">
@@ -143,7 +116,7 @@
                 </div>
 
             </div>
-            <div class="product-container">
+           <div class="product-containers">
 
 
                 <div class="productImage">
@@ -169,7 +142,7 @@
                 </div>
 
             </div>
-            <div class="product-container">
+           <div class="product-containers">
 
 
                 <div class="productImage">
@@ -195,7 +168,7 @@
                 </div>
 
             </div>
-            <div class="product-container">
+           <div class="product-containers">
 
 
                 <div class="productImage">
@@ -221,7 +194,7 @@
                 </div>
 
             </div>
-            <div class="product-container">
+           <div class="product-containers">
 
 
                 <div class="productImage">
@@ -247,7 +220,241 @@
                 </div>
 
             </div>
-            <div class="product-container">
+           <div class="product-containers">
+
+
+                <div class="productImage">
+                    <div class="product-news">
+                        <p>-10%</p>
+                    </div>
+                </div>
+
+                <div class="product-information">
+
+                    <div class="product-name">
+                        <p class="name">Product 1</p>
+                    </div>
+
+                    <div class="product-price">
+                        <p class="old-price">EUR 15.00</p>
+                        <p class="new-price">EUR 12.00</p>
+                    </div>
+                </div>
+
+                <div class="add-to-card-menu">
+                    <p>ADD TO CARD</p>
+                </div>
+
+            </div>
+           <div class="product-containers">
+
+
+                <div class="productImage">
+                    <div class="product-news">
+                        <p>-10%</p>
+                    </div>
+                </div>
+
+                <div class="product-information">
+
+                    <div class="product-name">
+                        <p class="name">Product 1</p>
+                    </div>
+
+                    <div class="product-price">
+                        <p class="old-price">EUR 15.00</p>
+                        <p class="new-price">EUR 12.00</p>
+                    </div>
+                </div>
+
+                <div class="add-to-card-menu">
+                    <p>ADD TO CARD</p>
+                </div>
+
+            </div>
+           <div class="product-containers">
+
+
+                <div class="productImage">
+                    <div class="product-news">
+                        <p>-10%</p>
+                    </div>
+                </div>
+
+                <div class="product-information">
+
+                    <div class="product-name">
+                        <p class="name">Product 1</p>
+                    </div>
+
+                    <div class="product-price">
+                        <p class="old-price">EUR 15.00</p>
+                        <p class="new-price">EUR 12.00</p>
+                    </div>
+                </div>
+
+                <div class="add-to-card-menu">
+                    <p>ADD TO CARD</p>
+                </div>
+
+            </div>
+           <div class="product-containers">
+
+
+                <div class="productImage">
+                    <div class="product-news">
+                        <p>-10%</p>
+                    </div>
+                </div>
+
+                <div class="product-information">
+
+                    <div class="product-name">
+                        <p class="name">Product 1</p>
+                    </div>
+
+                    <div class="product-price">
+                        <p class="old-price">EUR 15.00</p>
+                        <p class="new-price">EUR 12.00</p>
+                    </div>
+                </div>
+
+                <div class="add-to-card-menu">
+                    <p>ADD TO CARD</p>
+                </div>
+
+            </div>
+           <div class="product-containers">
+
+
+                <div class="productImage">
+                    <div class="product-news">
+                        <p>-10%</p>
+                    </div>
+                </div>
+
+                <div class="product-information">
+
+                    <div class="product-name">
+                        <p class="name">Product 1</p>
+                    </div>
+
+                    <div class="product-price">
+                        <p class="old-price">EUR 15.00</p>
+                        <p class="new-price">EUR 12.00</p>
+                    </div>
+                </div>
+
+                <div class="add-to-card-menu">
+                    <p>ADD TO CARD</p>
+                </div>
+
+            </div>
+           <div class="product-containers">
+
+
+                <div class="productImage">
+                    <div class="product-news">
+                        <p>-10%</p>
+                    </div>
+                </div>
+
+                <div class="product-information">
+
+                    <div class="product-name">
+                        <p class="name">Product 1</p>
+                    </div>
+
+                    <div class="product-price">
+                        <p class="old-price">EUR 15.00</p>
+                        <p class="new-price">EUR 12.00</p>
+                    </div>
+                </div>
+
+                <div class="add-to-card-menu">
+                    <p>ADD TO CARD</p>
+                </div>
+
+            </div>
+           <div class="product-containers">
+
+
+                <div class="productImage">
+                    <div class="product-news">
+                        <p>-10%</p>
+                    </div>
+                </div>
+
+                <div class="product-information">
+
+                    <div class="product-name">
+                        <p class="name">Product 1</p>
+                    </div>
+
+                    <div class="product-price">
+                        <p class="old-price">EUR 15.00</p>
+                        <p class="new-price">EUR 12.00</p>
+                    </div>
+                </div>
+
+                <div class="add-to-card-menu">
+                    <p>ADD TO CARD</p>
+                </div>
+
+            </div>
+           <div class="product-containers">
+
+
+                <div class="productImage">
+                    <div class="product-news">
+                        <p>-10%</p>
+                    </div>
+                </div>
+
+                <div class="product-information">
+
+                    <div class="product-name">
+                        <p class="name">Product 1</p>
+                    </div>
+
+                    <div class="product-price">
+                        <p class="old-price">EUR 15.00</p>
+                        <p class="new-price">EUR 12.00</p>
+                    </div>
+                </div>
+
+                <div class="add-to-card-menu">
+                    <p>ADD TO CARD</p>
+                </div>
+
+            </div>
+           <div class="product-containers">
+
+
+                <div class="productImage">
+                    <div class="product-news">
+                        <p>-10%</p>
+                    </div>
+                </div>
+
+                <div class="product-information">
+
+                    <div class="product-name">
+                        <p class="name">Product 1</p>
+                    </div>
+
+                    <div class="product-price">
+                        <p class="old-price">EUR 15.00</p>
+                        <p class="new-price">EUR 12.00</p>
+                    </div>
+                </div>
+
+                <div class="add-to-card-menu">
+                    <p>ADD TO CARD</p>
+                </div>
+
+            </div>
+           <div class="product-containers">
 
 
                 <div class="productImage">
@@ -274,14 +481,9 @@
 
             </div>
 
--->
         </div>
 
         <div id="product-pages">
-
-            <a href="#" id="left-arrow"></a>
-            <div id="numbers-of-pages"></div>
-            <a href="#" id="right-arrow"></a>
 
             </div>
 
