@@ -41,7 +41,7 @@
         <?php endif; ?>
     </div>
 
-    <a href="<?php echo base_url('shopping') ?>" id="product-card">
+    <a href="<?php echo base_url('cart') ?>" id="product-card">
         <p>0 products</p>
     </a>
 

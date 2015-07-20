@@ -30,9 +30,10 @@
              'products' => $products
          );
          foreach ($data['products'] as $data['product']) {
-             $data['product']->main_photo = $this->products_model->get_main_photo($data['product']->main_photo);
+             $data['product']->main_photo = $this->products_model->get_main_photo($data['product']->product_id);
          }
          if (is_logged_in()) $data['user'] = $this->Users_model->get_user($this->session->userdata('user_id'));
+
 
          $this->load->view('shop/ProductsList', $data);
      }
@@ -40,9 +41,7 @@
      public function get_category_children($cat_id){
          $this->load->library("mahana_hierarchy");
          $kids = $this->mahana_hierarchy->get_children($cat_id);
-         echo "<pre>";
-         var_dump($kids);
-         echo "</pre>";die;
+
      }
 
      public function get_descendents_name($parent_id)
@@ -54,9 +53,7 @@
          foreach ($kids as $kid) {
              $names[] = $kid['name'];
          }
-         echo "<pre>";
-         var_dump($names);
-         echo "</pre>";die;
+
      }
  }
 ?>

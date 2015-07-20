@@ -1,8 +1,14 @@
 <?php require('shop/HeadAndHeader.php'); ?>
     <hr id="header-horizontal-line"/>
     <div id="content">
+        
+
+
+
+
+
 <?php
-echo form_open('shopping/update_cart'); ?>
+echo form_open('cart/update_cart'); ?>
 
 <table cellpadding="6" cellspacing="1" style="width:100%" border="0">
 
