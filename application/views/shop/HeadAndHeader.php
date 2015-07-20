@@ -35,7 +35,7 @@
 
     <div id="user">
         <?php if (is_logged_in()): ?>
-            <p>Hello, <?php echo $user->username; ?> | <a href="logout">Logout</a> <?php if ($user->role == 1) echo '| <a href="admin">Admin panel</a>'; ?></p>
+            <p>Hello, <?php echo $user->username; ?> | <a href="<?php echo base_url('logout') ?>">Logout</a> <?php if ($user->role == 1) echo '| <a href="' . base_url('admin') . '">Admin panel</a>'; ?></p>
         <?php else: ?>
             <a href="<?php echo base_url('login_register') ?>">Login / Register </a>
         <?php endif; ?>
