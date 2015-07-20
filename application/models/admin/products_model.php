@@ -143,4 +143,14 @@ class Products_model extends CI_Model
         return $this->db->delete($this->photos_table, array('id' => $photo_id)) ? TRUE : FALSE;
     }
 
+    public function get_products_from_category($cat_id){
+        $this->db->select('*');
+        $this->db->from($this->products_table);
+        $this->db->join($this->category_table, 'products_cats.product_id = products.id');
+        $this->db->where('cat_id',$cat_id);
+        return $this->db->get()->result();
+
+
+
+    }
 }

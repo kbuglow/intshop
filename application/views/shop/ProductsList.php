@@ -19,7 +19,8 @@
                 foreach ($categories as $category):
                     ?>
                     <li class="our-products-categories">
-                        <a href="#" id="allProducts"><?php echo $category->name ?></a>
+                        <a href="<?php echo base_url("products/cat") . "/".$category->id; ?>" id="<?php echo $category->name ?>">
+                            <?php echo $category->name ?></a>
 
                     </li>
                 <?php endforeach; ?>
