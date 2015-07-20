@@ -59,3 +59,4 @@ $route['admin/logout'] = 'admin/admin/logout';
 $route['logout'] = 'admin/admin/logout';
 $route['products'] = 'products_list';
 $route['products/cat/(:num)'] = "products_list/get_products_from_category/$1";
+$route['product/(:num)'] = 'product/index/$1';
