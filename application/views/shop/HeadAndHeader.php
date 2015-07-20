@@ -41,9 +41,9 @@
         <?php endif; ?>
     </div>
 
-    <div id="product-card">
+    <a href="<?php echo base_url('shopping') ?>" id="product-card">
         <p>0 products</p>
-    </div>
+    </a>
 
     <div id="languages-bar">
         <a href="<?php echo base_url('home');?>" id="deutsch">DE</a>

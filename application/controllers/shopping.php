@@ -15,10 +15,10 @@ class Shopping extends CI_Controller
 //Get all data from database
         $data['products'] = $this->products_model->all_products();
         foreach ($data['products'] as $data['product']) {
-            $data['product']->main_photo = $this->products_model->get_main_photo($data['product']->main_photo);
+            $data['product']->main_photo = $this->products_model->get_main_photo($data['product']->id);
         }
 //send all product data to "shopping_view", which fetch from database.
-        $this->load->view('shopping_view', $data);
+        $this->load->view('cart', $data);
     }
 
     public function show_cart(){
