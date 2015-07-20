@@ -35,5 +35,26 @@
          $this->load->view('shop/ProductsList', $data);
      }
 
+     public function get_category_children($cat_id){
+         $this->load->library("mahana_hierarchy");
+         $kids = $this->mahana_hierarchy->get_children($cat_id);
+         echo "<pre>";
+         var_dump($kids);
+         echo "</pre>";die;
+     }
+
+     public function get_descendents_name($parent_id)
+     {
+         $this->load->library("mahana_hierarchy");
+
+         $kids = $this->mahana_hierarchy->get_descendents($parent_id);
+
+         foreach ($kids as $kid) {
+             $names[] = $kid['name'];
+         }
+         echo "<pre>";
+         var_dump($names);
+         echo "</pre>";die;
+     }
  }
 ?>
