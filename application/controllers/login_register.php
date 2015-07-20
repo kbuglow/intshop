@@ -3,6 +3,8 @@
 class Login_register extends CI_Controller {
 
 	public function index() {
+		if (is_logged_in()) echo 'already logged in';
+
 		$this->load->view('shop/loginRegister');
 	}
 
