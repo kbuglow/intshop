@@ -125,12 +125,17 @@ class Products_model extends CI_Model
         $this->add_to_cat($categories, $product_id);
     }
 
-    public function delete($product_id)
-    {
+    public function delete($product_id) {
+        foreach ($this->photos_urls($product_id) as $product) unlink('uploads/' . basename($product->url));
         $this->db->delete($this->products_table, array('id' => $product_id));
         $this->db->delete($this->photos_table, array('product_id' => $product_id));
         $this->db->delete($this->category_table, array('product_id' => $product_id));
     }
+
+    private function photos_urls($product_id) {
+        return $this->db->select('url')->from($this->photos_table)->where('product_id', $product_id)->get()->result();
+    }
+
 
     public function delete_photo($photo_id)
     {
