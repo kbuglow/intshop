@@ -18,7 +18,7 @@
                 <?php
                 foreach ($categories as $category):
                     ?>
-                    <li class="our-products-categories">
+                    <li class="our-products-categories" id="<?php echo $category->id ?>">
                         <a href="<?php echo base_url("products/cat") . "/".$category->id; ?>" id="<?php echo $category->name ?>">
                             <?php echo $category->name ?></a>
 

@@ -1,40 +1,18 @@
-var allCategories = document.getElementsByClassName('our-products-categories'),
-    j,
-    length;
-
-for (j = 0, length = allCategories.length; j < length; j += 1) {
-    allCategories[j].setAttribute('id', j);
-    allCategories[j].getElementsByTagName('a')[0].addEventListener('click', function (event) {
-        changeStylesOfCategories(event.target);
-    });
-}
-
-function changeStylesOfCategories(target) {
-    var i,
-        len,
-        currentPath = document.getElementById('current-path-paragraph').innerHTML,
-        newPart = target.innerHTML.toLowerCase();
-
-    document.getElementById('current-path-paragraph').innerHTML = changePathName(currentPath, newPart);
-
-    for (i = 0, len = allCategories.length; i < len; i += 1) {
-        if (allCategories[i].getElementsByTagName('a')[0] === target &&
-            target.getAttribute('id') !== 'view-bio-products') {
-            allCategories[i].setAttribute('title', 'current');
-        }
-        else {
-            allCategories[i].removeAttribute('title');
-        }
-    }
+function changePathName() {
+    var currentPath = document.getElementById('current-path-paragraph').innerHTML,
+        newPart,
+        indexOfCategory,
+        pathParts = currentPath.split(' &gt; ');
 
 
-}
+    indexOfCategory = window.location.href.slice(window.location.href.lastIndexOf('/') + 1, window.location.href.length);
+    console.log(indexOfCategory);
+    document.getElementById(indexOfCategory).setAttribute('title', 'current');
+    newPart = document.getElementById(indexOfCategory).firstElementChild.innerHTML;
 
-function changePathName(oldPath, newPart) {
-    var pathParts = oldPath.split(' &gt; ');
-
-    newPart = newPart[0].toUpperCase() + newPart.slice(1);
     pathParts[pathParts.length - 1] = newPart;
 
-    return pathParts.join(' &gt; ');
+    document.getElementById('current-path-paragraph').innerHTML = pathParts.join(' &gt; ');
 }
+
+window.onload = changePathName;
