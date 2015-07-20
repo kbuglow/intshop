@@ -1,122 +1,140 @@
 <?php
 
-class Products_model extends CI_Model {
+class Products_model extends CI_Model
+{
 
-	private $products_table	= 'products',
-			$photos_table 	= 'photos',
-			$category_table = 'products_cats';
+    private $products_table = 'products',
+        $photos_table = 'photos',
+        $category_table = 'products_cats';
 
-	public function all_products() {
-		return $this->db->get($this->products_table)->result();
-	}
+    public function all_products()
+    {
+        return $this->db->get($this->products_table)->result();
+    }
 
-	public function get_product($product_id) {
-		return $this->db->get_where($this->products_table, array('id' => $product_id))->first_row();
-	}
+    public function get_photos($product_id)
+    {
+        return $this->db->get_where($this->photos_table, array('product_id' => $product_id))->result();
+    }
 
-	public function get_photos($product_id) {
-		return $this->db->get_where($this->photos_table, array('product_id' => $product_id))->result();
-	}
+    public function get_main_photo($photo_id){
+        return $this->db->get_where($this->photos_table, array('id' => $photo_id))->result_array()[0]['url'];
+    }
 
-	public function products_info($products) {
-		$new_products = array();
+    public function products_info($products)
+    {
+        $new_products = array();
 
-		foreach ($products as $product) {
-			$product->name = $this->get_product($product->product_id)->name;
-			array_push($new_products, $product);
-		}
+        foreach ($products as $product) {
+            $product->name = $this->get_product($product->product_id)->name;
+            array_push($new_products, $product);
+        }
 
-		return $new_products;
-	}
+        return $new_products;
+    }
 
-	public function add() {
-		$data = $this->input->post();
-		$categories = $data['categories'];
-		unset($data['categories'], $data['add']);
+    public function get_product($product_id)
+    {
+        return $this->db->get_where($this->products_table, array('id' => $product_id))->first_row();
+    }
 
-		$photos = $this->upload_photo($_FILES['photos']);
-		$this->db->insert($this->products_table, $data);
-		$this->add_to_cat($categories, $id = $this->db->insert_id());
+    public function add()
+    {
+        $data = $this->input->post();
+        $categories = $data['categories'];
+        unset($data['categories'], $data['add']);
 
-		return $this->update_main_photo($id, $this->add_photos_db($photos, $id)) ? TRUE : FALSE;
-	}
+        $photos = $this->upload_photo($_FILES['photos']);
+        $this->db->insert($this->products_table, $data);
+        $this->add_to_cat($categories, $id = $this->db->insert_id());
 
-	private function add_to_cat($categories, $id) {
-		foreach ($categories as $category) {
-			$this->db->insert($this->category_table, array('product_id' => $id, 'cat_id' => $category));
-		}
-	}
+        return $this->update_main_photo($id, $this->add_photos_db($photos, $id)) ? TRUE : FALSE;
+    }
 
-	private function update_main_photo($id, $main_photo) {
-		return $this->db->update($this->products_table, array('main_photo' => $main_photo), array('id' => $id)) ? TRUE : FALSE;
-	}
+    private function upload_photo($files)
+    {
+        $formats = array('image/jpeg', 'image/png', 'images/jpg');
 
-	private function upload_photo($files) {
-		$formats = array('image/jpeg', 'image/png', 'images/jpg');
-		
-		$photos = array();
+        $photos = array();
 
-		foreach ($files['tmp_name'] as $index => $tmp_name) {
-			if (!empty($files['error'][$index]) || !in_array($files['type'][$index], $formats)) return FALSE;
+        foreach ($files['tmp_name'] as $index => $tmp_name) {
+            if (!empty($files['error'][$index]) || !in_array($files['type'][$index], $formats)) return FALSE;
 
-			if (!empty($tmp_name) && is_uploaded_file($tmp_name)) {
-				$this->load->helper('string');
-				$new_name = random_string('unique') . '.' . end((explode('.', $files['name'][$index])));
-			    move_uploaded_file($tmp_name, "./uploads/{$new_name}");
-			    array_push($photos, $new_name);
-			} else return FALSE;
-		}
+            if (!empty($tmp_name) && is_uploaded_file($tmp_name)) {
+                $this->load->helper('string');
+                $new_name = random_string('unique') . '.' . end((explode('.', $files['name'][$index])));
+                move_uploaded_file($tmp_name, "./uploads/{$new_name}");
+                array_push($photos, $new_name);
+            } else return FALSE;
+        }
 
-		return $photos;
-	}
+        return $photos;
+    }
 
-	private function add_photos_db($photos, $product_id) {
-		$i = 0;
-		$id = 0;
+    private function add_to_cat($categories, $id)
+    {
+        foreach ($categories as $category) {
+            $this->db->insert($this->category_table, array('product_id' => $id, 'cat_id' => $category));
+        }
+    }
 
-		foreach ($photos as $photo) {
-			$data = array(
-				'product_id' => $product_id,
-				'url' => base_url('uploads/') . '/' . $photo
-			);
+    private function update_main_photo($id, $main_photo)
+    {
+        return $this->db->update($this->products_table, array('main_photo' => $main_photo), array('id' => $id)) ? TRUE : FALSE;
+    }
 
-			$this->db->insert($this->photos_table, $data);
+    private function add_photos_db($photos, $product_id)
+    {
+        $i = 0;
+        $id = 0;
 
-			if ($i === 0) $id = $this->db->insert_id();
-			$i++;
-		}
+        foreach ($photos as $photo) {
+            $data = array(
+                'product_id' => $product_id,
+                'url' => base_url('uploads/') . '/' . $photo
+            );
 
-		return $id;
-	}
+            $this->db->insert($this->photos_table, $data);
 
-	private function update_categories($categories, $product_id) {
-		$this->db->delete($this->category_table, array('product_id' => $product_id));
-		$this->add_to_cat($categories, $product_id);
-	}
+            if ($i === 0) $id = $this->db->insert_id();
+            $i++;
+        }
 
-	public function edit() {
-		$data       = $this->input->post();
-		$product_id = $data['product_id'];
-		$categories = $data['categories'];
+        return $id;
+    }
 
-		unset($data['submit'], $data['product_id'], $data['categories']);
+    public function edit()
+    {
+        $data = $this->input->post();
+        $product_id = $data['product_id'];
+        $categories = $data['categories'];
 
-		$this->update_categories($categories, $product_id);
+        unset($data['submit'], $data['product_id'], $data['categories']);
 
-		if (!empty($_FILES['photos'])) 
-			$this->add_photos_db($this->upload_photo($_FILES['photos']), $product_id);
+        $this->update_categories($categories, $product_id);
 
-		return $this->db->update($this->products_table, $data, array('id' => $product_id)) ? TRUE : FALSE;
-	}
+        if (!empty($_FILES['photos']))
+            $this->add_photos_db($this->upload_photo($_FILES['photos']), $product_id);
 
-	public function delete($product_id) {
-		$this->db->delete($this->products_table, array('id' => $product_id));
-		$this->db->delete($this->photos_table, array('product_id' => $product_id));
-		$this->db->delete($this->category_table, array('product_id' => $product_id));
-	}
+        return $this->db->update($this->products_table, $data, array('id' => $product_id)) ? TRUE : FALSE;
+    }
 
-	public function delete_photo($photo_id) {
-		return $this->db->delete($this->photos_table, array('id' => $photo_id)) ? TRUE : FALSE;
-	}
+    private function update_categories($categories, $product_id)
+    {
+        $this->db->delete($this->category_table, array('product_id' => $product_id));
+        $this->add_to_cat($categories, $product_id);
+    }
+
+    public function delete($product_id)
+    {
+        $this->db->delete($this->products_table, array('id' => $product_id));
+        $this->db->delete($this->photos_table, array('product_id' => $product_id));
+        $this->db->delete($this->category_table, array('product_id' => $product_id));
+    }
+
+    public function delete_photo($photo_id)
+    {
+        return $this->db->delete($this->photos_table, array('id' => $photo_id)) ? TRUE : FALSE;
+    }
 
 }

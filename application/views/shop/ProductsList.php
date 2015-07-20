@@ -14,20 +14,16 @@
         <aside id="left-menu">
 
             <p id="our-products-category-caption">Category:</p>
-
             <ul id="our-products-categories-list">
-                <li class="our-products-categories" title="current">
-                    <a href="#" id="allProducts">ALL PRODUCTS</a>
+<?php
+foreach($categories as $category):
+ ?>
+                <li class="our-products-categories">
+                    <a href="#" id="allProducts"><?php echo $category->name?></a>
+
                 </li>
-                <li class="our-products-categories" >
-                    <a href="#" id="food">FOOD</a>
-                </li>
-                <li class="our-products-categories" >
-                    <a href="#" id="drugstore">DRUGSTORE</a>
-                </li>
-                <li class="our-products-categories" >
-                    <a href="#" id="drinks">DRINKS</a>
-                </li>
+                <?php endforeach;?>
+
             </ul>
 
             <div id="bio-products-category">
