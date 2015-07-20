@@ -8,7 +8,7 @@ class Admin_model extends CI_Model
         $result = $this->db->get_where('users', array(
             'username' => $this->input->post(TRUE, 'username'),
             'password' => $this->input->post(TRUE, 'password'),
-            'role' => 'Administrator'
+            'role' => 1
         ));
 
         if ($result->num_rows() === 1) {

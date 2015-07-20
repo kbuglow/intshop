@@ -1,4 +1,4 @@
-﻿<?php require('HeadAndHeader.php')?>
+﻿<?php require('HeadAndHeader.php'); ?>
 
 <hr id="header-horizontal-line" />
 <div id="content">
@@ -292,4 +292,4 @@
 
 </div>
 
-<?php require('Footer.php')?>
+<?php require('Footer.php'); ?>

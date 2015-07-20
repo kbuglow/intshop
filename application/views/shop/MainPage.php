@@ -1,4 +1,4 @@
-<?php require('HeadAndHeader.php')?>
+<?php require('HeadAndHeader.php'); ?>
 <div id="slider">
         <div id="pagination">
             <a href="#" id="previous">PREV</a>
@@ -45,4 +45,4 @@
         </div>
     </fieldset>
 </div>
-<?php require('Footer.php')?>
+<?php require('Footer.php'); ?>
