@@ -31,6 +31,14 @@
     <div id="logo">
     </div>
 
+    <div id="user">
+        <?php if (is_logged_in()): ?>
+            <p>Hello, <?php echo $user->username; ?> | <a href="logout">Logout</a> <?php if ($user->role == 1) echo '| <a href="admin">Admin panel</a>'; ?></p>
+        <?php else: ?>
+            <a href="<?php echo base_url('login_register') ?>">Login / Register </a>
+        <?php endif; ?>
+    </div>
+
     <div id="product-card">
         <p>3 products</p>
     </div>

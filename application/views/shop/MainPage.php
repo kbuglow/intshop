@@ -1,4 +1,4 @@
-<?php require('HeadAndHeader.php'); ?>
+<?php require_once('HeadAndHeader.php'); ?>
 <div id="slider">
         <div id="pagination">
             <a href="#" id="previous">PREV</a>

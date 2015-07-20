@@ -16,11 +16,10 @@ class Admin_model extends CI_Model
 
         if ($result->num_rows() === 1) {
             $userdata = array(
-                'user_id' => $result->first_row()->id, 
+                'user_id' => (int)$result->first_row()->id, 
                 'logged_in' => true,
+                'role' => (int)$result->first_row()->role
             );
-
-            $userdata['role'] = ($role === 1) ? 1 : 0;
 
             $this->session->set_userdata($userdata);
             return TRUE;
