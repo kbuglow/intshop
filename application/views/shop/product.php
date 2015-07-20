@@ -16,6 +16,9 @@
                     <img src="<?php echo $main_photo; ?>" alt="" class="main-photo" />
                 </div>
                 <ul>
+                    <?php foreach($photos as $photo): ?>
+                    <li><?php echo "<img src=\"{$photo->url}\" alt=\"\" class=\"mini-photo\" />"; ?>
+                    <?php endforeach; ?>
                 </ul>
             </div>
 
@@ -25,7 +28,8 @@
                 <h3 class="price old-price" id="old-price-<?php echo $product->id; ?>">EUR <?php echo $product->price ?></h3>
                 <?php endif; ?>
                 <h3 class="price new-price" id="new-price-<?php echo $product->id; ?>">EUR <?php echo $product->new_price ?></h3>
-                <p class="description"><?php echo $product->description; ?></p>
+                <div class="description"><p><?php echo $product->description; ?></p></div>
+                
             </div>
         </div>
     </fieldset>

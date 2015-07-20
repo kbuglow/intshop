@@ -105,7 +105,7 @@ class Products_model extends CI_Model
 
     public function edit()
     {
-        $data = $this->input->post();
+        $data = $this->input->post(FALSE);
         $product_id = $data['product_id'];
         $categories = $data['categories'];
 

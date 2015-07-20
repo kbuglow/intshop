@@ -7,7 +7,8 @@ class Product extends CI_Controller {
 
 		$data = array(
 			'product' => $this->Products_model->get_product($product_id),
-			'main_photo' => $this->Products_model->get_main_photo($product_id)
+			'main_photo' => $this->Products_model->get_main_photo($product_id),
+			'photos' => $this->Products_model->get_photos($product_id)
 		);
 
 		if (is_logged_in()) $data['user'] = $this->Users_model->get_user($this->session->userdata('user_id'));
