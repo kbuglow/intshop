@@ -93,7 +93,7 @@
 		</div>
 
 		<div class="form-group text-center">
-			<?php echo form_submit('add', 'Add User', 'class="btn btn-primary btn-lg"'); ?>
+			<?php echo form_submit('submit', 'Add User', 'class="btn btn-primary btn-lg"'); ?>
 			<?php echo form_close(); ?>
 		</div>  
     </div>

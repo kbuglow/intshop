@@ -11,6 +11,8 @@ class Static_pages extends CI_Controller
 
     public function index()
     {
+        if (!is_logged_in(1)) redirect('admin/login');
+        
         $pages = $this->static_pages_model->get_static_pages();
         $data = array(
             'pages' => $pages,

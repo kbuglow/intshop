@@ -9,6 +9,8 @@ class Orders extends CI_Controller {
 	}
 
 	public function index() {
+		if (!is_logged_in(1)) redirect('admin/login');
+		
 		$data = array(
 			'orders'       => $this->Orders_model->all_orders(),
 			'main_content' => 'admin/pages/orders'

@@ -8,6 +8,15 @@
             margin: 5px 0;
         }
     </style>
+
+    <?php if ($this->session->flashdata('success_msg')): ?>
+        <?php echo $this->session->flashdata('success_msg'); ?>
+    <?php endif; ?>
+
+    <?php if ($this->session->flashdata('error_msg')): ?>
+        <?php echo $this->session->flashdata('error_msg'); ?>
+    <?php endif; ?>
+
     <?php echo form_open('login_register/register'); ?>
         <?php echo form_input(array(
             'name' => 'username',
@@ -30,6 +39,22 @@
         )); ?>
 
         <?php echo form_submit('submit', 'Register'); ?>
+    <?php echo form_close(); ?>
+
+    <hr />
+
+    <?php echo form_open('login_register/login'); ?>
+        <?php echo form_input(array(
+            'name' => 'username',
+            'placeholder' => 'Username'
+        )); ?>
+        
+        <?php echo form_password(array(
+            'name' => 'password',
+            'placeholder' => 'Password'
+        )); ?>
+
+        <?php echo form_submit('login', 'Sign In'); ?>
     <?php echo form_close(); ?>
 
 </div>

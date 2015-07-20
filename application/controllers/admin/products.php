@@ -9,6 +9,8 @@ class Products extends CI_Controller {
 	}
 
 	public function index() {
+		if (!is_logged_in(1)) redirect('admin/login');
+		
 		$data = array(
 			'products' => $this->Products_model->all_products(),
 			'main_content' => 'admin/pages/products'

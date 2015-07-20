@@ -114,13 +114,21 @@ $content = array(
 
 $config = array(
     'admin/orders/edit_submit'        => array($client_name, $phone, $email, $status),
+
     'admin/admin/login_submit'        => array($username_login, $password),
+    'login_register/login'            => array($username_login, $password),
+
     'admin/products/add_submit'       => array($name, $description, $price, $new_price, $in_stock),
-    'admin/users/add_new'             => array($username, $password, $password_again, $email),
     'admin/products/edit_submit'      => array($name, $description, $price, $new_price, $in_stock, $main_photo),
+    
+    'admin/users/add_new'             => array($username, $password, $password_again, $email),
+    'login_register/register'         => array($username, $password, $password_again, $email),
+    
     'admin/users/edit_user'           => array($username, $email),
+    
     'admin/news/edit_submit'          => array($subject, $title, $text),
     'admin/news/add_submit'           => array($subject, $title, $text),
+    
     'admin/static_pages/edit_static'  => array($title , $content),
     'admin/static_pages/add_new'      => array($title , $content)
 );

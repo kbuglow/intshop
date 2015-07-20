@@ -53,6 +53,8 @@ class Category extends CI_Controller
 
     public function index()
     {
+        if (!is_logged_in(1)) redirect('admin/login');
+        
         $init_cat = $this->mahana_hierarchy->get_grouped_children();
         $categories = $this->build_tree($init_cat);
 
