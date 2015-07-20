@@ -14,17 +14,28 @@ class Static_pages extends CI_Controller
         $pages = $this->static_pages_model->get_static_pages();
         $data = array(
             'pages' => $pages,
+            'main_content' => 'admin/pages/static_pages'
         );
 
-        $this->load->view('admin/static_pages', $data);
+        $this->load->view('admin/main', $data);
+    }
+
+    public function add()
+    {
+        $data = array(
+            'main_content' => 'admin/pages/add_static_page'
+        );
+
+        $this->load->view('admin/main', $data);
     }
 
     public function edit($static_id)
     {
         $data = array(
-            'page' => $this->static_pages_model->get_single_page($static_id)
+            'page' => $this->static_pages_model->get_single_page($static_id),
+            'main_content' => 'admin/pages/edit_static'
         );
-        $this->load->view('admin/edit_static', $data);
+        $this->load->view('admin/main', $data);
     }
 
     public function edit_static()

@@ -60,3 +60,8 @@ $(function () {
             .siblings('.img-radio').css('opacity','1');
     });
 });
+
+// Alert before delete
+$('.delete').on('click', function() {
+    return confirm('Are you sure?');
+});

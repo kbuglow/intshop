@@ -1,36 +1,63 @@
-<h1>Page #<?php echo $page->id; ?></h1>
-<a href="<?php echo base_url('admin/static_pages'); ?>">Back to static pages</a>
-<hr>
-<?php if ($this->session->flashdata('success_msg')): ?>
-    <p style="background: green; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('success_msg'); ?></p>
-<?php endif; ?>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Edit <?php echo $page->title; ?> <a href="<?php echo base_url("admin/static_pages/delete/{$page->id}") ?>" class="btn btn-danger delete">Delete</a></h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
 
-<?php if ($this->session->flashdata('error_msg')): ?>
-    <div style="background: red; border-radius: 5px; color: #FFF; padding: 10px 5px; width: 100%;"><?php echo $this->session->flashdata('error_msg'); ?></div>
-<?php endif; ?>
-<?php
-echo form_open('admin/static_pages/edit_static');
-echo form_label('Title', 'title');
-echo form_input(array(
-    'id'    => 'title',
-    'name'  => 'title',
-    'value' => $page->title
-)); ?>
-<br />
+    <?php if ($this->session->flashdata('success_msg')): ?>
+        <div class="row">
+            <div class="alert alert-success" role="alert">
+                <i class="fa fa-check-square"></i>
+                <?php echo $this->session->flashdata('success_msg'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div><!-- /.row -->
+    <?php endif; ?>
 
-<?php echo form_label('Content: ', 'content'); ?>
-<?php echo form_textarea(array(
-    'id'    => 'post_content',
-    'name'  => 'content',
-    'value' => $page->content
-));
-echo form_hidden('static_id', $page->id);
-?>
-<br>
-<?php
-echo form_submit('submit', 'Edit');
-echo form_close();
-?>
+    <?php if ($this->session->flashdata('error_msg')): ?>
+        <div class="row">
+            <div class="alert alert-danger" role="alert">
+                <i class="fa fa-times"></i>
+                <?php echo $this->session->flashdata('error_msg'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div><!-- /.row -->
+    <?php endif; ?>
 
-<script src="<?php echo base_url()?>assets/js/tinymce/tinymce.min.js"></script>
-<script src="<?php echo base_url()?>assets/js/editor.js" type="text/javascript"></script>
+    <div class="row">
+        <?php echo form_open('admin/static_pages/edit_static', array('class' => 'form-horizontal')); ?>
+        <div class="form-group">
+            <?php echo form_label('Title: ', 'title', array('class' => 'col-sm-2 control-label')); ?>
+            <div class="col-sm-10">
+                <?php echo form_input(array(
+                    'id'          => 'title',
+                    'name'        => 'title',
+                    'class'       => 'form-control',
+                    'value'       => $page->title
+                )); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <?php echo form_label('Content ', 'description', array('class' => 'col-sm-2 control-label')); ?>
+            <div class="col-sm-10">
+                <?php echo form_textarea(array(
+                    'id'    => 'description',
+                    'name'  => 'content',
+                    'class' => 'form-control',
+                    'value' => $page->content
+                )); ?>
+            </div>
+        </div>
+
+        <div class="form-group text-center">
+            <?php echo form_hidden('static_id', $page->id); ?>
+            <?php echo form_submit('submit', 'Edit', 'class="btn btn-primary btn-lg"'); ?>
+            <?php echo form_close(); ?>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /#page-wrapper -->

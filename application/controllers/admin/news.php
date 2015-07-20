@@ -34,7 +34,7 @@ class News extends CI_Controller
             $this->news_model->edit()
                 ? $this->session->set_flashdata('success_msg', 'New has been edited successfully!')
                 : $this->session->set_flashdata('error_msg', 'There was a problem while editing!');
-        } else $this->session->set_flashdata('error_msg', validation_errors());
+        } else $this->session->set_flashdata('error_msg', validation_errors('<span>', '</span>'));
         
         redirect("admin/news/edit/{$this->input->post(TRUE, 'news_id')}");
     }
