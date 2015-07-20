@@ -29,7 +29,7 @@
                 <?php endif; ?>
                 <h3 class="price new-price" id="new-price-<?php echo $product->id; ?>">EUR <?php echo $product->new_price ?></h3>
                 <div class="description"><p><?php echo $product->description; ?></p></div>
-                
+
             </div>
         </div>
     </fieldset>
