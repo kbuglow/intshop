@@ -1,9 +1,11 @@
-var allAddToCardFields = document.getElementsByClassName('add-to-card-menu'),
+var allAddToCardFields = document.getElementsByClassName('add-to-card-menu-button'),
     i,
     len;
 
+
+
 for (i = 0, len = allAddToCardFields.length; i < len; i += 1) {
-    allAddToCardFields[i].firstElementChild.addEventListener('click',function(event){
+    allAddToCardFields[i].addEventListener('click',function(event){
         changeProductsNumberInCard(event.target);
     })
 }

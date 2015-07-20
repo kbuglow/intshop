@@ -1,4 +1,4 @@
-﻿<?php require('HeadAndHeader.php'); ?>
+﻿﻿<?php require('HeadAndHeader.php'); ?>
 
 <hr id="header-horizontal-line"/>
 <div id="content">
@@ -32,7 +32,7 @@
             <?php
             foreach ($products as $product):
                 ?>
-                <div class="product-containers" id="product-container<?php echo $product->id; ?>">
+                <div class="product-containers" id="product-container-<?php echo $product->id; ?>">
                     <div class="productImage" id="productImage<?php echo $product->id; ?>"
                          style="background-image: url('<?php echo $product->main_photo ?>'); ">
                         <?php if($product->price !== $product->new_price):
@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="add-to-card-menu" id="add-to-card-menu<?php echo $product->id; ?>">
-                        <button>ADD TO CART</button>
+                        <button class="add-to-card-menu-button">ADD TO CART</button>
                     </div>
 
                 </div>

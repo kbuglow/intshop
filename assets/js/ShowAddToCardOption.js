@@ -1,33 +1,56 @@
-var productBox = document.getElementById('product-container1');
+var allProductBoxes = document.getElementsByClassName('product-containers'),
+    i,
+    len;
 
-function showAddOption(){
-    var productInformation = document.getElementById('product-information1'),
-        productName = document.getElementById('product-name1'),
-        priceBox = document.getElementById('product-price1'),
-        oldPrice = document.getElementById('old-price1'),
-        newPrice = document.getElementById('new-price1'),
-        addMenu = document.getElementById('add-to-card-menu1');
+for(i=0,len=allProductBoxes.length;i<len;i+=1){
 
-    productInformation.style.height='60px';
+    allProductBoxes[i].addEventListener('mouseover',function(event){
+        var fullId=event.target.getAttribute('id');
+        var currentId = fullId.slice(fullId.lastIndexOf('-')+1,fullId.length);
 
-    productName.style.fontSize='18px';
-    productName.style.paddingTop='6px';
+        showAddOption(event.target,currentId);
+    });
 
-    priceBox.style.marginTop = '7px';
+    allProductBoxes[i].addEventListener('mouseout',function(event){
+        var fullId=event.target.getAttribute('id');
+        var currentId = fullId.slice(fullId.lastIndexOf('-')+1,fullId.length);
 
-    oldPrice.style.fontSize='14px';
-    newPrice.style.fontSize='14px';
+        hideAddOption(event.target);
+    });
 
-    addMenu.style.top = '310px';
+
 }
 
-function hideAddOption(){
-    var productInformation = document.getElementById('product-information1'),
-        productName = document.getElementById('product-name1'),
-        priceBox = document.getElementById('product-price1'),
-        oldPrice = document.getElementById('old-price1'),
-        newPrice = document.getElementById('new-price1'),
-        addMenu = document.getElementById('add-to-card-menu1');
+function showAddOption(target,id){
+
+    var productInformation = document.getElementById('product-information'+id),
+        productName = document.getElementById('product-name'+id),
+        priceBox = document.getElementById('product-price'+id),
+        oldPrice = document.getElementById('old-price'+id),
+        newPrice = document.getElementById('new-price'+id),
+        addMenu = document.getElementById('add-to-card-menu'+id);
+
+    console.log(id);
+    productInformation.setAttribute('style','height:60px');
+
+    productName.setAttribute('style','font-size:18px');
+    productName.setAttribute('style','padding-top:6px');
+
+    priceBox.setAttribute('style','margin-top:7px');
+
+    oldPrice.setAttribute('style','font-size:14px');
+    newPrice.setAttribute('style','font-size:14px');
+
+    addMenu.setAttribute('style','top:310px');
+}
+
+function hideAddOption(target,id){
+    var productInformation = document.getElementById('product-information'+id),
+        productName = document.getElementById('product-name'+id),
+        priceBox = document.getElementById('product-price'+id),
+        oldPrice = document.getElementById('old-price'+id),
+        newPrice = document.getElementById('new-price'+id),
+        addMenu = document.getElementById('add-to-card-menu'+id);
 
     productInformation.style.height='94px';
 
@@ -41,10 +64,6 @@ function hideAddOption(){
 
     addMenu.style.top = '344px';
 }
-
-productBox.addEventListener('mouseout',hideAddOption);
-
-productBox.addEventListener('mouseover',showAddOption);
 
 
 

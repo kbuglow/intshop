@@ -20,7 +20,6 @@
     <link href="<?php echo base_url('assets/css'); ?>/SliderStyles.css" rel="stylesheet" />
     <link href="<?php echo base_url('assets/css'); ?>/MainInformationStyles.css" rel="stylesheet" />
     <link href="<?php echo base_url('assets/css'); ?>/MainPageProductsContainerStyles.css" rel="stylesheet" />
-    <link href="<?php echo base_url('assets/css'); ?>/ProductBox.css" rel="stylesheet" />
 
     <link href="<?php echo base_url('assets/css'); ?>/FooterStyle.css" rel="stylesheet" />
 

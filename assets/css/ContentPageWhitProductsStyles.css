@@ -27,7 +27,9 @@
 }
 
 .productImage{
-    background-color:blue;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 220px 250px;
     width: 220px;
     height: 250px;
 }
