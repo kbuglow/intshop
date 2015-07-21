@@ -30,7 +30,7 @@ input[type="submit"] {
     background-color: #9dc44e;
     border: 1px solid #999999;
     border-radius: 5px;
-    margin-top: 1px;
+    margin-top: 2px;
 }
 
 .cart-buttons a {
@@ -38,4 +38,5 @@ input[type="submit"] {
     margin-left: 25%;
     font-size: 14px;
     color: black;
+    font-family: Arial;
 }
