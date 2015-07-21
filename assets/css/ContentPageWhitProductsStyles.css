@@ -165,3 +165,20 @@
 
     margin-left: 5px;
 }
+
+.box {
+    padding: 20px 30px;
+}
+
+.left {
+    float: left;
+    width: 19%;
+}
+
+.right {
+    float: right;
+    width: 81%;
+}
+
+.addresses th {width: 200px; padding: 10px 0; border: 1px solid #000;}
+.addresses td {text-align: center; border: 1px solid #000;}
