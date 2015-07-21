@@ -111,7 +111,6 @@
 
 .add-to-card-menu {
     position: absolute;
-    z-index: -1;
     top: 344px;
     width: 220px;
     height: 40px;

@@ -12,6 +12,7 @@
     <link href="<?php echo base_url('assets/css'); ?>/HeaderLogoStyles.css" rel="stylesheet" />
     <link href="<?php echo base_url('assets/css'); ?>/HeaderNavigationStyles.css" rel="stylesheet" />
     <link href="<?php echo base_url('assets/css'); ?>/HeaderStyles.css" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/css'); ?>/LogInHeaderStyles.css" rel="stylesheet" />
 
     <link href="<?php echo base_url('assets/css'); ?>/ContentStyles.css" rel="stylesheet" />
     <link href="<?php echo base_url('assets/css'); ?>/ContentFieldsetStyles.css" rel="stylesheet" />
@@ -38,7 +39,9 @@
         <?php if (is_logged_in()): ?>
             <p>Hello, <?php echo $user->username; ?> | <a href="<?php echo base_url('logout') ?>">Logout</a> <?php if ($user->role == 1) echo '| <a href="' . base_url('admin') . '">Admin panel</a>'; ?></p>
         <?php else: ?>
-            <a href="<?php echo base_url('login_register') ?>">Login / Register </a>
+            <div id="log-in-container">
+            <a href="<?php echo base_url('login_register') ?>" id="log-in">Login / Register </a>
+            </div>
         <?php endif; ?>
     </div>
 
@@ -59,22 +62,7 @@
                 <a href="<?php echo base_url();?>" id="home">Startsaite</a>
             </li>
             <li class="navigation-list-items">
-                <a href="<?php echo base_url('login_register') ?>" id="news">Login</a>
-            </li>
-            <li class="navigation-list-items">
                 <a href="<?php echo base_url('products');?>" id="our-products">Unsere Produkte</a>
-            </li>
-            <li class="navigation-list-items">
-                <a href="#" id="bio-products">BIO Produkte</a>
-            </li>
-            <li class="navigation-list-items">
-                <a href="#" id="partner">Partner</a>
-            </li>
-            <li class="navigation-list-items">
-                <a href="#" id="about-us">Uber uns</a>
-            </li>
-            <li class="navigation-list-items">
-                <a href="#" id="contact">Kontakt</a>
             </li>
         </ul>
 

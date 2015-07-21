@@ -2,9 +2,9 @@
 
 #navigation{
     display:inline-block;
-    position:absolute;
-    padding-left: 170px;
-    top: 42px;
+    position: absolute;
+    margin: auto auto;
+
 }
 
 #navigation a{
