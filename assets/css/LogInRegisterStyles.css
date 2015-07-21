@@ -1,4 +1,4 @@
-input{
+input {
     font-size: 14px;
     width: 150px;
     height: 20px;
@@ -9,20 +9,20 @@ input{
     margin-bottom: 5px;
 }
 
-input[type="submit"]{
+input[type="submit"] {
     background-color: #9dc44e;
     display: inline-block;
 }
 
-#log-in-hr{
+#log-in-hr {
     margin-bottom: 5px;
 }
 
-#log-in-h1{
+#log-in-h1 {
     font-size: 30px;
 }
 
-.cart-buttons{
+.cart-buttons {
 
     width: 150px;
     height: 18px;
@@ -33,7 +33,7 @@ input[type="submit"]{
     margin-top: 1px;
 }
 
-.cart-buttons a{
+.cart-buttons a {
     text-decoration: none;
     margin-left: 25%;
     font-size: 14px;
