@@ -33,7 +33,7 @@
     margin-left: 0px;
 }
 
-#navigation li:hover{
+#navigation li[title='leaf']{
     background-image: url("../img/navigation-leaf.png");
     background-repeat: no-repeat;
     background-position: 50% 0%;

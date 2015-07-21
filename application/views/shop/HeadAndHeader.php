@@ -61,14 +61,14 @@
     <nav id="navigation">
 
         <ul id="navigation-list">
-            <li class="navigation-list-items">
-                <a href="<?php echo base_url(); ?>" id="home">Startsaite</a>
+            <li class="navigation-list-items" id="home">
+                <a href="<?php echo base_url(); ?>" >Startsaite</a>
             </li>
-            <li class="navigation-list-items">
-                <a href="<?php echo base_url('products'); ?>" id="our-products">Unsere Produkte</a>
+            <li class="navigation-list-items" id="products">
+                <a href="<?php echo base_url('products'); ?>" >Unsere Produkte</a>
             </li>
-            <li class="navigation-list-items">
-                <a href="<?php echo base_url('news_home'); ?>" id="our-products">News</a>
+            <li class="navigation-list-items" id="news_home">
+                <a href="<?php echo base_url('news_home'); ?>" >News</a>
             </li>
         </ul>
 
