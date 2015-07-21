@@ -94,5 +94,9 @@ function hideAddOption( target) {
     }
 }
 
+function goToProductInformation(target){
+
+}
+
 
 

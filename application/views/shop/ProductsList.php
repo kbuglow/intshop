@@ -33,7 +33,7 @@
             foreach ($products as $product):
                 ?>
                 <div class="product-containers" id="product-container-<?php echo $product->id; ?>">
-                    <a href="<?php echo base_url("product/{$product->id}") ?>">
+                    <a href="<?php echo base_url("product/{$product->id}") ?>" id="product-information-<?php echo $product->id; ?>">
                         <div class="productImage" id="productImage-<?php echo $product->id; ?>"
                              style="background-image: url('<?php echo $product->main_photo ?>'); ">
                             <?php if($product->price !== $product->new_price):
