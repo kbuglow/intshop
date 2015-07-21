@@ -14,10 +14,6 @@ echo form_hidden('id', $product->id);
 echo form_hidden('name',  $product->name);
 echo form_hidden('price', $product->price);
 echo form_hidden('photo', $product->main_photo);
-?>
-
-<div id='add_button'>
-    <?php
     $btn = array(
         'class' => 'fg-button teal',
         'value' => 'Add to Cart',
@@ -29,4 +25,3 @@ echo form_hidden('photo', $product->main_photo);
     echo form_close();
     }
     ?>
-</div>

@@ -10,6 +10,6 @@ for (i = 0, len = allAddToCardFields.length; i < len; i += 1) {
     })
 }
 
-function goToCard(){
-    window.location.href = 'http://localhost/intshop/cart';
+function goToCard(target){
+    target.parentNode.submit();
 }
