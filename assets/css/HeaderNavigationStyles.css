@@ -3,7 +3,8 @@
 #navigation{
     display:inline-block;
     position: absolute;
-    margin: auto auto;
+    left: 50%;
+    top: 40%;
 
 }
 
