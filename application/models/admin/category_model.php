@@ -63,8 +63,7 @@ class Category_model extends CI_Model
     private function array_categories(&$parent, &$cats)
     {
         foreach ($parent as $item) {
-            $id = count(explode('-', $item['lineage']));
-            $cats[$item['id']] = str_repeat("&nbsp;&nbsp;&nbsp;&nbsp;", $id) . $item['name'];
+            $cats[$item['id']] = str_repeat("&nbsp;&nbsp;&nbsp;&nbsp;", $item['deep']) . $item['name'];
             if (!empty($item['children']))
                 $this->array_categories($item['children'], $cats);
         }
