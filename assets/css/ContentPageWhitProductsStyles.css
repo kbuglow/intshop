@@ -35,7 +35,6 @@
 
 .product-news {
     position: relative;
-    z-index: -1;
     width: 114px;
     height: 114px;
     float: right;
