@@ -30,7 +30,7 @@
              'products' => $products
          );
          foreach ($data['products'] as $data['product']) {
-             $data['product']->main_photo = $this->products_model->get_main_photo($data['product']->product_id);
+             $data['product']->main_photo = $this->products_model->get_main_photo($data['product']->id);
          }
          if (is_logged_in()) $data['user'] = $this->Users_model->get_user($this->session->userdata('user_id'));
 

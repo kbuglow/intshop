@@ -9,7 +9,7 @@ class Users_model extends CI_Model {
     }
 
     public function get_user($user_id) {
-        return $this->db->select('id, username, email, role')->get($this->users_table)->first_row();
+        return $this->db->select('id, username, email, role')->where('id', $user_id)->get($this->users_table)->first_row();
     }
 
     public function edit() {

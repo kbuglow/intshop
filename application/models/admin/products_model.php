@@ -143,11 +143,14 @@ class Products_model extends CI_Model
     }
 
     public function get_products_from_category($cat_id){
-        $this->db->select('*');
-        $this->db->from($this->products_table);
-        $this->db->join($this->category_table, 'products_cats.product_id = products.id');
-        $this->db->where('cat_id',$cat_id);
-        return $this->db->get()->result();
+        // $this->db->select('*');
+        // $this->db->from($this->products_table);
+        // $this->db->join($this->category_table, 'products_cats.product_id = products.id');
+        // $this->db->where('cat_id',$cat_id);
+        // return $this->db->get()->result();
+
+        // $test = $this->db->select('product_id')->where('cat_id', $cat_id)->get($this->category_table)->result();
+        return $this->db->select('product_id as id, name, price, new_price, main_photo')->from($this->products_table)->join($this->category_table, "{$this->category_table}.product_id = {$this->products_table}.id")->where('cat_id', $cat_id)->get()->result();
     }
     public function get_products_for_main_page(){
         $this->db->select('*');
