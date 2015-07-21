@@ -13,13 +13,17 @@ h2{
     color: #404040;
 }
 
-#content > p{
+#content > p, .news p{
     margin-top: 10px;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 300;
     color: #404040;
 }
-h1.news_header{
+.news h1{
     font-size: 40px;
+}
+
+.news h2{
+    font-size: 20px;
 }

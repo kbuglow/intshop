@@ -2,9 +2,9 @@
 
 #navigation{
     display:inline-block;
-    position: absolute;
-    left: 50%;
-    top: 40%;
+    position: relative;
+    width: 80%;
+    height: 100%;
 
 }
 
@@ -16,6 +16,9 @@
 }
 
 #navigation ul{
+    position: absolute;
+    top: 50%;
+    left: 23%;
     list-style-type:none;
 }
 
