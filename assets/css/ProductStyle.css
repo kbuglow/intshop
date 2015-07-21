@@ -1,4 +1,7 @@
+.green {color: #9dc44e; font-weight: bold;}
+
 .product-content {width: 100%; float: left; padding: 40px 0;}
+
 .product-content .left {width: 420px; float: left;}
 .product-content .left .main-photo {width: 90%; border-radius: 15px;}
 

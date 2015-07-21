@@ -35,8 +35,9 @@
 <body>
 <header>
 
-    <div id="logo">
-    </div>
+    <a href="<?php echo base_url(); ?>">
+        <div id="logo"></div>
+    </a>
 
     <div id="user">
         <?php if (is_logged_in()): ?>

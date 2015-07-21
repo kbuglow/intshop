@@ -4,7 +4,7 @@
 <div id="content">
 
     <div id="current-path">
-        <p id="current-path-paragraph">Startsait > Unsere Produkte > .......</p>
+        <p id="current-path-paragraph">Startsait > Unsere Produkte > <span class="green"><?php echo $product->name; ?></span></p>
     </div>
 
     <fieldset>
@@ -29,7 +29,27 @@
                 <?php endif; ?>
                 <h3 class="price new-price" id="new-price-<?php echo $product->id; ?>">EUR <?php echo $product->new_price ?></h3>
                 <div class="description"><p><?php echo $product->description; ?></p></div>
+                <br />
+                    <?php
+                        echo form_open('cart/add', array('name' => 'form-' . $product->id));
+                            echo form_input(array(
+                                'name' => 'quantity',
+                                'type' => 'number',
+                                'value' => 1
+                            ));
 
+                            echo form_hidden('id', $product->id);
+                            echo form_hidden('name',  $product->name);
+                            echo form_hidden('price', $product->price);
+                            echo form_hidden('photo', $main_photo);
+
+                            echo form_submit(array(
+                                'id' => "add-to-card-menu-{$product->id}",
+                                'value' => 'Add To Cart'
+                            ));
+                        echo form_close(); 
+                    ?>
+                    </div>
             </div>
         </div>
     </fieldset>
