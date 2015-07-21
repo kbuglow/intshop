@@ -47,12 +47,12 @@
     </div>
 
     <a href="<?php echo base_url('cart') ?>" id="product-card">
-        <p>0 products</p>
+        <p><?php echo $this->cart->total_items(); ?> products</p>
     </a>
 
     <div id="languages-bar">
-        <a href="<?php echo base_url('home');?>" id="deutsch">DE</a>
-        <a href="<?php echo base_url('EN');?>" id="english">EN</a>
+        <a href="#" id="deutsch">DE</a>
+        <a href="#" id="english">EN</a>
         <a href="#" id="bulgarian">BG</a>
     </div>
 
