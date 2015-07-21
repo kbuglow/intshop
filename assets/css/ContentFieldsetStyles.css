@@ -3,7 +3,7 @@
 fieldset{
     border-top: 1px solid #9f9f9f;
     width: 940px;
-    height: 1305px;
+    height: auto;
 
     position: relative;
 }
