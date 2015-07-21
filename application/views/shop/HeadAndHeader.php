@@ -39,7 +39,7 @@
 
     <div id="user">
         <?php if (is_logged_in()): ?>
-            <p>Hello, <?php echo $user->username; ?> | <a href="#">Settings</a> | <a href="<?php echo base_url('logout') ?>">Logout</a> <?php if ($user->role == 1) echo '| <a href="' . base_url('admin') . '">Admin panel</a>'; ?>
+            <p>Hello, <?php echo $user->username; ?> | <a href="<?php echo base_url('settings'); ?>">Settings</a> | <a href="<?php echo base_url('logout') ?>">Logout</a> <?php if ($user->role == 1) echo '| <a href="' . base_url('admin') . '">Admin panel</a>'; ?>
             </p>
         <?php else: ?>
             <div id="log-in-container">
