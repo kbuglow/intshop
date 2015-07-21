@@ -13,3 +13,16 @@
     text-decoration:none;
     color:#777777;
 }
+
+#user p, #user a{
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration:none;
+    color:#777777;
+}
+
+#user a:hover{
+    text-decoration: underline;
+}

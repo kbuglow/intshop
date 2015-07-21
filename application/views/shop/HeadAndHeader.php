@@ -13,6 +13,7 @@
     <link href="<?php echo base_url('assets/css'); ?>/HeaderNavigationStyles.css" rel="stylesheet" />
     <link href="<?php echo base_url('assets/css'); ?>/HeaderStyles.css" rel="stylesheet" />
     <link href="<?php echo base_url('assets/css'); ?>/LogInHeaderStyles.css" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/css'); ?>/LogInRegisterStyles.css" rel="stylesheet" />
 
     <link href="<?php echo base_url('assets/css'); ?>/ContentStyles.css" rel="stylesheet" />
     <link href="<?php echo base_url('assets/css'); ?>/ContentFieldsetStyles.css" rel="stylesheet" />
