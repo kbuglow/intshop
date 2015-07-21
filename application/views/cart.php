@@ -48,7 +48,9 @@
                 </tbody>
             </table>
             <?php echo form_submit(array('value' => 'Update cart')); ?>
-            <a href="<?php echo base_url('cart/remove') ?>" >Empty cart</a>
+                <div class="cart-buttons">
+            <a href="<?php echo base_url('cart/remove') ?>">Empty cart</a>
+                </div>
             <?php echo form_close(); ?>
             <?php else: ?>
             <p> No Products!</p>

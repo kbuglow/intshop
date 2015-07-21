@@ -11,6 +11,7 @@ input{
 
 input[type="submit"]{
     background-color: #9dc44e;
+    display: inline-block;
 }
 
 #log-in-hr{
@@ -19,4 +20,22 @@ input[type="submit"]{
 
 #log-in-h1{
     font-size: 30px;
+}
+
+.cart-buttons{
+
+    width: 150px;
+    height: 18px;
+    display: inline-block;
+    background-color: #9dc44e;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    margin-top: 1px;
+}
+
+.cart-buttons a{
+    text-decoration: none;
+    margin-left: 25%;
+    font-size: 14px;
+    color: black;
 }
