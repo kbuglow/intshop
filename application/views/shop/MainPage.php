@@ -21,36 +21,35 @@
             for ($x = 0; $x < 8; $x++) {
                 ?>
                 <div class="product-containers" id="product-container-<?php echo $product->id; ?>">
-                    <div class="productImage" id="productImage<?php echo $product->id; ?>"
-                         style="background-image: url('<?php echo $product->main_photo ?>'); ">
-                        <?php if ($product->price !== $product->new_price):
-                            $discount = ($product->new_price / $product->price) * 100;
-                            $discount = round($discount);
-                            $discount = 100 - $discount;
-                            ?>
-                            <div class="product-news" id="product-news<?php echo $product->id; ?>">
-                                <p>-<?php echo $discount; ?>%</p>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-
-                    <div class="product-information" id="product-information<?php echo $product->id; ?>">
-                        <div class="product-name" id="product-name<?php echo $product->id; ?>">
-                            <p class="name" id="name"><?php echo $product->name ?></p>
-                        </div>
-
-                        <div class="product-price" id="product-price<?php echo $product->id; ?>">
-                            <?php if ($product->price !== $product->new_price): ?>
-                                <p class="old-price" id="old-price<?php echo $product->id; ?>">
-                                    EUR <?php echo $product->price ?></p>
+                    <a href="<?php echo base_url("product/{$product->id}") ?>">
+                        <div class="productImage" id="productImage-<?php echo $product->id; ?>"
+                             style="background-image: url('<?php echo $product->main_photo ?>'); ">
+                            <?php if($product->price !== $product->new_price):
+                                $discount = ($product->new_price / $product->price) *100;
+                                $discount = round($discount);
+                                $discount = 100 - $discount;
+                                ?>
+                                <div class="product-news" id="product-news-<?php echo $product->id; ?>">
+                                    <p>-<?php echo $discount; ?>%</p>
+                                </div>
                             <?php endif; ?>
-                            <p class="new-price" id="new-price<?php echo $product->id; ?>">
-                                EUR <?php echo $product->new_price ?></p>
+                        </div>
+                    </a>
+
+                    <div class="product-information" id="product-information-<?php echo $product->id; ?>">
+                        <div class="product-name" id="product-name-<?php echo $product->id; ?>">
+                            <a href="<?php echo base_url("product/{$product->id}") ?>" class="name" id="name-<?php echo $product->id; ?>"><?php echo $product->name ?></a>
+                        </div>
+
+                        <div class="product-price" id="product-price-<?php echo $product->id; ?>">
+                            <?php if($product->price !== $product->new_price):?>
+                                <p class="old-price" id="old-price-<?php echo $product->id; ?>">EUR <?php echo $product->price ?></p>
+                            <?php endif; ?>
+                            <p class="new-price" id="new-price-<?php echo $product->id; ?>">EUR <?php echo $product->new_price ?></p>
                         </div>
                     </div>
 
-                    <div class="add-to-card-menu" id="add-to-card-menu<?php echo $product->id; ?>">
-                        <button class="add-to-card-menu-button">ADD TO CART</button>
+                    <div class="add-to-card-menu" id="add-to-card-menu-<?php echo $product->id; ?>">
                     </div>
 
                 </div>

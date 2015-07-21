@@ -2,7 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:500);
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 
-#page-with-products{
+#page-with-products {
     display: inline-block;
     margin-top: 7px;
     margin-left: 220px;
@@ -12,7 +12,7 @@
     position: absolute;
 }
 
-.product-containers{
+.product-containers {
     display: inline-block;
     margin-left: 15px;
     margin-top: 29px;
@@ -26,9 +26,9 @@
     box-shadow: 0px 3px 15px #000;
 }
 
-.productImage{
-    position: relative;
-    z-index: -20;
+.productImage {
+    position: absolute;
+    z-index: -1;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 220px 250px;
@@ -36,15 +36,16 @@
     height: 250px;
 }
 
-.product-news{
+.product-news {
     position: relative;
+    z-index: -1;
     width: 114px;
     height: 114px;
     float: right;
     background-image: url("../img/product-news-background.png");
 }
 
-.product-news p{
+.product-news p {
     position: absolute;
     margin-top: 18%;
     margin-left: 42%;
@@ -56,17 +57,18 @@
     color: white;
 }
 
-.product-information{
-    position: relative;
-    z-index: -20;
-    background-color: white;
+.product-information {
+    position: absolute;
+    z-index: -1;
+    background-color: transparent;
+    top: 250px;
     width: 220px;
     height: 94px;
 }
 
-.product-name{
+.product-name {
     position: relative;
-    z-index: -20;
+    z-index: -1;
     padding-top: 12px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -74,14 +76,19 @@
     text-align: center;
 }
 
-.product-price{
+.name {
+    text-decoration: none;
+    color: black;
+}
+
+.product-price {
     position: relative;
-    z-index: -20;
+    z-index: -1;
     text-align: center;
     margin-top: 15px;
 }
 
-.old-price{
+.old-price {
     position: relative;
     z-index: -20;
     display: inline-block;
@@ -91,7 +98,7 @@
     color: #9dc44e;
 }
 
-.new-price{
+.new-price {
 
     position: relative;
     z-index: -20;
@@ -102,19 +109,20 @@
     color: black;
 }
 
-.add-to-card-menu{
+.add-to-card-menu {
     position: absolute;
-    top:344px;
+    z-index: -1;
+    top: 344px;
     width: 220px;
     height: 40px;
 
-    background-color:#404040;
+    background-color: #404040;
     background-image: url("../img/add-to-card-background.png");
     background-position: center;
     background-repeat: no-repeat;
 }
 
-#product-pages{
+#product-pages {
     width: 700px;
     height: 40px;
 
@@ -124,7 +132,7 @@
     right: 5px;
 }
 
-#left-arrow{
+#left-arrow {
     width: 43px;
     height: 30px;
     margin-top: 5px;
@@ -135,7 +143,7 @@
     background-color: transparent;
 }
 
-#right-arrow{
+#right-arrow {
     width: 43px;
     height: 30px;
     margin-top: 5px;
@@ -146,14 +154,14 @@
     background-color: transparent;
 }
 
-#numbers-of-pages{
+#numbers-of-pages {
     display: inline-block;
     position: absolute;
     left: 50%;
     top: 25%;
 }
 
-#numbers-of-pages a{
+#numbers-of-pages a {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     color: white;

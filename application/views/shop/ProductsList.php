@@ -50,7 +50,7 @@
 
                     <div class="product-information" id="product-information-<?php echo $product->id; ?>">
                         <div class="product-name" id="product-name-<?php echo $product->id; ?>">
-                            <a href="<?php echo base_url("product/{$product->id}") ?>" class="name" id="name-<?php echo $product->id; ?>" style="text-decoration: none;"><?php echo $product->name ?></a>
+                            <a href="<?php echo base_url("product/{$product->id}") ?>" class="name" id="name-<?php echo $product->id; ?>"><?php echo $product->name ?></a>
                         </div>
 
                         <div class="product-price" id="product-price-<?php echo $product->id; ?>">
