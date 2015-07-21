@@ -148,8 +148,13 @@ class Products_model extends CI_Model
         $this->db->join($this->category_table, 'products_cats.product_id = products.id');
         $this->db->where('cat_id',$cat_id);
         return $this->db->get()->result();
-
-
+    }
+    public function get_products_for_main_page(){
+        $this->db->select('*');
+        $this->db->from($this->products_table);
+        $this->db->order_by('id', 'DESC');
+        $this->db->limit(8);
+        return $this->db->get()->result();
 
     }
 }

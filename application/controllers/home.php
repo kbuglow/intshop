@@ -6,7 +6,7 @@ class Home extends CI_Controller {
 	public function index() {
 		$this->load->model('admin/products_model');
 		$data = array(
-			'products' => $this->products_model->all_products()
+			'products' => $this->products_model->get_products_for_main_page()
 		);
 		foreach ($data['products'] as $data['product']) {
 			$data['product']->main_photo = $this->products_model->get_main_photo($data['product']->id);

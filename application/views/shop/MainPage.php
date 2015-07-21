@@ -18,7 +18,7 @@
     <fieldset id="products">
         <legend>Products</legend>
         <?php
-            for ($x = 0; $x < 8; $x++) {
+            foreach($products as $product){
                 ?>
                 <div class="product-containers" id="product-container-<?php echo $product->id; ?>">
                     <a href="<?php echo base_url("product/{$product->id}") ?>">
