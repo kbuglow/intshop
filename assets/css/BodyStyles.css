@@ -6,6 +6,12 @@
     padding: 0px;
 }
 
+html{
+    background-image: url('../img/background-image.png');
+    background-repeat:no-repeat;
+    background-position: 50% 70%;
+    height: 100%;
+}
 body {
     width: 1280px;
     height: 166px;
