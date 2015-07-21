@@ -8,7 +8,7 @@
 
 
          $data = array(
-             'categories' => $this->category_model->get_categories(),
+             'categories' => $this->category_model->print_categories(),
              'products' => $this->products_model->all_products()
          );
          foreach ($data['products'] as $data['product']) {
@@ -24,9 +24,9 @@
          $this->load->model('admin/products_model');
 
          $products = $this->products_model->get_products_from_category($cat_id);
-
+         $category_level = $this->category_model->get_category($cat_id)->deep;
          $data = array(
-             'categories' => $this->category_model->get_categories(),
+             'categories' => $this->category_model->print_categories(),
              'products' => $products
          );
          foreach ($data['products'] as $data['product']) {

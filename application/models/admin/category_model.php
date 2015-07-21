@@ -64,7 +64,7 @@ class Category_model extends CI_Model
     {
         foreach ($parent as $item) {
             $id = count(explode('-', $item['lineage']));
-            $cats[$item['id']] = str_repeat("-", $id) . $item['name'];
+            $cats[$item['id']] = str_repeat("&nbsp;&nbsp;&nbsp;&nbsp;", $id) . $item['name'];
             if (!empty($item['children']))
                 $this->array_categories($item['children'], $cats);
         }
@@ -78,6 +78,7 @@ class Category_model extends CI_Model
         );
         $this->db->update($this->category_table, $updateData, array("id" => $category_id));
     }
+
 }
 
 ?>
