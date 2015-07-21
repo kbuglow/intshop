@@ -11,8 +11,6 @@ for (i = 0, len = allProductBoxes.length; i < len; i += 1) {
     allProductBoxes[i].addEventListener('mouseout', function (event) {
         hideAddOption(event.target);
     });
-
-
 }
 
 function showAddOption(target) {
@@ -92,10 +90,6 @@ function hideAddOption( target) {
     if (addMenu) {
         addMenu.style.top = '344px';
     }
-}
-
-function goToProductInformation(target){
-
 }
 
 
