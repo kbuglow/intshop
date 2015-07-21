@@ -35,9 +35,7 @@
 <body>
 <header>
 
-    <a href="<?php echo base_url(); ?>">
-        <div id="logo"></div>
-    </a>
+    <a href="<?php echo base_url(); ?>"><div id="logo"></div></a>
 
     <div id="user">
         <?php if (is_logged_in()): ?>
