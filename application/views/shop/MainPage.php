@@ -1,13 +1,14 @@
 <?php require_once('HeadAndHeader.php'); ?>
 <div id="slider">
+    <div id="url-to-go"></div>
         <div id="pagination">
-            <a href="#" id="previous">PREV</a>
+            <button type="button" id="previous">PREV</button>
             <div id="circles">
-                <div id="first-image"></div>
-                <div id="second-image"></div>
-                <div id="third-image"></div>
+                <div id="0-image"></div>
+                <div id="1-image"></div>
+                <div id="2-image"></div>
             </div>
-            <a href="#" id="next">NEXT</a>
+            <button type="button" id="next">NEXT</button>
         </div>
 </div>
 <div id="content">

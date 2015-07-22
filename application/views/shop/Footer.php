@@ -63,4 +63,5 @@
 <script src="<?php echo base_url('assets/js'); ?>/MoveToTop.js"></script>
 <script src="<?php echo base_url('assets/js'); ?>/PaginationOfProducts.js"></script>
 <script src="<?php echo base_url('assets/js'); ?>/AddLeafToNavigation.js"></script>
+<script src="<?php echo base_url('assets/js'); ?>/MainPageSliderFunctionality.js"></script>
 </html>
