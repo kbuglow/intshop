@@ -58,7 +58,7 @@
 
 </footer>
 <script src="<?php echo base_url('assets/js'); ?>/ShowAddToCardOption.js"></script>
-<script src="<?php echo base_url('assets/js'); ?>/ShowProducts.js"></script>
+<script src="<?php echo base_url('assets/js'); ?>/ChangePathNameInProductListPage.js"></script>
 <script src="<?php echo base_url('assets/js'); ?>/GoToCard.js"></script>
 <script src="<?php echo base_url('assets/js'); ?>/MoveToTop.js"></script>
 <script src="<?php echo base_url('assets/js'); ?>/PaginationOfProducts.js"></script>

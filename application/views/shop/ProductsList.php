@@ -4,7 +4,7 @@
 <div id="content">
 
     <div id="current-path">
-        <p id="current-path-paragraph">Startsait > Unsere Produkte > All products</p>
+        <p id="current-path-paragraph">Startsait > Unsere Produkte</p>
     </div>
 
     <fieldset>
@@ -19,8 +19,7 @@
                 foreach ($categories as $id => $category):
                     ?>
                     <li class="our-products-categories" id="<?php echo $id; ?>">
-                        <a href="<?php echo base_url("products/cat") . "/".$id; ?>" id="<?php echo $category?>">
-                            <?php echo $category; ?></a>
+                        <a href="<?php echo base_url("products/cat") . "/".$id; ?>" id="<?php echo $category?>"><?php echo $category; ?></a>
 
                     </li>
                 <?php endforeach; ?>

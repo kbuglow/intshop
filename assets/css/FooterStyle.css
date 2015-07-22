@@ -26,6 +26,7 @@ footer{
     padding-left: 10px;
     width: 190px;
 }
+
 #address p{
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
@@ -53,24 +54,48 @@ footer{
     background-image: url("../img/facebook-icon.png");
 }
 
+#facebook img:hover{
+    background-image: url("../img/facebook-white-icon.png");
+}
+
 #google-plus img{
     background-image: url("../img/googleplus-icon.png");
+}
+
+#google-plus img:hover{
+    background-image: url("../img/google-plus-white-icon.png");
 }
 
 #pinterest img{
     background-image: url("../img/pinterest-icon.png");
 }
 
+#pinterest img:hover {
+    background-image: url("../img/pinterset-white-icon.png");
+}
+
 #linked-in img{
     background-image: url("../img/linked-in-icon.png");
 }
 
+#linked-in img:hover{
+    background-image: url("../img/linke-in-white-icon.png");
+}
+
 #twitter img{
-    background-image: url("../img/twitter-icon.png");
+     background-image: url("../img/twitter-icon.png");
+ }
+
+#twitter img:hover{
+    background-image: url("../img/twitter-white-icon.png");
 }
 
 #instagram img{
     background-image: url("../img/instagram-icon.png");
+}
+
+#instagram img:hover{
+    background-image: url("../img/instagram-white-icon.png");
 }
 
 #contact-us{
@@ -94,7 +119,6 @@ footer{
     background-repeat: no-repeat;
     background-position: 95% 50%;
 }
-
 
 #send-email p{
     font-family: 'Roboto', sans-serif;
@@ -133,6 +157,19 @@ footer{
     border-bottom: 1px solid white;
 
 
+}
+
+#more-options tr:last-child td:last-child{
+    background: none;
+}
+
+#more-options td:hover {
+    background-image: url("../img/footer-arrow-white.png");
+    color: white;
+}
+
+#more-options tr:last-child td:last-child:hover{
+    background: none;
 }
 
 #third-row{
