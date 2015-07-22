@@ -42,6 +42,11 @@ $password = array(
     'label' => 'Password',
     'rules' => 'trim|required|sha1',
 );
+$old_password = array(
+    'field' => 'old_password',
+    'label' => 'Old password',
+    'rules' => 'trim|required|sha1',
+);
 
 $password_again = array(
     'field' => 'password_again',
@@ -108,6 +113,38 @@ $content = array(
     'label' => 'Content',
     'rules' => 'trim|required|min_length[10]'
 );
+//Address
+$full_name = array(
+    'field' => 'full_name',
+    'label' => 'full_name',
+    'rules' => 'trim|required|min_length[5]'
+);
+$address = array(
+    'field' => 'address',
+    'label' => 'address',
+    'rules' => 'trim|required|min_length[5]'
+);
+$city = array(
+    'field' => 'city',
+    'label' => 'city',
+    'rules' => 'trim|required|min_length[1]'
+);
+$state = array(
+    'field' => 'state',
+    'label' => 'state',
+    'rules' => 'trim|required|min_length[1]'
+);
+$zip_code = array(
+    'field' => 'zip_code',
+    'label' => 'zip_code',
+    'rules' => 'trim|required|min_length[1]|numeric'
+);
+$phone = array(
+    'field' => 'phone',
+    'label' => 'phone',
+    'rules' => 'trim|required|min_length[4]|numeric'
+);
+
 
 
 
@@ -130,5 +167,9 @@ $config = array(
     'admin/news/add_submit'           => array($subject, $title, $text),
     
     'admin/static_pages/edit_static'  => array($title , $content),
-    'admin/static_pages/add_new'      => array($title , $content)
+    'admin/static_pages/add_new'      => array($title , $content),
+
+    'settings/change_email'           => array($email),
+    'settings/change_password'        => array($old_password, $password, $password_again),
+    'settings/add_address'            => array($full_name, $address, $city, $state, $zip_code, $phone)
 );
