@@ -1,0 +1,57 @@
+.settingsDivs{
+    display: inline-block;
+    width: 25%;
+    position: absolute;
+    min-height: 390px;
+}
+
+.settingsDivs select{
+    font-size: 14px;
+    width: 150px;
+    height: 20px;
+    display: block;
+    background-color: #F5F5F5;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.settingsDivs label{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#firstSettingsDiv{
+    left: 0;
+}
+
+#secondSettingsDiv{
+    left: 25%;
+}
+
+#thirdSettingsDiv{
+    left: 50%;
+    width: 50%;
+}
+
+#thirdSettingsDiv p{
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#thirdSettingsDiv table{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    border-spacing: 0;
+    border-top: 1px solid #999999;
+    border-right: 1px solid #999999;
+}
+
+#thirdSettingsDiv table td, #thirdSettingsDiv table th{
+    border: none;
+    border-left: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+}

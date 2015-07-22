@@ -1,6 +1,6 @@
 input {
     font-size: 14px;
-    width: 150px;
+    width: 180px;
     height: 20px;
     display: block;
     background-color: #F5F5F5;
@@ -11,7 +11,10 @@ input {
 
 input[type="submit"] {
     background-color: #9dc44e;
+    color: white;
+    font-weight: bold;
     display: inline-block;
+    border: 1px solid #87ae4e;
 }
 
 #log-in-hr {
@@ -37,6 +40,5 @@ input[type="submit"] {
     text-decoration: none;
     margin-left: 25%;
     font-size: 14px;
-    color: black;
     font-family: Arial;
 }

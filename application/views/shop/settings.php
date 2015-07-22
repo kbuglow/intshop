@@ -9,7 +9,7 @@
 
         <fieldset>
             <legend id="fieldset-title">Settings</legend>
-            <div style="float: left; width: 33%;">
+            <div class="settingsDivs" id="firstSettingsDiv">
                 <div class="box">
                     <?php echo form_open('settings/change_password'); ?>
                     <?php echo form_label('Old Password:', 'old_password'); ?>
@@ -59,7 +59,7 @@
                 </div>
 
             </div>
-            <div style="display: inline-block; width: 33%;">
+            <div class="settingsDivs" id="secondSettingsDiv" >
                 <div class="box">
                     <?php echo form_open('settings/add_address');
                     echo form_label('Full name:', 'full_name');
@@ -97,9 +97,7 @@
                         'placeholder' => ' Enter your ZIP/Postal code'
                     ));
                     echo form_label('Country:', 'country');
-                    echo "<br>";
                     echo country_dropdown('country', 'cont', 'dropdown', 'BG', array('US', 'CA', 'GB'), '');
-                    echo "<br>";
 
                     echo form_label('Phone', 'phone');
                     echo form_input(array(
@@ -113,7 +111,7 @@
 
                 </div>
                 </div>
-                <div style="float: right; width: 33%;">
+            <div class="settingsDivs" id="thirdSettingsDiv" >
                     <?php if ($addresses): ?>
                         <p>Added shipping addresses:</p>
 
@@ -132,13 +130,13 @@
                             <tbody>
                             <?php foreach ($addresses as $address): ?>
                                 <tr>
-                                    <th><?php echo $address->full_name; ?></th>
-                                    <th><?php echo $address->address; ?></th>
-                                    <th><?php echo $address->city; ?></th>
-                                    <th><?php echo $address->country; ?></th>
-                                    <th><?php echo $address->state; ?></th>
-                                    <th><?php echo $address->zip_code; ?></th>
-                                    <th><?php echo $address->phone; ?></th>
+                                    <td><?php echo $address->full_name; ?></td>
+                                    <td><?php echo $address->address; ?></td>
+                                    <td><?php echo $address->city; ?></td>
+                                    <td><?php echo $address->country; ?></td>
+                                    <td><?php echo $address->state; ?></td>
+                                    <td><?php echo $address->zip_code; ?></td>
+                                    <td><?php echo $address->phone; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>

@@ -26,6 +26,7 @@
     <link href="<?php echo base_url('assets/css'); ?>/MainPageProductsContainerStyles.css" rel="stylesheet"/>
     <link href="<?php echo base_url('assets/css'); ?>/ProductStyle.css" rel="stylesheet"/>
     <link href="<?php echo base_url('assets/css'); ?>/ShoppingCartStyle.css" rel="stylesheet"/>
+    <link href="<?php echo base_url('assets/css'); ?>/SettingsStyles.css" rel="stylesheet"/>
 
     <link href="<?php echo base_url('assets/css'); ?>/FooterStyle.css" rel="stylesheet"/>
 
