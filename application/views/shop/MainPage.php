@@ -1,16 +1,25 @@
-<?php require_once('HeadAndHeader.php'); ?>
-<div id="slider">
-    <div id="url-to-go"></div>
-        <div id="pagination">
-            <button type="button" id="previous">PREV</button>
-            <div id="circles">
-                <div id="0-image"></div>
-                <div id="1-image"></div>
-                <div id="2-image"></div>
-            </div>
-            <button type="button" id="next">NEXT</button>
-        </div>
+<?php require_once('HeadAndHeader.php'); ?>  
+  
+  <div class="ism-slider" data-transition_type="fade" data-play_type="loop" data-image_fx="zoomrotate">
+  <ol>
+    <li>
+    <a href="" target="_self">
+      <img src="assets/img/slider-image-0.png">
+    </a>
+    </li>
+    <li>
+    <a href="products" target="_self">
+      <img src="assets/img/slider-image-1.png">
+    </a>
+    </li>
+    <li>
+    <a href="news_home" target="_self">
+      <img src="assets/img/slider-image-2.png">
+    </a>
+    </li>
+  </ol>
 </div>
+
 <div id="content">
 <h1>Altimed</h1>
     <h2>Willkommen</h2>

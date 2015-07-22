@@ -64,4 +64,5 @@
 <script src="<?php echo base_url('assets/js'); ?>/PaginationOfProducts.js"></script>
 <script src="<?php echo base_url('assets/js'); ?>/AddLeafToNavigation.js"></script>
 <script src="<?php echo base_url('assets/js'); ?>/MainPageSliderFunctionality.js"></script>
+<script src="<?php echo base_url('assets/js'); ?>/ism-2.0.1-min.js"></script>
 </html>
