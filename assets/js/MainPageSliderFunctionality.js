@@ -52,7 +52,11 @@ function changeSliderImage(target, index) {
         }
     }
 
-    document.getElementById('slider').style.backgroundImage = 'url(assets/img/slider-image-' + index + '.png)';
+    $('#slider').fadeOut(200, function () {
+        $('#slider').css("background-image", 'url(assets/img/slider-image-' + index + '.png)');
+        $('#slider').fadeIn(200);
+    });
+    //document.getElementById('slider').style.backgroundImage = 'url(assets/img/slider-image-' + index + '.png)';
     document.getElementById('url-to-go').addEventListener('click',function(event){
         window.location.href+='products/cat/' + (index+1);
     })
