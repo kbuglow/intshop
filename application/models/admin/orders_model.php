@@ -44,5 +44,20 @@ class Orders_model extends CI_Model {
 		$this->db->delete($this->orders_table, array('id' => $order_id));
 		$this->db->delete($this->orders_items_table, array('order_id' => $order_id));
 	}
-
+	public function add_order(){
+		$data =$this->input->post();
+		$address = $this->address_model->get($data['address']);
+		$order = array(
+			'client_name' => $address->full_name,
+			'phone' 	  => $address->phone,
+			'email' 	  => $this->Users_model->get_user($this->session->userdata('user_id'))->email,
+			'address' 	  => $this->address_model->get_address_as_string($data['address']),
+			'total'		  => $this->cart->total()
+		);
+		if($this->db->insert($this->orders_table, $order)){
+			$products  = array(
+				'order_id' =>
+			);
+		}
+	}
 }

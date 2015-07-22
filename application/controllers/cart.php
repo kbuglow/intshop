@@ -7,14 +7,14 @@ class Cart extends CI_Controller
     {
         parent::__construct();
         $this->load->model('admin/products_model');
+        $this->load->model('address_model');
+        $this->load->helper('country_helper');
+        $this->config->load('countries');
     }
 
     public function index()
     {
         $cart = $this->cart->contents();
-//        foreach($cart as $item){
-//            $item['photo'] = $this->products_model->get_main_photo($item['id']);
-//        }
         $data = array(
             'cart' => $cart,
             'total' => $this->cart->total()
@@ -22,7 +22,7 @@ class Cart extends CI_Controller
         if (is_logged_in()) $data['user'] = $this->Users_model->get_user($this->session->userdata('user_id'));
 
 
-        $this->load->view('cart', $data);
+        $this->load->view('shop/cart', $data);
 
     }
 
@@ -76,5 +76,28 @@ class Cart extends CI_Controller
             ));
 
         redirect('cart');
+    }
+
+    public function order()
+    {
+        if (is_logged_in()) {
+
+            $data['user'] = $this->Users_model->get_user($this->session->userdata('user_id'));
+            $data['addresses'] = $this->address_model->get_addresses_as_string($this->session->userdata('user_id'));
+
+            $this->load->view('shop/order', $data);
+        } else {
+            $this->load->view('shop/order');
+        }
+
+    }
+
+    public function place_order()
+    {
+        $this->load->model('admin/orders_model');
+
+        $this->orders_model->add_order();
+        redirect('');
+
     }
 }

@@ -20,22 +20,18 @@ class Products_model extends CI_Model
     public function get_main_photo($product_id) {
         return $this->db->get_where($this->photos_table, array('id' => $this->get_product($product_id)->main_photo))->first_row()->url;
     }
-
+    public function get_product($product_id)
+    {
+        return $this->db->get_where($this->products_table, array('id' => $product_id))->first_row();
+    }
     public function products_info($products)
     {
         $new_products = array();
-
         foreach ($products as $product) {
             $product->name = $this->get_product($product->product_id)->name;
             array_push($new_products, $product);
         }
-
         return $new_products;
-    }
-
-    public function get_product($product_id)
-    {
-        return $this->db->get_where($this->products_table, array('id' => $product_id))->first_row();
     }
 
     public function add()

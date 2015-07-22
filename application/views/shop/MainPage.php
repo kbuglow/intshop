@@ -58,10 +58,16 @@
                             <p class="new-price" id="new-price-<?php echo $product->id; ?>">EUR <?php echo $product->new_price ?></p>
                         </div>
                     </div>
-
+                    <?php
+                    echo form_open('cart/add', array('name' => 'form-' . $product->id));
+                    echo form_hidden('id', $product->id);
+                    echo form_hidden('name',  $product->name);
+                    echo form_hidden('price', $product->price);
+                    echo form_hidden('photo', $product->main_photo);
+                    ?>
                     <div class="add-to-card-menu" id="add-to-card-menu-<?php echo $product->id; ?>">
                     </div>
-
+                    <?php echo form_close(); ?>
                 </div>
                 <?php
             }

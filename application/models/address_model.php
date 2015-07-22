@@ -12,8 +12,23 @@ class Address_model extends CI_Model{
         return $this->db->get_where($this->address_table, array('user_id' => $user_id))->result();
     }
 
+    function get_addresses_as_string($user_id){
+        $addresses = $this->get_addresses($user_id);
+        foreach($addresses as $address){
+            $address_string[$address->id] = "{$address->country}, {$address->city} , {$address->address}, {$address->zip_code}, {$address->phone}";
+
+        }
+        return $address_string;
+    }
+
     public function get($address_id) {
         return $this->db->get_where($this->address_table, array('id' => $address_id))->first_row();
+    }
+
+    function get_address_as_string($address_id){
+        $address = $this->get($address_id);
+            $address_string = "{$address->country}, {$address->city} , {$address->address}, {$address->zip_code}";
+        return $address_string;
     }
 
     public function add_address(){
