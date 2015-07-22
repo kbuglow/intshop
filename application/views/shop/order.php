@@ -7,21 +7,23 @@
     </div>
     <fieldset>
         <legend id="fieldset-title">Order</legend>
+        <div class="addresses">
         <?php
         echo form_open('cart/place_order');
         echo form_label('Choose address:', 'address');
         foreach($addresses as $id => $address){
+            echo "<div class='addressDiv'>";
             echo form_radio('address', $id );
             echo form_label($address, 'address');
-
+            echo "</div>";
         }
-        echo "<br>";
         echo form_submit('submit', 'Order');
         echo form_close();?>
+        </div>
 
 
 
-
+        <div class="addAddressDiv">
         <?php
             echo form_open('cart/place_order');
             echo form_label('Full name:', 'full_name');
@@ -59,9 +61,7 @@
                 'placeholder' => ' Enter your ZIP/Postal code'
             ));
             echo form_label('Country:', 'country');
-            echo "<br>";
             echo country_dropdown('country', 'cont', 'dropdown', 'BG', array('US', 'CA', 'GB'), '');
-            echo "<br>";
 
             echo form_label('Phone', 'phone');
             echo form_input(array(
@@ -73,6 +73,7 @@
             echo form_submit('submit', 'Add address');
             echo form_close();
         ?>
+        </div>
     </fieldset>
 </div>
 

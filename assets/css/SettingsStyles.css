@@ -5,7 +5,7 @@
     min-height: 390px;
 }
 
-.settingsDivs select{
+select{
     font-size: 14px;
     width: 150px;
     height: 20px;
@@ -16,7 +16,7 @@
     margin-bottom: 5px;
 }
 
-.settingsDivs label{
+label{
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: bold;
@@ -54,4 +54,24 @@
     border: none;
     border-left: 1px solid #999999;
     border-bottom: 1px solid #999999;
+}
+
+.addresses{
+    position: absolute;
+    display: inline-block;
+    min-width: 300px;
+}
+.addressDiv label{
+    font-weight: 400;
+}
+[type='radio']{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+}
+
+.addAddressDiv{
+    position: absolute;
+    left: 40%;
+    display: inline-block;
 }
