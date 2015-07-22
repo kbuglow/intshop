@@ -326,7 +326,7 @@ p.ism-badge a.ism-link:hover {
 }
 
 .ism-slider:hover .ism-button {
-    visibility: visible;
+    visibility: hidden;
 }
 
 .ism-radios {
