@@ -295,7 +295,7 @@ p.ism-badge a.ism-link:hover {
 .ism-button {
     display: block;
     
-    width: 32px; height: 32px; background-size: 16px 16px; top: 50%; margin-top: -16px;
+    width: 60px; height: 60px; background-size: 16px 16px; top: 50%; margin-top: -30px;
     visibility: hidden;
 }
 
@@ -310,7 +310,7 @@ p.ism-badge a.ism-link:hover {
 }
 
 .ism-pause-button {
-    width: 32px; height: 32px; background-size: 16px 16px; top: 50%; margin-top: -16px; border-radius: 16px; margin-left: -16px;
+    width: 60px; height: 60px; background-size: 16px 16px; top: 50%; margin-top: -30px; border-radius: 30px; margin-left: -30px;
 }
 
 .ism-button, .ism-pause-button {
@@ -337,7 +337,7 @@ p.ism-badge a.ism-link:hover {
 .ism-radios label {
     width: 20px; height: 20px;
     border-radius: 10px;
-    color: #000; background-color: rgba(0, 0, 0, 0.2); border: 2px solid rgba(255, 255, 255, 0.7);
+    color: #000; background-color: rgba(255, 255, 255, 0.5);
 }
 
 ol.ism-radios {
@@ -349,7 +349,7 @@ ol.ism-radios {
 }
 
 .ism-radios label:hover {
-    border: 2px solid rgba(255, 255, 255, 1.0);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 
