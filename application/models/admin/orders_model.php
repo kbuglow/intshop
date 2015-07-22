@@ -54,10 +54,19 @@ class Orders_model extends CI_Model {
 			'address' 	  => $this->address_model->get_address_as_string($data['address']),
 			'total'		  => $this->cart->total()
 		);
-		if($this->db->insert($this->orders_table, $order)){
-			$products  = array(
-				'order_id' =>
-			);
+		$this->db->insert($this->orders_table, $order);
+		$order_id = $this->db->insert_id();
+
+		if($order_id){
+			foreach($this->cart->contents() as $item) {
+				$products = array(
+					'order_id'	 => $order_id,
+					'product_id' => $item['id'],
+					'price'		 => $item['price'],
+					'quantity'	 => $item['qty']
+				);
+				$this->db->insert($this->orders_items_table, $products);
+			}
 		}
 	}
 }
