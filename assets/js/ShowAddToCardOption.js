@@ -52,7 +52,7 @@ function showAddOption(target) {
     }
 }
 
-function hideAddOption( target) {
+function hideAddOption(target) {
 
     var currentId,
         fullId;

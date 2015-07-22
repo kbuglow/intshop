@@ -41,7 +41,7 @@
                                     $discount = 100 - $discount;
                                 ?>
                             <div class="product-news" id="product-news-<?php echo $product->id; ?>">
-                                <p>-<?php echo $discount; ?>%</p>
+                                <p class="product-news-paragraph" id="product-news-paragraph-<?php echo $product->id; ?>">-<?php echo $discount; ?>%</p>
                             </div>
                             <?php endif; ?>
                         </div>
