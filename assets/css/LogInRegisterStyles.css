@@ -37,6 +37,8 @@ input[type="submit"] {
 }
 
 .cart-buttons a {
+    color: white;
+    font-weight: bold;
     text-decoration: none;
     margin-left: 25%;
     font-size: 14px;
