@@ -55,7 +55,6 @@
 
 .product-information {
     position: absolute;
-    z-index: -1;
     background-color: transparent;
     top: 250px;
     width: 220px;

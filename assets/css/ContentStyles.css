@@ -11,10 +11,6 @@
     padding-left: 10px;
     padding-right: 10px;
 
-    background-image: url('../img/background-image.png');
-    background-repeat:no-repeat;
-    background-position: 50% 70%;
-    background-size: 100% 90%;
 }
 
 #current-path{
